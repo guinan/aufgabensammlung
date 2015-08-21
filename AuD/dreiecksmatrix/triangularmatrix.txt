@@ -1,0 +1,14 @@
+Triangular Matrix
+
+Testing whether a given square matrix is a triangular matrix can be realized in Java either as class method (static method) or as instance method of a suitable class.
+Implement a class Matrix with the attribute 
+int [][] matrix;
+a suitable constructor (has to create a deep copy of a passed matrix) and the method toString(). Additionally implement two methods to test for a triangular matrix:
+
+public static boolean isTriangularMatrix(Matrix m)
+
+public boolean isTriangularMatrix()
+
+Test your implementation with suitable examples.
+Hint: 
+A triangular matrix is a square matrix containing only 0 values below the main diagonal. In a square matrix, you call the imaginary line connecting the elements a00, a11, a22,... main diagonal.

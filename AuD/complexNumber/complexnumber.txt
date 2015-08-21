@@ -1,0 +1,17 @@
+class ComplexNumber
+
+Mathematics I is required!
+
+Write a class ComplexNumber. The real and imaginary parts are of type double.
+
+Apart from a suitable constructor
+public ComplexNumber(double re, double im)
+and the methods 
+public ComplexNumber add(ComplexNumber k)
+    and
+public ComplexNumber mult(ComplexNumber k)
+the method public double absoluteValue() should return the value of the complex number.
+Extend the class with the method
+public ComplexNumber sqrt() throws InvalidInputForSquareRoot
+which returns the square root of the complex number if the imaginary part is 0. Otherwise the method should throw the exception InvalidInputForSquareRoot 
+Use the main method to create instances of ComplexNumber and test all methods.
