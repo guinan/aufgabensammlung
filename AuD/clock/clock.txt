@@ -1,0 +1,16 @@
+Class Clock
+
+The time of day is represented by values for hours (between 0 and 23) and for minutes (between 0 and 59).
+Write a class Clock for creating, adding, and printing such time objects.
+The class should include:
+    attributes: hours and minutes (both of type int) with the get methods getMin and getH, different constructors for creating objects by passing values for hours and minutes, passing values for minutes only and by passing a value in the form of "hour:min",
+    methods (overloading): 
+        public Clock add(int min),
+
+        public Clock add(Clock c), 
+        for adding times
+
+        public String toString()
+        for printing the time of day as String.
+
+    Test Clock in main. Create random Clock objects and verify your methods with these objects.
