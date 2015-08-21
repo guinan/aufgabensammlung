@@ -1,0 +1,1795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de"><head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="generator" content="Plone - http://plone.org">
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <!-- base href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/" --><!--[if lt IE 7]></base><![endif]-->
+    
+
+    
+        
+<link rel="kss-base-url" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/">
+
+  
+    <style type="text/css" media="screen">@import url(http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/member-cachekey-c1af7fdebff748fdafec6b04a7d66dd4.css);</style>
+    <style type="text/css" media="screen">@import url(http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/base-cachekey-8317e22ee0c990163eb5dcd1dc6ecf22.css);</style>
+    <link rel="stylesheet" type="text/css" media="screen" href="Aufgabe%207%20%E2%80%94%20eduComponents_files/resourcetinymce.css">
+    <style type="text/css">@import url(http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/print-cachekey-49b7ad3178fb2352025faa9e566a0939.css);</style>
+    <style type="text/css" media="screen">@import url(http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/popoll-cachekey-df18276e0a0903c845140c0087be4188.css);</style>
+        <!--[if lt IE 8]>    
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/IEFixes-cachekey-58f6f4903e8356b93b282b1647a304fc.css" />
+        <![endif]-->
+    
+    <style type="text/css" media="all">@import url(http://edu.cs.uni-magdeburg.de/EC/portal_css/Plone%20Classic%20Theme/ecabstyles-cachekey-833729779928e2b01ddfcd537a7cc257.css);</style>
+
+  
+    <link rel="kinetic-stylesheet" type="text/css" href="http://edu.cs.uni-magdeburg.de/EC/portal_kss/Plone%20Classic%20Theme/resourcetinymce.ksstinymce-cachekey-51d5e2fe96616759331059f968c86c32.kss">
+    <link rel="kinetic-stylesheet" type="text/css" href="http://edu.cs.uni-magdeburg.de/EC/portal_kss/Plone%20Classic%20Theme/at-cachekey-632e1646fa0ebbbc7b983f33d04ed663.kss">
+  
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/jquery-cachekey-d3678d77cbe3873e5ee2d7f4405afbfb.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/dropdown-cachekey-7e8fb47b974bcf6c715196ce41fefb8d.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/sarissa-cachekey-1c05e071291d387a9fdfb17040237b2f.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/resourcekukit-cachekey-f04b87c2e9ca5093335c8e3e47d243d3.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/resourcekukit-devel-cachekey-b8331d4cebc7f628693745344a00c2ba.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/tiny_mce_init-cachekey-c5cf5f2e6e033ce30adb28c5a2002cd7.js"></script>
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/kupunoi18n-cachekey-2412403c963acd7816a4d970aa288fa1.js"></script>
+       <!--[if lt IE 8]>
+     
+    <script type="text/javascript" src="http://edu.cs.uni-magdeburg.de/EC/portal_javascripts/Plone%20Classic%20Theme/iefixes-cachekey-040e57519acf6f95686134cef3b7f7f4.js"></script>
+       <![endif]-->
+     
+    <script type="text/javascript" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/picklist-cachekey-811c5681005cc39ec90126c01cf41f7d.js"></script>
+
+
+<title>Aufgabe 7 — eduComponents</title>
+
+        
+    <link rel="author" href="http://edu.cs.uni-magdeburg.de/EC/author/makunze" title="Autoreninformation">
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://edu.cs.uni-magdeburg.de/EC/favicon.ico">
+    <link rel="apple-touch-icon" href="http://edu.cs.uni-magdeburg.de/EC/touch_icon.png">
+
+
+
+    <link rel="home" href="http://edu.cs.uni-magdeburg.de/EC" title="Startseite">
+
+    <link rel="contents" href="http://edu.cs.uni-magdeburg.de/EC/sitemap" title="Übersicht">
+
+
+
+
+
+
+    <link rel="search" href="http://edu.cs.uni-magdeburg.de/EC/search_form" title="Website durchsuchen">
+
+
+
+        <!-- Disable IE6 image toolbar -->
+        <meta http-equiv="imagetoolbar" content="no">
+
+        
+        
+
+        
+        
+
+        
+        
+      <style type="text/css" media="screen"> @import url(http://edu.cs.uni-magdeburg.de/EC/ecabstyles.css);</style>
+    
+
+        
+        
+    
+
+  </head>
+
+  <body class="template-ecab_view portaltype-ecassignmentbox site-EC section-lehre icons-on" dir="ltr">
+    <div id="visual-portal-wrapper">
+
+      <div id="portal-top">
+        <div id="portal-header">
+    <p class="hiddenStructure">
+  <a accesskey="2" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/#content">Direkt zum Inhalt</a> |
+
+  <a accesskey="6" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/#portal-globalnav">Direkt zur Navigation</a>
+</p>
+
+<ul id="portal-siteactions">
+
+    <li id="siteaction-sitemap"><a href="http://edu.cs.uni-magdeburg.de/EC/sitemap" title="Übersicht" accesskey="3">Übersicht</a></li>
+    <li id="siteaction-accessibility"><a href="http://edu.cs.uni-magdeburg.de/EC/accessibility-info" title="Barrierefreiheit" accesskey="0">Barrierefreiheit</a></li>
+    <li id="siteaction-contact"><a href="http://edu.cs.uni-magdeburg.de/EC/contact-info" title="Kontakt" accesskey="9">Kontakt</a></li>
+</ul>
+
+<div id="portal-searchbox">
+    <form name="searchform" id="nolivesearchGadget_form" action="http://edu.cs.uni-magdeburg.de/EC/search">
+
+        <div class="LSBox">
+        <label class="hiddenStructure" for="nolivesearchGadget">Website durchsuchen</label>
+
+        <input value="Website durchsuchen" name="SearchableText" size="18" title="Website durchsuchen" accesskey="4" class="searchField inputLabel inputLabelActive" id="nolivesearchGadget" type="text">
+
+        <input class="searchButton" value="Suche" type="submit">
+
+        <div class="searchSection">
+            <input id="searchbox_currentfolder_only" class="noborder" name="path" value="/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7" type="checkbox">
+            <label for="searchbox_currentfolder_only" style="cursor: pointer">nur im aktuellen Bereich</label>
+        </div>
+
+        <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search" class="hiddenStructure">
+        <a href="http://edu.cs.uni-magdeburg.de/EC/search_form" accesskey="5">Erweiterte Suche…</a>
+    </div>
+
+</div>
+
+<a id="portal-logo" title="eduComponents" accesskey="1" href="http://edu.cs.uni-magdeburg.de/EC">
+    <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/wdok_medida.png" alt="eduComponents" title="eduComponents" height="138" width="250"></a>
+
+
+    <h5 class="hiddenStructure">Sektionen</h5>
+
+    <ul id="portal-globalnav"><li class="plain" id="portaltab-index_html"><a href="http://edu.cs.uni-magdeburg.de/EC" title="">Startseite</a></li><li class="plain" id="portaltab-news"><a href="http://edu.cs.uni-magdeburg.de/EC/news" title="Site News">News</a></li><li class="plain" id="portaltab-events"><a href="http://edu.cs.uni-magdeburg.de/EC/events" title="Site Events">Events</a></li><li class="selected" id="portaltab-lehre"><a href="http://edu.cs.uni-magdeburg.de/EC/lehre" title="">Lehre</a></li><li class="plain" id="portaltab-studieneignung"><a href="http://edu.cs.uni-magdeburg.de/EC/studieneignung" title="">Studieneignung</a></li><li class="plain" id="portaltab-set"><a href="http://edu.cs.uni-magdeburg.de/EC/set" title="">SET</a></li><li class="plain" id="portaltab-konferenzen-und-workshops"><a href="http://edu.cs.uni-magdeburg.de/EC/konferenzen-und-workshops" title="">Konferenzen und Workshops</a></li><li class="plain" id="portaltab-mitarbeiter"><a href="http://edu.cs.uni-magdeburg.de/EC/mitarbeiter" title="">Personen</a></li><li class="plain" id="portaltab-publikationen"><a href="http://edu.cs.uni-magdeburg.de/EC/publikationen" title="">Publikationen</a></li><li class="plain" id="portaltab-forschung"><a href="http://edu.cs.uni-magdeburg.de/EC/forschung" title="">Forschung</a></li><li class="plain" id="portaltab-ecaab_utils"><a href="http://edu.cs.uni-magdeburg.de/EC/ecaab_utils" title="">ecaab_utils</a></li></ul>
+
+</div>
+
+<div id="portal-personaltools-wrapper">
+
+<h5 class="hiddenStructure">Benutzerspezifische Werkzeuge</h5>
+
+<ul id="portal-personaltools" class="visualInline">
+    <li><a id="user-name" href="http://edu.cs.uni-magdeburg.de/EC/useractions"><img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/user.gif" alt="" title="User" height="16" width="16">
+        <span class="visualCaseSensitive">Katrin Krieger</span></a></li>
+
+    
+        <li id="personaltools-dashboard">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/dashboard">Persönliche Seite</a>
+        </li>
+    
+    
+        <li id="personaltools-preferences">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/@@personal-preferences">Meine Einstellungen</a>
+        </li>
+    
+    
+        <li id="personaltools-plone_setup">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/@@overview-controlpanel">Konfiguration</a>
+        </li>
+    
+    
+        <li id="personaltools-undo">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/undo_form">Rückgängig</a>
+        </li>
+    
+    
+        <li id="personaltools-logout">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/logout">Abmelden</a>
+        </li>
+    
+
+</ul>
+</div>
+
+
+
+<div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">Sie sind hier:</span>
+    <span id="breadcrumbs-home">
+        <a href="http://edu.cs.uni-magdeburg.de/EC">Startseite</a>
+        <span class="breadcrumbSeparator">
+            ›
+            
+        </span>
+    </span>
+    <span dir="ltr" id="breadcrumbs-1">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre">Lehre</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-2">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014">Wintersemester 2013/2014</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-3">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung">Dokumentverarbeitung</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-4">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen">Übungen</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-5">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr">Übungsgruppe 1 Fr 9-11 Uhr</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-6">
+        
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2">Aufgabenblatt 2</a>
+            <span class="breadcrumbSeparator">
+                ›
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr" id="breadcrumbs-7">
+        
+            
+            
+            <span id="breadcrumbs-current">Aufgabe 7</span>
+         
+    </span>
+
+</div>
+
+      </div>
+
+      <div class="visualClear" id="clear-space-before-wrapper-table"><!-- --></div>
+
+      <table id="portal-columns">
+        <tbody>
+          <tr>
+            
+                
+                <td id="portal-column-one">
+                  <div class="visualPadding">
+                    
+                      
+<div class="portletWrapper kssattr-portlethash-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f45430a6e617669676174696f6e" id="portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f45430a6e617669676174696f6e">
+<dl class="portlet portletNavigationTree">
+
+    <dt class="portletHeader hiddenStructure">
+        <span class="portletTopLeft"></span>
+        <a href="http://edu.cs.uni-magdeburg.de/EC/sitemap" class="tile">Navigation</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">
+        <ul class="navTree navTreeLevel0">
+            
+            
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-news">
+
+    
+
+
+        <a title="Site News" href="http://edu.cs.uni-magdeburg.de/EC/news" class="state-visible navTreeFolderish contenttype-folder">
+            
+            <span>News</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-events">
+
+    
+
+
+        <a title="Site Events" href="http://edu.cs.uni-magdeburg.de/EC/events" class="state-visible navTreeFolderish contenttype-folder">
+            
+            <span>Events</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-lehre">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre" class="state-published navTreeItemInPath navTreeFolderish contenttype-folder">
+            
+            <span>Lehre</span>
+        </a>
+
+    <ul class="navTree navTreeLevel1">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2015">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2015" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2015</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2014-2015">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2014-2015" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2014/2015</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2014">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2014" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2014</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-wintersemester-2013-2014">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014" class="state-private navTreeItemInPath navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2013/2014</span>
+        </a>
+
+    <ul class="navTree navTreeLevel2">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-natuerlichsprachliche-systeme">
+
+    
+
+
+        <a title="Brückenmodul: BSc ab Semester 3, MSc ab Semester 1" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/natuerlichsprachliche-systeme" class="state-published navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Natürlichsprachliche Systeme I</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-dokumentverarbeitung">
+
+    
+
+
+        <a title="Die LV kann von BSc ab Semester 3 belegt werden" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung" class="state-published navTreeItemInPath navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Dokumentverarbeitung</span>
+        </a>
+
+    <ul class="navTree navTreeLevel3">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-uebungen">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen" class="state-published navTreeItemInPath navTreeFolderish contenttype-folder">
+            
+            <span>Übungen</span>
+        </a>
+
+    <ul class="navTree navTreeLevel4">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-gruppe-1-fr-9-11-uhr">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr" class="state-published navTreeItemInPath navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Übungsgruppe 1 Fr 9-11 Uhr</span>
+        </a>
+
+    <ul class="navTree navTreeLevel5">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-1">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-1" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 1</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish section-aufgabenblatt-2">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2" class="state-published navTreeItemInPath navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 2</span>
+        </a>
+
+    <ul class="navTree navTreeLevel6">
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-xml-wohlgeformtheit">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/xml-wohlgeformtheit" class="state-published navTreeFolderish contenttype-ecaab">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecaab.png" alt="Auto Assessment Box" height="16" width="16">
+            <span>Aufgabe 6</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker section-notwellformed-xml">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/notwellformed.xml/view" class="state-missing-value contenttype-file">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/text.png" alt="File" height="16" width="16">
+            <span>notwellformed.xml</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeCurrentNode navTreeFolderish section-aufgabe-7">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7" class="state-published navTreeCurrentItem navTreeCurrentNode navTreeFolderish contenttype-ecassignmentbox">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecab.png" alt="Assignment Box" height="16" width="16">
+            <span>Aufgabe 7</span>
+        </a>
+
+    <ul class="navTree navTreeLevel7">
+        
+
+
+
+<li class="navTreeItem visualNoMarker section-dedittma-20131106-150426">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/dedittma.20131106.150426" class="state-submitted contenttype-ecassignment">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" alt="Assignment" height="16" width="16">
+            <span>Dittmann, Denny</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker section-smende-20131107-163211">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/smende.20131107.163211" class="state-submitted contenttype-ecassignment">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" alt="Assignment" height="16" width="16">
+            <span>Mende, Sebastian</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker section-gerova-20131108-001228">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/gerova.20131108.001228" class="state-submitted contenttype-ecassignment">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" alt="Assignment" height="16" width="16">
+            <span>Gerova, Silyana B.</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker section-vgeorgie-20131108-011135">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/vgeorgie.20131108.011135" class="state-graded contenttype-ecassignment">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" alt="Assignment" height="16" width="16">
+            <span>Georgiev, Vasil R.</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker section-tfernand-20131108-032147">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/tfernand.20131108.032147" class="state-submitted contenttype-ecassignment">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" alt="Assignment" height="16" width="16">
+            <span>Fernandez Hernandez, Tomas</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabe-8">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-8" class="state-published navTreeFolderish contenttype-ecassignmentbox">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecab.png" alt="Assignment Box" height="16" width="16">
+            <span>Aufgabe 8</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabe-11-knoten-im-xml-baum">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-11-knoten-im-xml-baum" class="state-published navTreeFolderish contenttype-ecassignmentbox">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecab.png" alt="Assignment Box" height="16" width="16">
+            <span>Aufgabe 9: Knoten im XML-Baum</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabe-13-landkreise-neu">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-13-landkreise-neu" class="state-published navTreeFolderish contenttype-ecaab">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecaab.png" alt="Auto Assessment Box" height="16" width="16">
+            <span>Aufgabe 10: Landkreise</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-3">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-3" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 3</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-4">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-4" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 4</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-5">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-5" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 5</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-6">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-6" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 6</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-7">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-7" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 7</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-8">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-8" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 8</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-9">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-9" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 9</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-10">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-10" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 10</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-11">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-11" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 11</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-aufgabenblatt-12">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-12" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Aufgabenblatt 12</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-uebungsgruppe-2-fr-11-13-uhr">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/uebungsgruppe-2-fr-11-13-uhr" class="state-published navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Übungsgruppe 2 Fr 13-15 Uhr</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-studentische-loesungen">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/studentische-loesungen" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Studentische Lösungen</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-folien-und-materialien">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/folien-und-materialien" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>Folien und Materialien</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-material-fuer-lehrende">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/material-fuer-lehrende" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Material für Lehrende</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wissenschaftliches-schreiben-in-der-informatik">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/wissenschaftliches-schreiben-in-der-informatik" class="state-published navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Schreibwerkstatt: Wissenschaftliches Schreiben in der Informatik</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-seminar">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/seminar" class="state-published navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Seminar "Emotional Computing"</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-proseminar-computermusik">
+
+    
+
+
+        <a title="Zu Computermusik gibt es zahlreiche Zugänge. Wir wählen in diesem
+Proseminar 'Modellierung und Programmierung musikalischer Konzepte'
+als einen für Informatiker besonders naheliegenden Zugang.
+
+Im Zentrum der studentischen Vorträge wird das System Haskore
+stehen. In dieser Sammlung von Modulen der Programmiersprache Haskell
+lassen sich musikalische Konzepte auf elegante Weise repräsentieren
+und manipulieren. Die mit Haskore abstrakt beschriebene oder
+komponierte Musik kann aber auch so nach dem Standard MIDI (Musical
+Instrument Digital Interface) abgebildet werden, dass diese Musik dann
+auf gängiger Hardware zu Gehör gebracht werden kann. Eine
+Einführung in MIDI gehört daher ebenfalls zu den Themen. 
+
+
+" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/proseminar-computermusik" class="state-published navTreeFolderish contenttype-eclecture">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eclecture.png" alt="Lecture" height="16" width="16">
+            <span>Proseminar "Computermusik"</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2013">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2013" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2013</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2012-2013">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2012-2013" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2012/2013</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2012-forschungsfreisemester">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2012.-forschungsfreisemester" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2012: Forschungsfreisemester</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2011-2012">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2011-2012" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2011/2012</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2011">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2011" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2011</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2010">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2010" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2010</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2010-2011">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2010-2011" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2010/2011</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2009-2010">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2009-2010" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2009/2010</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-sommersemester-2009">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/sommersemester-2009" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Sommersemester 2009</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-wintersemester-2008-2009">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2008-2009" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Wintersemester 2008/2009</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-studieneignung">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/studieneignung" class="state-private navTreeFolderish contenttype-folder">
+            
+            <span>Studieneignung</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-set">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/set" class="state-published navTreeFolderish contenttype-ecfolder">
+            <img src="Aufgabe%207%20%E2%80%94%20eduComponents_files/ecfolder.png" alt="Assignment Folder" height="16" width="16">
+            <span>SET</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-konferenzen-und-workshops">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/konferenzen-und-workshops" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Konferenzen und Workshops</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-mitarbeiter">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/mitarbeiter" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Personen</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-publikationen">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/publikationen" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Publikationen</span>
+        </a>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish section-forschung">
+
+    
+
+
+        <a title="" href="http://edu.cs.uni-magdeburg.de/EC/forschung" class="state-published navTreeFolderish contenttype-folder">
+            
+            <span>Forschung</span>
+        </a>
+
+    
+    
+</li>
+
+
+
+
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</div>
+
+
+<div class="managePortletsLink">
+  <a title="Zeige Portletkonfiguration" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/@@manage-portlets">Portleteinstellungen</a>
+</div>
+
+                    
+                    &nbsp;
+                  </div>
+                </td>
+                
+            
+
+            
+            <td id="portal-column-content">
+
+              <div id="viewlet-above-content"><div id="plone-lock-status">
+  
+</div>
+</div>
+
+              
+                <div class="documentEditable">
+
+                    <div id="edit-bar">
+
+    
+
+        <h5 class="hiddenStructure">Ansichten</h5>
+
+        <ul class="contentViews" id="content-views">
+
+            
+              <li class="plain" id="contentview-folderContents">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/folder_contents">Inhalte</a>
+              </li>
+            
+            
+              <li class="selected" id="contentview-view">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/ecab_view">Anzeigen</a>
+              </li>
+            
+            
+              <li class="plain" id="contentview-edit">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/edit">Bearbeiten</a>
+              </li>
+            
+            
+              <li class="plain" id="contentview-all_assignments">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/all_assignments">Einreichungen</a>
+              </li>
+            
+            
+              <li class="plain" id="contentview-analysis">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/analysis">Analyse</a>
+              </li>
+            
+            
+              <li class="plain" id="contentview-contentrules">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/@@manage-content-rules">Regeln</a>
+              </li>
+            
+            
+              <li class="plain" id="contentview-local_roles">
+                <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/@@sharing">Freigabe</a>
+              </li>
+            
+
+        </ul>
+
+    
+
+
+<div class="contentActions">
+
+    
+
+        
+
+        
+
+        <ul id="contentActionMenus">
+
+    <li>
+
+        <dl class="actionMenu deactivated" id="plone-contentmenu-workflow">
+          <dt class="actionMenuHeader label-state-published">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/content_status_history" title="Ändere den Status dieses Artikels.">
+               
+                  <span>Status:</span>
+                  <span class="state-published">Veröffentlicht</span>
+                  <span class="arrowDownAlternative">▼</span>
+               
+            </a>
+          </dt>
+          <dd class="actionMenuContent">
+            <ul>
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/content_status_modify?workflow_action=reject" title="Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.
+" id="workflow-transition-reject" class="kssIgnore">
+                        
+                        <span class="subMenuTitle">Zurückweisen</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/content_status_modify?workflow_action=retract" title="If you submitted the item by mistake or want to perform additional edits, this will take it back.
+" id="workflow-transition-retract" class="kssIgnore">
+                        
+                        <span class="subMenuTitle">Zurückziehen</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li class="actionSeparator">
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/content_status_history" title="" id="advanced" class="kssIgnore">
+                        
+                        <span class="subMenuTitle">Erweitert…</span>
+                    </a>
+                    
+                  </li>
+                
+            </ul>
+          </dd>
+        </dl>
+
+    </li>
+    <li>
+
+        <dl class="actionMenu deactivated" id="plone-contentmenu-factories">
+          <dt class="actionMenuHeader label-">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/folder_factories" title="Artikel in diesem Artikel hinzufügen.">
+               
+                  <span>Hinzufügen...</span>
+                  
+                  <span class="arrowDownAlternative">▼</span>
+               
+            </a>
+          </dt>
+          <dd class="actionMenuContent">
+            <ul>
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/createObject?type_name=ECAssignment" title="" id="ecassignment" class="contenttype-ecassignment">
+                        <img alt="" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/eca.png" title="" height="16" width="16">
+                        <span class="subMenuTitle">Einreichung</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/folder_constraintypes_form" title="Konfiguration der hinzufügbaren Artikeltypen" id="settings" class="">
+                        
+                        <span class="subMenuTitle">Einschränkungen…</span>
+                    </a>
+                    
+                  </li>
+                
+            </ul>
+          </dd>
+        </dl>
+
+    </li>
+    <li>
+
+        <dl class="actionMenu deactivated" id="plone-contentmenu-display">
+          <dt class="actionMenuHeader label-">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/select_default_view" title="Darstellung dieses Ordners wählen oder einen Artikel als Standardseite setzen.">
+               
+                  <span>Darstellung</span>
+                  
+                  <span class="arrowDownAlternative">▼</span>
+               
+            </a>
+          </dt>
+          <dd class="actionMenuContent">
+            <ul>
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/selectViewTemplate?templateId=base_view" title="" id="base_view" class="">
+                        
+                        <span class="subMenuTitle">Base View</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/selectViewTemplate?templateId=ecab_view" title="" id="ecab_view" class="actionMenuSelected">
+                        
+                        <span class="subMenuTitle">View ECAssignmentBox</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li class="actionSeparator">
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/select_default_page" title="Wählen Sie einen Artikel, der als Standardseite für diesen Ordner gelten soll…" id="contextSetDefaultPage" class="">
+                        
+                        <span class="subMenuTitle">Artikel aus dem Ordner…</span>
+                    </a>
+                    
+                  </li>
+                
+            </ul>
+          </dd>
+        </dl>
+
+    </li>
+    <li>
+
+        <dl class="actionMenu deactivated" id="plone-contentmenu-actions">
+          <dt class="actionMenuHeader label-">
+            <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/folder_contents" title="Aktionen für den aktuellen Artikel">
+               
+                  <span>Aktionen</span>
+                  
+                  <span class="arrowDownAlternative">▼</span>
+               
+            </a>
+          </dt>
+          <dd class="actionMenuContent">
+            <ul>
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/object_cut" title="" id="cut" class="actionicon-object_buttons-cut">
+                        <img alt="" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/cut_icon.png" title="" height="16" width="16">
+                        <span class="subMenuTitle">Ausschneiden</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/object_copy" title="" id="copy" class="actionicon-object_buttons-copy">
+                        <img alt="" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/copy_icon.png" title="" height="16" width="16">
+                        <span class="subMenuTitle">Kopieren</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/delete_confirmation" title="" id="delete" class="actionicon-object_buttons-delete">
+                        <img alt="" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/delete_icon.png" title="" height="16" width="16">
+                        <span class="subMenuTitle">Löschen</span>
+                    </a>
+                    
+                  </li>
+                
+                
+                  <li>
+                    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/object_rename" title="" id="rename" class="actionicon-object_buttons-rename">
+                        
+                        <span class="subMenuTitle">Umbenennen</span>
+                    </a>
+                    
+                  </li>
+                
+            </ul>
+          </dd>
+        </dl>
+
+    </li>
+
+</ul>
+
+
+    
+
+</div></div>
+
+                    <span id="contentTopLeft"></span>
+                    <span id="contentTopRight"></span>
+
+                    
+
+    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+        <dt>Info</dt>
+        <dd></dd>
+    </dl>
+
+
+
+                    
+                    <div id="content">
+                      
+                      
+      
+                      
+        <!-- debug -->
+        <!--
+        <div tal:content="string:hasExpired:$hasExpired" />
+        <div tal:content="string:isEffective:$isEffective" />
+        <div tal:content="string:isPublished:$isPublished" />
+        <div tal:content="string:isOwner:$isOwner" />
+        <div tal:content="string:canSupersed:$canSupersed" />
+        <div tal:content="string:canRetry:$canRetry" />
+        <div tal:content="string:needRegistration:$needRegistration" />
+        <div tal:content="string:canParticipate:$canParticipate" />
+        -->
+ 
+        
+      
+        <h1 class="documentFirstHeading">
+          
+        <span class=" kssattr-atfieldname-title kssattr-templateId-widgets/string kssattr-macro-string-field-view inlineEditable" id="parent-fieldname-title-fa2792a26035c6a2c4dee4e614e07ab1">
+            Aufgabe 7
+        </span>
+    
+        </h1>
+
+        <!--   
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        -->
+ 
+        
+
+        <div class="documentByLine">
+
+          <span>Einreichungszeitraum beendet:</span>
+          <span>08.11.2013 08:00</span>
+        </div>
+
+        
+    
+        <a class="link-parent visualNoPrint" href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2">Eine Ebene höher</a>
+
+        <!-- show a collapsible box with the directions text from ecfolder -->
+        
+  
+        <p>
+    
+        
+
+        </p><div class="documentDescription">
+            
+        <span class=" kssattr-atfieldname-description kssattr-templateId-widgets/textarea kssattr-macro-textarea-field-view inlineEditable" id="parent-fieldname-description-fa2792a26035c6a2c4dee4e614e07ab1">
+            
+        </span>
+    
+        </div>
+
+        
+        <div class="field">
+            
+        <div class=" kssattr-atfieldname-assignment_text kssattr-templateId-widgets/rich kssattr-macro-rich-field-view kssattr-target-parent-fieldname-assignment_text-fa2792a26035c6a2c4dee4e614e07ab1 inlineEditable" id="parent-fieldname-assignment_text-fa2792a26035c6a2c4dee4e614e07ab1">
+            
+<ol><li>
+<p>Welche Attribute werden von der XML-Spezifikation definiert und wie
+werden diese Attribute in einer DTD verwendet? Was sind ihre möglichen
+Werte und Bedeutungen?</p>
+</li><li>
+Daten können in XML-Dokumenten als Inhalt von Kind-Knoten oder als 
+Knotenattribute gespeichert werden. In den folgenden Beispielen ist der 
+gleiche Inhalt auf unterschiedliche Weise -- mittels Kindknoten oder 
+Attributen -- gespeichert.
+<h3>Beispiel 1</h3>
+<pre>&lt;note date="12/11/2002"&gt;
+  &lt;to&gt;Tove&lt;/to&gt;
+  &lt;from&gt;Jani&lt;/from&gt;
+  &lt;heading&gt;Reminder&lt;/heading&gt;
+  &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+&lt;/note&gt;</pre>
+<h3>Beispiel 2</h3>
+<pre>&lt;note&gt;
+  &lt;date&gt;12/11/2002&lt;/date&gt;
+  &lt;to&gt;Tove&lt;/to&gt;
+  &lt;from&gt;Jani&lt;/from&gt;
+  &lt;heading&gt;Reminder&lt;/heading&gt;
+  &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+&lt;/note&gt;</pre>
+<h3>Beispiel 3</h3>
+<pre>&lt;note&gt;
+  &lt;date&gt;
+    &lt;day&gt;12&lt;/day&gt;
+    &lt;month&gt;11&lt;/month&gt;
+    &lt;year&gt;2002&lt;/year&gt;
+  &lt;/date&gt;
+  &lt;to&gt;Tove&lt;/to&gt;
+  &lt;from&gt;Jani&lt;/from&gt;
+  &lt;heading&gt;Reminder&lt;/heading&gt;
+  &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+&lt;/note&gt;</pre>
+<h3>Beispiel 4</h3>
+<pre>&lt;note day="12" month="11" year="2002"
+to="Tove" from="Jani" heading="Reminder"
+body="Don't forget me this weekend!"&gt;
+&lt;/note&gt;</pre>
+Alle vier Beispiele enthalten exakt die gleichen Informationen.
+Diskutieren Sie die Vor- und Nachteile der Nutzung von Elementen und 
+Attributen zur Datenhaltung in den vier Beispielen. Welche Probleme 
+können auftreten, wenn Daten als Attribute gespeichert werden?
+</li></ol>
+
+            
+        </div>
+    
+        </div>
+      
+        
+      
+        <!-- <hr class="visualNoPrint" /> -->
+  
+        <!-- input field and upload field -->
+        <form action="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/ecab_view" name="eca_add" method="post" enctype="multipart/form-data">
+  
+          <!-- text field -->
+          <div class="field visualNoPrint">
+            <label for="answer">Antwort</label>
+            <div class="formHelp">Geben Sie hier Ihren Antworttext ein</div>
+            <textarea cols="30" rows="15" name="answer" wrap="on"></textarea>
+          </div>
+  
+         <!-- upload file button -->
+         <div class="field visualNoPrint">
+           <label for="file">Datei</label>
+           <div class="formHelp">oder laden Sie eine Datei hoch (der bestehende Text wird ersetzt).</div>
+           <input name="file" size="25" type="file">
+         </div>
+  
+         <!-- submit button -->
+         <div class="formControls visualNoPrint">
+           <input class="context" name="form.button.Submit" value="Einreichen" type="submit">
+  
+           <input class="standalone" name="form.button.Cancel" value="Abbrechen" type="submit">
+          </div>
+  
+          <!-- hidden fields -->
+          <!-- 
+          <input type="hidden" name="user_id" tal:attributes="value user_id"/>          
+          -->
+          <input name="form.submitted" value="1" type="hidden">
+        </form>
+      
+        <div class="field visualNoPrint">
+          <i>Einreichung nicht möglich: Sie sind nicht für diese Lehrveranstaltung angemeldet.</i>
+        </div> 
+           
+        <div class="field visualNoPrint">
+          
+
+          <i>Der Zeitraum für Einreichungen ist abgelaufen.</i>
+        
+          
+
+          
+        </div>
+  
+        <div class="documentByLine" id="plone-document-byline">
+  
+
+  
+  
+    <span class="documentAuthor">
+      erstellt von <a href="http://edu.cs.uni-magdeburg.de/EC/author/makunze">Manuela Kunze</a>
+         —
+    </span>
+  
+  
+
+  <span class="documentModified">
+    <span>zuletzt verändert:</span>
+    02.11.2013 12:02
+  </span>
+
+  
+
+  <span class="contentHistory" id="content-history">
+    —
+    <a href="http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2013-2014/dokumentverarbeitung/uebungen/gruppe-1-fr-9-11-uhr/aufgabenblatt-2/aufgabe-7/@@historyview">Historie</a>
+  </span>
+
+  
+
+  
+
+</div>
+
+
+
+
+      
+    
+                    </div>
+                    
+
+                    
+
+                    <span id="contentBottomLeft"></span>
+                    <span id="contentBottomRight"></span>
+
+                </div>
+              
+
+              <div id="viewlet-below-content">
+
+
+
+    
+
+</div>
+
+            </td>
+            
+
+            
+                
+                
+                
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
+
+      
+
+        <div class="row">
+    <div class="cell width-full position-0">
+
+        <div id="portal-footer">
+            <p>
+                <a href="http://plone.org/">Plone<sup>®</sup> Open Source Content Management System</a> <acronym title="Copyright">©</acronym> 2000-2015 <a href="http://plone.org/foundation">Plone Foundation</a> und Freunde.
+
+                Lizensiert unter der <a href="http://creativecommons.org/licenses/GPL/2.0/">GNU-GPL-Lizenz</a>.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<div id="portal-colophon">
+
+<div class="colophonWrapper">
+<ul>
+  <li>
+    <a href="http://plone.org/" title="Diese Website wird mit dem Open-Source Content-Management-System Plone betrieben.">Powered by Plone &amp; Python</a>
+  </li>
+</ul>
+</div>
+</div>
+
+
+
+      
+
+      <div class="visualClear"><!-- --></div>
+    </div>
+<div id="kss-spinner"><img alt="" src="Aufgabe%207%20%E2%80%94%20eduComponents_files/spinner.gif"></div>
+
+
+
+
+</body></html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->
