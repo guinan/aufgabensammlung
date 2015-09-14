@@ -1,0 +1,19 @@
+Interpret a recursive function I
+
+Look at the following function:
+
+Algorithm: f(x,y)
+Input:     x,y ganzzahlig
+Output:    ?
+   if y = 0 then x
+            else f(x-1, y-1)
+   fi
+
+Describe how the function is evaluated using different examples. What does this function compute? For which values does the algorithm not terminate?
+Think about how to extend the algorithm for that it terminates for all integer values. Implement your extended algorithm as a Java method
+
+    public static int rek(int x, int y).
+
+Additionally implement your enhanced algorithm as an iterative method 
+  
+  public static int iter(int x, int y).
