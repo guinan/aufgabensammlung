@@ -1,0 +1,7 @@
+
+Sorting
+
+Explain how the sorting algorithms insertion sort and selection sort  you heard about in the lecture work and what the differences between these two algorithms are.
+Which of boths sorting methods is stable? Explain why.
+Thoughts on insertion sort: How does complexity of sorting change, if the index in the array where the element is inserted is not computed linear but with binary search?
+
