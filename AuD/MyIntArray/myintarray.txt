@@ -1,0 +1,26 @@
+
+Write a class MyIntArray with different methods:
+
+The method 
+
+public static int[] createRandom(int n) 
+
+takes the size of the array to be generated as parameter. The elements of the array will be filled with random integer numbers within the range of 5 to 99.
+
+Hint: to generate random numbers use the standard function random from the class Math. The instruction 
+int z = (int)(maxrand*Math.random()); generates a random number z within the range of 0 and maxrand (0 <= z < maxrand)
+
+public static String toString(int[] a) 
+
+returns the elements of a in a String. Test your toString(...) in the main method and also print the array with the predefined method java.util.Arrays.toString(...).
+
+public static int posMin(int[] a) 
+
+returns the position of the smallest number in a. If the smallest element occurs more than once, only the first position of that number is to be returned.
+
+public static void swap(int[] a)
+
+swaps the first and the last element in a.
+
+
+

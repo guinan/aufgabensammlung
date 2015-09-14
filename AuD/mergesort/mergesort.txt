@@ -1,0 +1,39 @@
+Explain the sorting algorithm mergesort using the numbers a = {5, 3, 4, 7, 1, 2}. Write down all intermediate steps.
+Explain the divide-and-conquer principle with the following algorithm:
+
+// helper method for recursive sorting by shuffling
+        private static void _mergeSort(int a[], int copy[], int start, int end) {
+            if (start < end) {
+                int mid = (start + end) / 2;
+                _mergeSort(a, copy, start, mid);
+                _mergeSort(a, copy, mid + 1, end);
+                merge(a, copy, start, mid, end);
+            }
+        }
+
+        private static void merge(int a[], int copy[], int start, int m, int end) {
+            int i = 0, j = start, k;
+            while (j <= m)
+                copy[i++] = a[j++];
+            i = 0;
+            k = start;
+            while (k < j && j <= end) {
+                if (copy[i] <= a[j])
+                    a[k++] = copy[i++];
+                else
+                    a[k++] = a[j++];
+            }
+            while (k < j)
+                a[k++] = copy[i++];
+        }
+        
+        public static  void mergeSort(int[] a) {
+            _mergeSort(a, new int[a.length], 0, a.length - 1);
+        }
+
+Why does this algorithm need less memory than the one introduced in the lecture? Is this version of the algorithm as stable as the original mergesort? Give reasons for your statement.
+
+Write  a method 
+    public static <T> void mergeSort(T[] a, Comparator<T> c)
+for sorting generic arrays a with the mergesort algorithm.
+Test the generic mergesort with String objects by sorting these strings first in ascending and then in descending order.
