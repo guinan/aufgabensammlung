@@ -1,0 +1,41 @@
+The Simpsons fight
+
+Look at the following two rekursive algorithms (n is a natural number starting at 0)
+
+Algorithm: marge(n)
+Input:     n ganzzahlig, n>=0
+Output:    ?
+   if n = 0 then 1
+            else n - homer(marge(n - 1))
+   fi
+
+Algorithm: homer(n)
+Input:     n ganzzahlig, n>=0
+Output:    ?
+   if n = 0 then 0
+            else n - marge(homer(n - 1))
+   fi
+
+The function dispute computes whether the Simpsons fight on their wedding anniversary:
+
+Algorithm: dispute(n)
+Input:     n ganzzahlig, n>=0
+Output:    ?
+   not(marge(n) = homer(n))
+
+Implement the algorithms above as Java methods
+
+    public static int marge(int n)
+
+    public static int homer(int n)
+
+    public static boolean dispute(int n)
+
+How does the difference of the fights on the anniversaries develop? The Simpsons fight on the zeroth and first anniversary. Hence, the difference between the fights is 1 (one year). Write a method
+
+public static int [] differenceDisputes(int x)
+
+that determines the first x difference between fights on wedding anniversaries. Can you recognize the rules or the sequence of numbers, respectively?
+Write a test frame within the main method to answer the following questions:
+Do the Simpsons fight on their copper (copper or wool wedding - after 7 years) or silver wedding anniversary or are they at peace?
+Do Homer and Marge get along better or worse as the years pass?
