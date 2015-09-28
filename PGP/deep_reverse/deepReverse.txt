@@ -1,0 +1,9 @@
+deepReverse
+
+Define a Prolog predicate deepReverse(L1,L2) mirroring L1 not only on the topmost level, but mirrors recursively all lists that might be included as elements.
+deepReverse(L1, L2) is true exactly when L2 is the mirror image of L1 including contained sublists. You must not use the standard predicate reverse(L1,L2).
+
+example: deepReverse([1,2,3,[4,6]],L) returns L = [[6,4],3,2,1]
+
+Try to find a preferably efficient algorithm. Estimate the number of necessary computing steps.
+Submit at least one interaction example (as comment) together with your solution.
