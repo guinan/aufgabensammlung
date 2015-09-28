@@ -1,0 +1,17 @@
+assignment 4: minimization
+
+Considering the following examples, can you decide if those are potentially valid SGML documents without knowing the SGML declaration and DTD?
+
+
+a) <a><b><a><b>
+
+b) <a></a><b></b>
+
+c) <a><a></a></b>
+
+d) <a><b></a><b>
+
+e) <b></a><a><c></b><b>
+
+If possible, define for each construct a DTD that conforms with the example. The elements <a>, <b> and <c> are enclosed by a root element <test> whose start and end tags have to be existant.
+
