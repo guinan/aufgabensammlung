@@ -1,0 +1,22 @@
+ Prolog: seminar participants
+
+ The participants of a seminar are asked to form teams for a project. Each team has two members. The seminar group consists of the following students:
+
+
+ - Anton (IF)
+
+ - Hagen (CV),
+
+ - Gunther (CV),
+
+ - Adele (IF),
+
+ - Uta (CV) and
+
+ - Anna (IF).
+
+ a) Create a knowledge base with facts. Write a predicate teams that returns all possible teams. Which teams does the predicate return?
+
+ b) Extend your definition of teams such that teams have a male and a female member. Which teams does the predicate return now?
+
+ c) To ensure a successful project work, we addionally demand, that the teams consists of two members, where one studies 'Informatik' and the other one studies 'Computervisualistik'. What does your definition of teams look like now? Which teams does the predicate return now?
