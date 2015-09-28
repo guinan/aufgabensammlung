@@ -1,0 +1,13 @@
+The following figure visualizes the element nodes of an XML document in the XPath data model. Each node is marked with the name of the elmenent type and carries a number for distinct identification.
+
+[figure]
+
+Identify the sets of nodes that are selected with the following XPath expressions starting from the given context node. Pay attention to correct order of the respective axis.
+
+context node 	path expression
+8 	p
+18 	ancestor-or-self::sect
+14 	.//*
+3 	../..//sect/title
+15 	preceding::em
+7 	//fig 
