@@ -1,0 +1,11 @@
+ Symbolic Differentiation
+
+ Extend the scheme program deriv for symbolic differentiation from the lecture (Jun 18 2013) such that it contains rules for handling integer exponentiation.
+
+ Hint: An exponentiation like (x to the power of 4) could be represented as
+
+ (^ x 4)
+
+ What does your version of the program return the derivative of x or y for the polynomial
+
+ x (to the power of) 4 + x * y (to the power of) 3 ?
