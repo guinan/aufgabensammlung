@@ -1,0 +1,8 @@
+Content model
+
+Create three examples that conform to the following SGML-DTD fragment (assume that the content models of the elements included in book are #PCDATA)
+
+  <!element book - - ((editor|author)+, title+, subtitle*, ed?, series?,
+                      place, publ, year, isbn?, issn?, sign*,
+                      keyword*, url*, (comment? & note? & abstract?))>
+
