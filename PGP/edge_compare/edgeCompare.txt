@@ -1,0 +1,27 @@
+ edgeCompare
+
+In the following we want to determine the edge with the minimum weight from an unsorted list of edges. You can use the predefined Prolog meta predicate predsort(Pred, List, Sorted) which is true if the list Sorted is a sorted version of list according to the comparison predicate Pred.
+
+Comparison predicates for predsort are organized like the predefined compare(Delta, E1, E2), unifying Delta with a constant <, >, or = according to the relation of E1 and E2.
+
+example: 
+
+?- compare(Delta, 3, 4).
+
+Delta  =  <
+
+
+a) How can you define an analogue comparison predicate edgeCompare(Delta, E1, E2) for the edges of a graph in the representation above?
+
+ 
+b) How can you define the predicate minimumEdge(Edges, Min) that deploys predsort and is true, if Min is the edge from the list of edges with the minimum weight?
+
+example:
+
+?- minimumEdge([[c, e, 44], [c, a, 34], [d, e, 93], [d, b, 55]], Min).
+
+Min = [c, a, 34]
+
+Submit your solution and at least one interaction example as comment.
+
+Hint: This assignment will be used for a peer review on one of the following exercise sheets. That means, that you will review the submission of a fellow student. You will be able to work on this peer review assinment only if you submitted a solution for this assignment "edgeCompare" as well.
