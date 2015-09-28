@@ -1,0 +1,11 @@
+ assignment 42: XQuery 2
+
+Consider the following XML document with a collection of recipes: recipes.xml.
+
+
+Write an XQuery program listing title and ingredients for all recipes that use any kind of oil. The data for each recipe should be enclosed in a container element.
+Return only the actual ingredients and not ingredients like "sauce".
+
+If the weight or amount of an ingredient is given in US measure, convert this data into the corresponding metric value. The value in the attribute unit has to be changed accordingly. For conversion you could use the data from the following conversion table.
+
+The result should be a well-formed XML document with the root element <results>.
