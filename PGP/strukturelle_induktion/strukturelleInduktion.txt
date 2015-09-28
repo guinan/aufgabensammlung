@@ -1,0 +1,28 @@
+ struktural Induction: span with takewhile and dropwhile
+
+Consider the following definitions of the Haskell functions takeWhile, dropWhile and span:
+
+takeWhile           :: (a -> Bool) -> [a] -> [a]
+takeWhile p []       = []                           -- tw1
+takeWhile p (x:xs)                                  -- tw2
+	 | p x       = x : takeWhile p xs           -- tw2.1
+	 | otherwise = []                           -- tw2.2
+
+dropWhile           :: (a -> Bool) -> [a] -> [a]
+dropWhile p []       = []                           -- dw1
+dropWhile p xs@(x:xs')                              -- dw2
+	 | p x       = dropWhile p xs'              -- dw2.1
+	 | otherwise = xs                           -- dw2.2
+
+span                :: (a -> Bool) -> [a] -> ([a],[a])
+span p []            = ([],[])                       -- span1
+span p xs@(x:xs')                                    -- span2
+	 | p x       = (x:ys, zs)
+	 | otherwise = ([],xs)
+                       where (ys,zs) = span p xs'
+
+Use structural induction over the length of the list to prove that for all finite lists l and for arbitrary predicates p (with appropriate signature) the following statement holds true:
+
+span p l = (takeWhile p l, dropWhile p l)
+
+Important hint: Note down all used equations and other reasons for all transformation steps in your proof.
