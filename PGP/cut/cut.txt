@@ -1,0 +1,21 @@
+ cut
+
+Consider the following definitions:
+
+        fruit(apple).
+
+        fruit(peach):-!.
+
+        fruit(pear).
+
+Explain the results of the following queries:
+
+            * fruit(X).
+
+            * fruit(X),fruit(Y).
+
+            * fruit(X),!,fruit(Y).
+
+Define the predicate class(N,C) that classifies a number N into the corresponding class C (pos, neg, or zero). Use the cut operator to explicitely prevent multiple classification.
+    Definieren Sie das Prädikat class(N,C) welches eine Zahl N in die jeweilige Klasse C (pos, neg oder zero) einordnet. Verwenden Sie den cut-Operator, um explizit eine mehrfache Einordnung zu verhindern.
+
