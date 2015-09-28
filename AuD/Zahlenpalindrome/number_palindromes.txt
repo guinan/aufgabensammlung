@@ -1,0 +1,24 @@
+Number palindromes
+
+Palindromes are strings that are the same when reading forwards and backwards. Example: lagerregal
+This also works with natural numbers. For example, 94549 is a number palindrome.
+We want to determine if a given natural number > 0 is a palindrome or not. Develop first the following helper methods that might be useful solving the task.
+
+Write a Java method  
+
+public static int numDigits(int n),
+
+returning the number of digits of a natural number. For example, numDigits(42) returns 2.
+
+Next, we want to directly access the different digits. Write a Java method
+
+    public static int getDigit(int n, int index),
+that returns the i_th decimal number of a natural number. We begin counting the numbers with 0 from the last position. The first digit is the one with the index 0. For example, getDigit(2012, i) returns 1
+
+For the general usage of the method getDigit, we need to handle erroneous indices as follows: Is the index smaller than zero, we return the 0th digit. If the index is bigger than the length of the string of digits, we return the last digit (keep in mind that we start counting at the last position).
+
+Now write the Java method 
+
+public static boolean isPalindrome(int n),
+
+determining if a given natural number is a palindrome or not.
