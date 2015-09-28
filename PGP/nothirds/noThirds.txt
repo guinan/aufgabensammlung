@@ -1,0 +1,11 @@
+ noThirds and limos
+
+ The function noThirds assigns a list to an arbitrary list list1, which results from list1 if you remove the third, sixth, nineth ... element (all elements on positions that are multiples of 3).
+
+ Write noThirds only with the help of recursion and pattern matching, but without using predefined list functions or arithmetic functions.
+
+ The predicate limos (= 'length is multiple of seven') is true if the length of the listen is a multiple of 7.
+ Write limos only with the help of recursion and pattern matching, but without using predefined list functions (like length) or arithmetic functions.
+
+ Additional question: In what way would you have to change limos to gain a function limos3mod7 which is true if the length of a list is a multiple of 7 or resulting in a rest of 3 when you divide the length of the list by 7?
+
