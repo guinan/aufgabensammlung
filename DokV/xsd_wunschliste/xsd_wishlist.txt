@@ -1,0 +1,10 @@
+ XML Schema wishlist
+
+While Santa clause  is busy tidying his music library. the secretary of Santa Calus is busy with assembling information about the children who are to be given a present. In order to do that properly, he has to gather and evaluate the data of the gnomes who observed the children.
+The following information should be included in an XML document:
+
+Name of the child and address
+list of deeds and assessment of the gnome (0: very good - 10: very bad)
+list of wishes including the name of the wish and its size or scope (S: small gift, M: middle-sized gift, L: large gift, XL: extra-large gift) as well as a priority of the wish (0: no information about the priority, 5: high priority)
+
+Create a corresponding XML Schema. Contemplate the definition of conditions, groups, and types.
