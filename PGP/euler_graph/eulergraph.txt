@@ -1,0 +1,25 @@
+ EulerGraph in Haskell
+
+An undirected connected graph contains an Eulerian trail if two or none of its nodes have an odd degree.
+
+1. Define the function degreeList in Haskell, that computes for all nodes the degree of the respective node. The degree of a node is the number of incoming or outgoing edges of a node.
+
+2. Define the function testEulerianTrail in Haskell, evaluating if a given edge list allows an Eulerian trail according to the given description.
+
+degreeList :: Eq a => [[a]] -> [(a,Int)]
+
+testEulerianTrail :: Eq a => [[a]] -> Bool
+
+example:
+
+Main> edges
+["ab","bc","de","cd","fg"]
+
+Main>degreeList edges
+[('a',1),('b',2),('d',2),('c',2),('f',1),('e',1),('g',1)]
+
+Main>testEulerianTrail edges
+False
+
+If your submission yields an error message because the expected list of degreeList is a permutation of the list of your submitted function, regard your submission as accepted.
+
