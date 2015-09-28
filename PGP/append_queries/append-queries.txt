@@ -1,0 +1,14 @@
+ append-Queries
+
+Use only the append relation to formulate the following predicates:
+
+
+a) the relation thirdE(X,L) exists between X and L, iff X is the third element of L: thirdE(X,[1,2,3,4]). --> X = 3
+
+b) withoutL(L1,L2) is true for L1 and L2 , if L2 without its last element is the same as L1: withoutL([1,2],[1,2,3]). --> true
+
+c) lastEl(X,Lst) is true for  X and Lst, if X  is the last element of Lst: lastEl(X,[1,2,3]). --> X=3
+
+d) threeT(L,SL) is true for L and S, if the list L is a triplicate copy of the sublist SL: threeT([1,2,1,2,1,2],[1,2]). --> true
+
+e) plusEl(X,L,NL) is true for  X, L and NL, if the list L yields the list NL if it is extended by the element X at an arbitrary position: plusEl(1,[2,3],[2,1,3]). --> true
