@@ -1,0 +1,47 @@
+Which attributes are defined by the XML specification? How are these attributes used in a DTD? What are possible values and what does that mean?
+Data can be stored in XML documents as content of child nodes or as node attributes. In the following examples, the same content is stored in different ways - as child nodes and attributes:
+
+
+    example 1
+
+    <note date="12/11/2002">
+      <to>Tove</to>
+      <from>Jani</from>
+      <heading>Reminder</heading>
+      <body>Don't forget me this weekend!</body>
+    </note>
+
+    example 2
+
+    <note>
+      <date>12/11/2002</date>
+      <to>Tove</to>
+      <from>Jani</from>
+      <heading>Reminder</heading>
+      <body>Don't forget me this weekend!</body>
+    </note>
+
+    example 3
+
+    <note>
+      <date>
+        <day>12</day>
+        <month>11</month>
+        <year>2002</year>
+      </date>
+      <to>Tove</to>
+      <from>Jani</from>
+      <heading>Reminder</heading>
+      <body>Don't forget me this weekend!</body>
+    </note>
+
+    example 4
+
+    <note day="12" month="11" year="2002"
+    to="Tove" from="Jani" heading="Reminder"
+    body="Don't forget me this weekend!">
+    </note>
+
+    Alle vier Beispiele enthalten exakt die gleichen Informationen. Diskutieren Sie die Vor- und Nachteile der Nutzung von Elementen und Attributen zur Datenhaltung in den vier Beispielen. Welche Probleme können auftreten, wenn Daten als Attribute gespeichert werden? 
+
+All four examples contain the same information. Discuss advantages and disadvantages using elements and attributes for storing data in these four examples. Which problems could occur when data is stored as attributes?
