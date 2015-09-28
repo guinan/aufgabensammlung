@@ -1,0 +1,33 @@
+assingment 26: XPath and music
+
+Consider the following XML file:
+
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<CDDB>
+<!-- example music tracks from CDDB database -->
+ <composers>
+  <composer C_ID="22" surname="Johann Sebastian" familyname="Bach" yearofbirth="1685" yearofdeath="1750">
+   <track track_ID="1054" title="Violinkonzert Nr. 1" key="a minor" opus="BWV 1041">
+    <recording rec_ID="1054001" orchestra="Les Solistes Romands" conductor="Arpad Gerecz"/>
+   </track>
+   <track track="1055" title="Violinkonzert Nr. 2" key="E major" opus="BWV 1042">
+    <recording rec_id="1055001" orchestra="Les Solistes Romands" conductor="Arpad Gerecz"/>
+   </track>
+   <!--two tracks of Bach as examples -->
+  </composer>
+ </composers>
+ <cds>
+  <cd title="Bach: Violinkonzerte" price="12.95" total_play_time="PT61M24S">
+   <CDRecording rec_ID="1054001"/>
+   <CDRecording rec_ID="1055001"/>
+  </cd>
+ </cds>
+</CDDB>
+
+Find XPath expressions for the following node sets or attribute values. The expressions should be valid for arbitrary documents, not only for the example document.
+
+all comment nodes in the whole document
+starting from an element node of type recording, find the attribute node with the family name of the corresponding composer
+the name (attribute value) of all orchestras occurring in the document
+all tracks (element nodes) of Bach in "e major"
+
