@@ -1,0 +1,13 @@
+ assignment 30: regular expressions
+
+ Define a regular expression matching all lowercase words in a text that end with e.
+
+ Define a regular expression matching repeating words in a text (like "the the").
+
+ Define regular expressions matching different notations of opening hours (e.g. of sights). You should find regular expressions that match single points of time as well as interval expressions (including restrictions such as winter, daily, etc.)
+
+    possible occurences:
+
+        - ... Mo-Fr 8:30am-4:30pm ...
+        - ... winter: 6:30 pm, 7:30pm, 8:30 pm daily; summer: 8:30pm, 9:30pm, 10:30pm daily ...
+        - ... 9 am - 4:30 pm ...
