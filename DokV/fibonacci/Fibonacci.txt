@@ -1,0 +1,36 @@
+Assignment 19: Fibonacci
+
+The Fibonacci series is a mathematical series of positive integers - the fibonacci numbers. Each number is the sum of the two preceeding numbers: 
+
+      0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+
+Generally speaking, the Fibonacci numbers can be defined as follows:
+
+
+             / 0                                for n = 0
+    Fib(n) = |  1                               for n = 1
+             \ Fib(n - 1) + Fib(n - 2)          otherwise
+
+Implement the function Fib(n) as XSL template. Use the given answer template. 
+A faster way to compute the fibonacci numbers is based on the idea, that we could return two successive values as result of the function at once:
+
+    fibPair n = (fib n, fib (n+1))
+
+A given value pair (u,v) results in the successive pair (v, u+v) using fibStep:
+
+    fibStep (u,v) = (v, u+v)
+
+fibPair can then be defined as:
+
+    fibPair (0) = (0,1)
+    fibPair (n) = fibStep(fibPair (n-1))
+
+Finally we can compute the Fibonacci number n efficiently as:
+
+    fastFib n = first ( fibPair n)
+
+(first returns the first element of the tuple)
+
+Implement the function fastFib (and necessary helper functions) as XSL template.
+
+
