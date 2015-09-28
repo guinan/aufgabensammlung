@@ -1,0 +1,16 @@
+ Occurrences in lists
+
+ Using list comprehension, define the following functions and their type declaration:on:
+
+    occursIn x xs -- returns True, if x is an element in xs 
+    allOccurIn xs ys -- returns True, if all elements of xs are also contained in ys (xs is a subset of ys)
+    sameElements xs ys-- returns True, if xs and ys contain  exactly the same elements
+    numOccurrences x xs -- returns the number of occurrences of x in xs.
+
+examples:
+
+    occursIn 'o' 'foobar' returns True, occursIn 'z' foobar' returns False
+    allOccurIn [3, 4, 5] [1, 2, 3, 4, 5, 6, 7] returns True, allOccurIn [3, 5, 99] [1, 2, 3, 4, 5, 6, 7] returns False
+    sameElements [3, 5, 4, 2] [5, 4, 3, 2] returns True, sameElements [3] [5, 6, 7] returns False
+    numOccurences 3 [1, 3, 6, 88, 3, 7, 3, 66, 432, 3] returns 4
+
