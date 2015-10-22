@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="localstorage sessionstorage theme-gcwu-fegc desktop-view large-screen svg no-ie ui-mobile" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/easytabs-min.js" async="async"></script><script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/hoverintent-min.js" async="async"></script><script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/en-min.js" async="async"></script><!-- base href="http://www.nrc-cnrc.gc.ca/eng/services/time/web_clock.html" -->
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-eng.txt / wet-boew.github.io/wet-boew/Licence-fra.txt -->
+<title>Web clock (Official times across Canada) - National Research Council Canada</title>
+
+<link rel="icon" href="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/images/favicon.ico">
+
+<meta name="dcterms.creator" content="Government of Canada. National Research Council Canada">
+<meta name="dcterms.title" content="Web clock (Official times across Canada) - National Research Council Canada">
+<meta name="dcterms.issued" title="W3CDTF" content="2012-08-07">
+<meta name="dcterms.modified" title="W3CDTF" content="2015-09-21">
+<meta name="dcterms.language" title="ISO639-2" content="eng">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="dcterms.contributor" content="NRC Communications and Corporate Relations Branch">
+<meta name="dcterms.description" content="Web clock - Official times across Canada">
+<meta name="description" content="Web clock - Official times across Canada">
+<meta name="keywords" content="web clock; standard time; Daylight saving time; winter time zones; summer time zones; Canadian time zones">
+<meta name="dcterms.subject" content="web clock; standard time; Daylight saving time; winter time zones; summer time zones; Canadian time zones">
+<meta name="dcterms.subject" title="gccore" content="Daylight saving time; Time; Time zones">
+<meta name="dcterms.audience" title="gcaudience" content="business">
+<meta name="dcterms.audience" title="gcaudience" content="general public">
+<meta name="dcterms.audience" title="gcaudience" content="government">
+<meta name="dcterms.audience" title="gcaudience" content="media">
+<meta name="dcterms.audience" title="gcaudience" content="scientists">
+<meta name="dcterms.audience" title="gcaudience" content="travellers">
+<meta name="dcterms.type" title="gctype" content="educational material">
+<meta name="dcterms.type" title="gctype" content="fact sheet">
+<meta name="dcterms.type" title="gctype" content="geospatial material">
+<meta name="dcterms.type" title="gctype" content="interactive resource">
+<meta name="dcterms.spatial" title="gcgeonames" content="Canada">
+<meta name="dcterms.identifier" title="nrc.dcr" content="/default/main/prod/public/nrc-cnrc/WORKAREA/nrc-cnrc/templatedata/gcweb/generic/data/eng-fra/services-services/time-heure/web_clock-horloge_web">
+
+
+<!--[if lte IE 8]>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu/js/jquery-ie.min.js"></script>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="http://www.nrc-cnrc.gc.ca/_gcwu/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="http://www.nrc-cnrc.gc.ca/_gcwu/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/css/theme-ie-min.css" />
+<noscript><link rel="stylesheet" href="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/css/theme-ns-ie-min.css" /></noscript>
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/analytics.js" async=""></script><script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/jquery_002.js"></script>
+<link rel="stylesheet" href="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/util-min.css">
+<link rel="stylesheet" href="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/pe-ap-min.css">
+<link rel="stylesheet" href="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/theme-min.css">
+<noscript><link rel="stylesheet" href="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
+<!--<![endif]-->
+
+
+<!-- CustomCSSStart -->
+<link href="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/style.css" rel="stylesheet">
+<!-- CustomCSSEnd -->
+<!--[if lte IE 8]>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu_webclock/web_clock.min.js"></script>  
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu_webclock/js/moment.min.js"></script>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu_webclock/js/moment-timezone-with-data-2010-2020.min.js"></script>     
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/web_clock.js"></script>     
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/moment.js"></script>
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/moment-timezone-with-data-2010-2020.js"></script> 
+<!--<![endif]-->
+
+
+<!-- CustomCSSStart -->
+<link href="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/style.css" rel="stylesheet">
+<!-- CustomCSSEnd -->
+
+ <script type="text/javascript">
+            $(document).on('wb-init-loaded', function () {
+                initClock();
+            });
+        </script>
+<!-- Generated Tue Oct 20 03:44:13 2015 -->
+<link sizes="57x57 72x72 114x114 144x144 150x150" rel="apple-touch-icon" href="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/images/favicon-mobile.png"></head>
+
+<!-- noindex -->
+
+<body class="ui-mobile-viewport ui-overlay-c"><div style="min-height: 1072px;" data-url="wb-body-sec" class="ui-page-active ui-page ui-body-c" data-role="page" id="wb-body-sec">
+<div id="wb-skip">
+<ul id="wb-tphp">
+<li id="wb-skip1"><a class="ui-link" href="#wb-cont">Skip to main content</a></li>
+<li id="wb-skip2"><a class="ui-link" href="#wb-nav">Skip to secondary menu</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/web_clock.html?pedisable=true">Basic HTML version</a></li></ul>
+</div>
+
+<div id="wb-head"><div id="wb-head-in"><header>
+<!-- HeaderStart -->
+<nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
+<div id="gcwu-sig"><div id="gcwu-sig-in"><object data="Web%20clock%20(Official%20times%20across%20Canada)%20-%20National%20Research%20Council%20Canada_files/sig-eng.svg" role="img" tabindex="-1" aria-label="Government of Canada" type="image/svg+xml"><img src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/sig-eng.png" alt="Government of Canada"></object></div></div>
+
+<ul>
+<li id="gcwu-gcnb1"><a class="ui-link" rel="external" href="http://www.canada.ca/en/index.html">Canada.ca</a></li>
+<li id="gcwu-gcnb2"><a class="ui-link" rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
+<li id="gcwu-gcnb3"><a class="ui-link" rel="external" href="http://www.canada.ca/en/gov/dept/index.html">Departments</a></li>
+<li id="gcwu-gcnb-lang"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/fra/services/heure/horloge_web.html" lang="fr">Français</a></li>
+</ul>
+</div></div></div></nav>
+
+<div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><object data="Web%20clock%20(Official%20times%20across%20Canada)%20-%20National%20Research%20Council%20Canada_files/wmms.svg" role="img" tabindex="-1" aria-label="Symbol of the Government of Canada" type="image/svg+xml"><img src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/wmms.png" alt="Symbol of the Government of Canada"></object></div></div>
+
+<div id="gcwu-title"><p id="gcwu-title-in"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/index.html">National Research Council Canada</a></p></div>
+
+<section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
+<form action="http://search-recherche.nrc-cnrc.gc.ca/search/search.cgi" method="get"><div id="gcwu-srchbx-in">
+<input data-role="none" name="collection" value="nrc-cnrc" type="hidden">
+<input data-role="none" name="form" value="nrc_e" type="hidden">
+<input data-role="none" name="scope" value="/eng,/obj" type="hidden">
+
+<label for="gcwu-srch">Search website</label><input data-role="none" id="gcwu-srch" name="query_simple" size="27" maxlength="150" type="search">
+<input data-role="none" id="gcwu-srch-submit" name="gcwu-srch-submit" value="Search" data-icon="search" type="submit">
+</div></form>
+</div></section>
+</div></div>
+
+<nav role="navigation">
+<div id="gcwu-psnb"><h2>Site menu</h2><div id="gcwu-psnb-in"><div style="min-height: 29px;" data-load="menubar" class="wet-boew-menubar mb-mega"><div>
+<ul role="menubar" class="mb-menu" data-ajax-replace="http://www.nrc-cnrc.gc.ca/theme-nrc-cnrc/_relative/menu-eng.txt">
+
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html -->
+<!-- DataAjaxFragmentStart -->
+<li><section><h3><a aria-haspopup="true" aria-setsize="6" aria-posinset="1" role="menuitem" class="ui-link knav-0-0-0 mb-has-sm" href="#"><span class="expandicon"><span class="sublink">Programs and services</span></span><span class="wb-invisible"> (open the submenu with the enter key and close with the escape key)</span></a></h3>
+<div aria-hidden="true" aria-expanded="false" role="menu" class="mb-sm"><div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="5" aria-posinset="1" role="menuitem" class="ui-link knav-0-1-0" href="http://www.nrc-cnrc.gc.ca/eng/solutions/collaborative/index.html">Research programs and collaboration opportunities</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="5" aria-posinset="2" role="menuitem" class="ui-link knav-0-2-0" href="http://www.nrc-cnrc.gc.ca/eng/solutions/advisory/index.html">Technical and advisory services</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="5" aria-posinset="3" role="menuitem" class="ui-link knav-0-3-0" href="http://www.nrc-cnrc.gc.ca/eng/solutions/licensing/index.html">Licensing opportunities</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="5" aria-posinset="4" role="menuitem" class="ui-link knav-0-4-0" href="http://www.nrc-cnrc.gc.ca/eng/irap/index.html">Industrial Research Assistance Program (IRAP)</a></li>
+</ul>
+
+</div>
+
+<div class="clear"></div>
+<div class="mb-main-link"><a tabindex="-1" aria-setsize="5" aria-posinset="5" role="menuitem" class="ui-link knav-0-5-0" href="http://www.nrc-cnrc.gc.ca/eng/solutions/index.html">Programs and services - Main page</a></div>
+</div>
+</section>
+</li>
+<li><section><h3><a aria-haspopup="true" aria-setsize="6" aria-posinset="2" role="menuitem" class="ui-link knav-1-0-0 mb-has-sm" href="#"><span class="expandicon"><span class="sublink">Areas of R&amp;D</span></span><span class="wb-invisible"> (open the submenu with the enter key and close with the escape key)</span></a></h3>
+<div aria-hidden="true" aria-expanded="false" role="menu" class="mb-sm"><div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="1" role="menuitem" class="ui-link knav-1-1-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/aerospace/index.html">Aerospace</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="2" role="menuitem" class="ui-link knav-1-2-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/aquatic/index.html">Aquatic and crop resource development</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="3" role="menuitem" class="ui-link knav-1-3-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/ast/index.html">Automotive and surface transportation</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="4" role="menuitem" class="ui-link knav-1-4-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/construction/index.html">Construction</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="5" role="menuitem" class="ui-link knav-1-5-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/eme/index.html">Energy, mining and environment</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="6" role="menuitem" class="ui-link knav-1-6-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/hht/index.html">Human health therapeutics</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="7" role="menuitem" class="ui-link knav-1-7-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/ict/index.html">Information and communications technologies</a></li>
+</ul>
+
+</div>
+
+<div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="8" role="menuitem" class="ui-link knav-1-8-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/mss/index.html">Measurement science and standards</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="9" role="menuitem" class="ui-link knav-1-9-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/medical/index.html">Medical devices</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="10" role="menuitem" class="ui-link knav-1-10-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/nsi/index.html">NRC Herzberg Astronomy and Astrophysics</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="11" role="menuitem" class="ui-link knav-1-11-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/ocre/index.html">Ocean, coastal and river engineering</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="13" aria-posinset="12" role="menuitem" class="ui-link knav-1-12-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/security/index.html">Security and disruptive technologies</a></li>
+</ul>
+
+</div>
+
+<div class="clear"></div>
+<div class="mb-main-link"><a tabindex="-1" aria-setsize="13" aria-posinset="13" role="menuitem" class="ui-link knav-1-13-0" href="http://www.nrc-cnrc.gc.ca/eng/rd/index.html">Areas of R&amp;D - Main page</a></div>
+</div>
+</section>
+</li>
+<li><div><a aria-setsize="6" aria-posinset="3" role="menuitem" class="ui-link knav-2-0-0" href="http://www.nrc-cnrc.gc.ca/eng/solutions/facilities/index.html">Research facilities</a></div></li>
+<li><section><h3><a aria-haspopup="true" aria-setsize="6" aria-posinset="4" role="menuitem" class="ui-link knav-3-0-0 mb-has-sm" href="#"><span class="expandicon"><span class="sublink">Publications</span></span><span class="wb-invisible"> (open the submenu with the enter key and close with the escape key)</span></a></h3>
+<div aria-hidden="true" aria-expanded="false" role="menu" class="mb-sm"><div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="3" aria-posinset="1" role="menuitem" class="ui-link knav-3-1-0" href="http://www.nrc-cnrc.gc.ca/eng/publications/nrc_pubs/index.html">NRC publications</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="3" aria-posinset="2" role="menuitem" class="ui-link knav-3-2-0" href="http://nsl-bsn.nrc-cnrc.gc.ca/eng/home/">National Science Library</a></li>
+</ul>
+
+</div>
+
+<div class="clear"></div>
+<div class="mb-main-link"><a tabindex="-1" aria-setsize="3" aria-posinset="3" role="menuitem" class="ui-link knav-3-3-0" href="http://www.nrc-cnrc.gc.ca/eng/publications/index.html">Publications - Main page</a></div>
+</div>
+</section>
+</li>
+<li><section><h3><a aria-haspopup="true" aria-setsize="6" aria-posinset="5" role="menuitem" class="ui-link knav-4-0-0 mb-has-sm" href="#"><span class="expandicon"><span class="sublink">Careers</span></span><span class="wb-invisible"> (open the submenu with the enter key and close with the escape key)</span></a></h3>
+<div aria-hidden="true" aria-expanded="false" role="menu" class="mb-sm"><div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="1" role="menuitem" class="ui-link knav-4-1-0" href="http://careers-carrieres.nrc-cnrc.gc.ca/careers/jobpost.nsf/postbycity_e">Jobs available now</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="2" role="menuitem" class="ui-link knav-4-2-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/tools_resources.html">Career tools and resources</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="3" role="menuitem" class="ui-link knav-4-3-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/programs/index.html">Employment and award programs</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="4" role="menuitem" class="ui-link knav-4-4-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/who_we_hire.html">Who we hire</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="5" role="menuitem" class="ui-link knav-4-5-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/working_nrc.html">Working for the National Research Council</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="7" aria-posinset="6" role="menuitem" class="ui-link knav-4-6-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/why_nrc.html">Why choose NRC?</a></li>
+</ul>
+
+</div>
+
+<div class="clear"></div>
+<div class="mb-main-link"><a tabindex="-1" aria-setsize="7" aria-posinset="7" role="menuitem" class="ui-link knav-4-7-0" href="http://www.nrc-cnrc.gc.ca/eng/careers/index.html">Careers - Main page</a></div>
+</div>
+</section>
+</li>
+<li><section><h3><a aria-haspopup="true" aria-setsize="6" aria-posinset="6" role="menuitem" class="ui-link knav-5-0-0 mb-has-sm" href="#"><span class="expandicon"><span class="sublink">About NRC</span></span><span class="wb-invisible"> (open the submenu with the enter key and close with the escape key)</span></a></h3>
+<div aria-hidden="true" aria-expanded="false" role="menu" class="mb-sm"><div class="span-2">
+<ul>
+
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="1" role="menuitem" class="ui-link knav-5-1-0" href="http://www.nrc-cnrc.gc.ca/eng/about/ministers/index.html">Ministers</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="2" role="menuitem" class="ui-link knav-5-2-0" href="http://www.nrc-cnrc.gc.ca/eng/about/corporate_overview/index.html">Corporate overview</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="3" role="menuitem" class="ui-link knav-5-3-0" href="http://www.nrc-cnrc.gc.ca/eng/about/community/index.html">Community</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="4" role="menuitem" class="ui-link knav-5-4-0" href="http://www.nrc-cnrc.gc.ca/eng/about/global/index.html">Global reach</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="5" role="menuitem" class="ui-link knav-5-5-0" href="http://www.nrc-cnrc.gc.ca/eng/about/ethics_integrity/index.html">Ethics and integrity</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="6" role="menuitem" class="ui-link knav-5-6-0" href="http://www.nrc-cnrc.gc.ca/eng/about/intellectual_property/index.html">Intellectual property</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="7" role="menuitem" class="ui-link knav-5-7-0" href="http://www.nrc-cnrc.gc.ca/eng/about/planning_reporting/index.html">Corporate planning and reporting</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="8" role="menuitem" class="ui-link knav-5-8-0" href="http://www.nrc-cnrc.gc.ca/eng/news/index.html">News and events</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="9" role="menuitem" class="ui-link knav-5-9-0" href="http://www.nrc-cnrc.gc.ca/eng/about/directions/index.html">Locations across Canada</a></li>
+<li class="top-level"><a tabindex="-1" aria-setsize="11" aria-posinset="10" role="menuitem" class="ui-link knav-5-10-0" href="http://www.nrc-cnrc.gc.ca/eng/contact/index.html">Contact us</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a tabindex="-1" aria-setsize="11" aria-posinset="11" role="menuitem" class="ui-link knav-5-11-0" href="http://www.nrc-cnrc.gc.ca/eng/about/index.html">About NRC - Main page</a></div>
+</div>
+</section>
+</li>
+<!-- DataAjaxFragmentEnd -->
+</ul>
+</div></div></div></div>
+
+<div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
+<ol>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/index.html">Home</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/index.html">NRC official time</a></li>
+<li>Web clock (Official times across Canada)</li>
+
+</ol>
+</div></div>
+</nav>
+<!-- HeaderEnd -->
+</header></div></div>
+
+<!-- endnoindex -->
+
+<div id="wb-core"><div id="wb-core-in" class="equalize">
+<div id="wb-main" role="main"><div id="wb-main-in">
+<!-- MainContentStart -->
+
+<h1 id="wb-cont">Web clock (Official times across Canada)</h1>
+
+<div class="span-6">
+  <div class="module-note module-simplify margin-top-small">
+    <section>
+      <h2 class="color-dark">Browser compatibility</h2>
+      <p> Please note that using an older browser or a browser not on 
+our list of supported browsers may cause our application to operate 
+incorrectly. Our supported browsers include the most recent versions of 
+Internet Explorer (9.0, 10.0, 11.0), Mozilla Firefox (39.0, 40.0), 
+Google Chrome (43.0, 44.0) and Safari (7.0, 8.0). If you are running an 
+older version of these browsers, we recommend you to upgrade. </p>
+    </section>
+  </div>
+  <h2>How is the official time displayed on my screen?</h2>
+  
+  <!-- start of div aligning the clock on the right -->
+  <div id="nrc_clock" clock_mode="tabbed" class="span-3 float-right align-center border-all"> <img class="indent-small span-3 margin-bottom-medium" src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/timeclock.jpg" alt="">
+    <h2 id="h2_clock_label" class="background-accent">NRC official time</h2>
+    <h3 class="font-medium margin-top-medium margin-bottom-none" id="h3_clock_label1">Select clock</h3>
+    <div class="button-toolbar margin-top-none">
+      <ul class="button-group">
+        <li><a id="displayFormat12hr" href="#tab12" class="time_format button font-small ui-link">12 hr</a></li>
+        <li><a id="displayFormat24hr" href="#tab24" class="time_format button font-small ui-link">24 hr</a></li>
+      </ul>
+    </div>
+    <h3 class="font-medium margin-top-medium margin-bottom-none" id="h3_clock_label2">Select time zone</h3>
+    <div data-easytabs="true" data-load="tabbedinterface" id="tabs" class="wet-boew-tabbedinterface">
+      <h3 class="wb-invisible">Tab list</h3><ul aria-live="off" role="tablist" id="tzLabels" class="tabs">
+        <li class="" role="presentation" id="tztab--1"><a tabindex="-1" id="tzpanel-1-link" aria-controls="tzpanel-1" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-1"><span name="Canada/Pacific" id="tztab-1"><abbr title="Pacific Daylight Time">PDT</abbr></span></a></li>
+        <li role="presentation" id="tztab--2"><a tabindex="-1" id="tzpanel-2-link" aria-controls="tzpanel-2" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-2"><span name="Canada/Mountain" id="tztab-2"><abbr title="Mountain Daylight Time">MDT</abbr></span></a></li>
+        <li role="presentation" id="tztab--3"><a tabindex="-1" id="tzpanel-3-link" aria-controls="tzpanel-3" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-3"><span name="Canada/Central" id="tztab-3"><abbr title="Central Daylight Time">CDT</abbr></span></a></li>
+        <li role="presentation" id="tztab--4"><a tabindex="-1" id="tzpanel-4-link" aria-controls="tzpanel-4" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-4"><span name="Canada/Eastern" id="tztab-4"><abbr title="Eastern Daylight Time">EDT</abbr></span></a></li>
+        <li role="presentation" id="tztab--5"><a tabindex="-1" id="tzpanel-5-link" aria-controls="tzpanel-5" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-5"><span name="Canada/Atlantic" id="tztab-5"><abbr title="Atlantic Daylight Time">ADT</abbr></span></a></li>
+        <li role="presentation" id="tztab--6"><a tabindex="-1" id="tzpanel-6-link" aria-controls="tzpanel-6" aria-selected="false" role="tab" class="ui-link" href="#tzpanel-6"><span name="Canada/Newfoundland" id="tztab-6"><abbr title="Newfoundland Daylight Time">NDT</abbr></span></a></li>
+        <li class="active" role="presentation" id="tztab--7"><a tabindex="0" id="tzpanel-7-link" aria-controls="tzpanel-7" aria-selected="true" role="tab" class="ui-link active" href="#tzpanel-7"><span name="UTC" id="tztab-7"><abbr title="Coordinated Universal Time">UTC</abbr></span></a></li>
+      </ul>
+      <div id="tzpanel-1-parent" class="tabs-panel">
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-1-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-1" class="background-white">
+          <p id="timeDiv1" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">01:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv1">PDT</span> <span class="font-large" id="tzoffDiv1">(UTC-07:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv1">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv1">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-2-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-2" class=" background-white">
+          <p id="timeDiv2" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">02:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv2">MDT</span> <span class="font-large" id="tzoffDiv2">(UTC-06:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv2">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv2">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-3-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-3" class=" background-white">
+          <p id="timeDiv3" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">03:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv3">CDT</span> <span class="font-large" id="tzoffDiv3">(UTC-05:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv3">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv3">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-4-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-4" class=" background-white">
+          <p id="timeDiv4" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">04:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv4">EDT</span> <span class="font-large" id="tzoffDiv4">(UTC-04:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv4">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv4">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-5-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-5" class=" background-white">
+          <p id="timeDiv5" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">05:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv5">ADT</span> <span class="font-large" id="tzoffDiv5">(UTC-03:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv5">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv5">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: none; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-6-link" aria-expanded="false" aria-hidden="true" role="tabpanel" tabindex="-1" id="tzpanel-6" class=" background-white">
+          <p id="timeDiv6" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">06:12:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv6">NDT</span> <span class="font-large" id="tzoffDiv6">(UTC-02:30)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv6">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv6">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+        <div style="display: block; min-height: 90px; outline: medium none;" aria-labelledby="tzpanel-7-link" aria-expanded="true" aria-hidden="false" role="tabpanel" tabindex="-1" id="tzpanel-7" class="background-white active">
+          <p id="timeDiv7" class="font-xxlarge bold_text align-center margin-bottom-medium margin-top-medium">08:42:19 AM</p>
+          <p class="margin-bottom-medium margin-top-medium"> <span class="font-xxlarge" id="tzDiv7">UTC</span> <span class="font-large" id="tzoffDiv7">(UTC+00:00)</span> </p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="uncDiv7">Your local clock is 167.39 seconds slow.</span></p>
+          <p class="margin-bottom-medium margin-top-medium"><span id="delDiv7">Estimated network delay is 0.25 seconds.</span></p>
+        <p class="panel-end"><span class="wb-invisible">End of this tab panel.</span><a href="javascript:;" class="wb-show-onfocus button button-accent position-bottom-medium position-left">Return to the tab list</a><span class="wb-invisible">or continue to the rest of page.</span></p></div>
+      </div>
+      <div class="background-light margin-top-none margin-bottom-none">
+        <p class="font-small align-right margin-top-none margin-bottom-none " id="nrc_clock_version_label">version 0.9.22</p>
+      </div>
+    </div>
+  </div>
+  <!-- end of div aligning the clock on the right -->
+  
+  <div class="span-3 margin-right-none indent-none">
+    <p>The <strong>time</strong> displayed on your screen is derived 
+from Canada's official time source: NRC's atomic clocks. Your computer 
+or mobile device receives the official time through a periodic exchange 
+of time-stamped messages between your device and NRC's time source. The 
+time displayed is corrected for measured network delays. If you are in 
+North America, the display will usually show time according to your time
+ zone. If you are outside North America, the display will show UTC 
+(Coordinated Universal Time – the modern implementation of Zulu time or 
+GMT). For more information on Canadian time zones consult <a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/time_zones.html">Time zones &amp; daylight saving time</a>.</p>
+    <p> The <strong>offset</strong> of the clock in your device from NRC
+ official time is also shown ('Your local clock is ___ seconds fast / 
+slow'). If the offset is  large (i.e. thousands of seconds), check that 
+your computer settings for the date, time zone, or daylight saving time 
+ are correct. You can adjust your device's clock manually, or have it 
+set automatically through the use of <a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/network_time.html">Network Time Protocol (NTP)</a>.</p>
+    <p>The network <strong>delay</strong> is equal to one half the 
+period of time it takes for a roundtrip exchange of messages between 
+your device and NRC's atomic clocks. The network delay can be used to 
+estimate the uncertainties in the displayed official time and the clock 
+offset. In most cases, the displayed time is correct to within an 
+uncertainty equal to the network delay. However, operating system delays
+ may degrade the accuracy to some degree.</p>
+    <div class="module-info span-3 margin-top-small">
+      <section>
+        <h2>Enquiries</h2>
+        <p><strong>Telephone</strong>: 613-993-5186<br>
+          <strong>Email</strong>: <a class="ui-link" href="mailto:NRC.Time-Temps.CNRC@nrc-cnrc.gc.ca">NRC.Time-Temps.CNRC@nrc-cnrc.gc.ca</a><br>
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+<dl id="gcwu-date-mod" role="contentinfo">
+<dt>Date modified:</dt><dd><span><time>2015-09-21</time></span></dd>
+</dl>
+<div class="clear"></div>
+<!-- MainContentEnd -->
+</div></div>
+
+<!-- noindex -->
+
+<div id="wb-sec"><div id="wb-sec-in"><nav role="navigation"><h2 id="wb-nav">Secondary menu</h2>
+<div class="wb-sec-def">
+<!-- SecNavStart -->
+<section><h3 class="top-section"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/index.html">NRC official time</a></h3>
+<section><h4><a class="nav-current ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/web_clock.html">Web clock (Official times across Canada)</a></h4>
+</section>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/time_broadcast.html">CBC daily time broadcasts</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/talking_clock.html">Telephone talking clock</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/time_date.html">Computer time &amp; date</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/short_wave.html">NRC short wave station broadcasts (CHU)</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/network_time.html">Network Time Protocol (NTP)</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/global_positioning/index.html">Global Positioning Data (GPS)</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/time_zones.html">Time zones &amp; daylight saving time</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/leap_second.html">The leap second</a></div>
+<div class="top-level"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/services/time/faq/index.html">Frequently asked questions</a></div>
+</section>
+<!-- SecNavEnd -->
+</div>
+
+</nav></div></div>
+
+
+</div></div>
+
+<!--NRCAppFooterMarker-->
+
+<div id="wb-foot"><div id="wb-foot-in"><footer><h2>Footer</h2>
+<!-- FooterStart -->
+<nav role="navigation"><div id="gcwu-sft"><h3>Site footer</h3><div id="gcwu-sft-in">
+<div id="gcwu-tctr">
+<ul>
+<li class="gcwu-tc"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/notices/index.html" rel="license">Terms and conditions</a></li>
+<li class="gcwu-tr"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/transparency/index.html">Transparency</a></li>
+
+</ul>
+</div>
+<div class="clear"></div>
+<section><div class="span-2"><h4 class="gcwu-col-head"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/about/index.html">About us</a></h4>
+		<ul>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/about/index.html#mandate">Mandate</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/about/org_chart/index.html">Organizational structure</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/about/corporate_overview/index.html#council">Executive Committee</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/about/directions/index.html">Driving directions</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/sitemap/index.html">Site map</a></li>
+</ul>
+
+		</div></section>
+
+<section><div class="span-2"><h4 class="gcwu-col-head"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/contact/index.html">Contact us</a></h4>
+		<ul>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/feedback/index.html">Feedback form</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/contact/index.html#media">Media relations enquiries</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/contact/index.html#irap">IRAP</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/contact/index.html#technical">Technical help</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/people/index.html">Experts and staff</a></li>
+</ul>
+
+		</div></section>
+
+<section><div class="span-2"><h4 class="gcwu-col-head"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/news/index.html">News</a></h4>
+		<ul>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/news/releases/2015/index.html">News releases</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/achievements/index.html">Achievements</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/events/index.html">Events</a></li>
+</ul>
+
+		</div></section>
+
+<section><div class="span-2"><h4 class="gcwu-col-head"><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/connected/index.html">Stay connected</a></h4>
+		<ul>
+<li><a class="ui-link" href="http://www.linkedin.com/company/8417?trk=tyah">LinkedIn</a></li>
+<li><a class="ui-link" href="https://twitter.com/nrc_cnrc">Twitter</a></li>
+<li><a class="ui-link" href="http://youtube.com/researchcouncilcan">YouTube</a></li>
+<li><a class="ui-link" href="http://flickr.com/photos/66821901@N06/">Flickr</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/feeds/index.html">Web feeds</a></li>
+<li><a class="ui-link" href="http://www.nrc-cnrc.gc.ca/eng/subscribe/index.html">Subscribe</a></li>
+</ul>
+
+		</div></section>
+
+</div></div></nav>
+
+<nav role="navigation"><div id="gcwu-gcft"><h3>Government of Canada footer</h3><div id="gcwu-gcft-in"><div id="gcwu-gcft-fip">
+<ul>
+<li><a class="ui-link" rel="external" href="http://healthycanadians.gc.ca/index-eng.php"><span>Health</span></a></li>
+<li><a class="ui-link" rel="external" href="http://travel.gc.ca/"><span>Travel</span></a></li>
+<li><a class="ui-link" rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span></a></li>
+<li><a class="ui-link" rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span></a></li>
+<li><a class="ui-link" rel="external" href="http://actionplan.gc.ca/"><span>Economy</span></a></li>
+<li id="gcwu-gcft-ca"><div><a class="ui-link" rel="external" href="http://www.canada.ca/en/index.html">Canada.ca</a></div></li>
+</ul>
+</div></div></div></nav>
+<!-- FooterEnd -->
+</footer>
+</div></div></div>
+
+<!-- ScriptsStart -->
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/settings.js"></script>
+<!--[if lte IE 8]>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu/theme-gcwu-fegc/js/theme-ie-min.js"></script>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu/js/pe-ap-ie-min.js"></script>
+<script src="http://www.nrc-cnrc.gc.ca/_gcwu/js/jquerymobile/jquery.mobile-ie.min.js"></script>
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/theme-min.js"></script>
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/pe-ap-min.js"></script><div><div id="viewtest"></div><span id="resizetest">&nbsp;</span></div>
+<script src="Web%20clock%20%28Official%20times%20across%20Canada%29%20-%20National%20Research%20Council%20Canada_files/jquery.js"></script>
+<!--<![endif]-->
+<!-- ScriptsEnd -->
+
+
+<!-- endnoindex -->
+
+<!-- CustomScriptsStart -->
+
+	<!--GoogleAnalyticsStarts-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-30780032-1', 'nrc-cnrc.gc.ca');
+		ga('set', 'anonymizeIp', true);
+		ga('send', 'pageview');
+	</script>
+	<!--GoogleAnalyticsEnds-->
+	<script>
+		$(document).ready(function(){
+			handle_tbs_class();
+		});
+		function handle_tbs_class() {
+			var node = $('ul > li > ul > li > ul > li a.nav-current').parent().parent().parent().children();
+			node.css("border-top", "0");
+			node.css("border-right", "0");
+			node.css("border-bottom", "0");
+			node.css("border-left", "0");
+			node.css("color", "#333333");
+		}
+	</script>
+		
+<!-- CustomScriptsEnd -->
+
+
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div></body></html>

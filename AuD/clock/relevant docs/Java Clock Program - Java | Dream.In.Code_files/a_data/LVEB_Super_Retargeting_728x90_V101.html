@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head><script src="LVEB_Super_Retargeting_728x90_V101_data/LVEB_Super_Retargeting_728x90_V101_edge.js"></script><script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="ad.size" content="width=728,height=90">
+	<script>
+      var clickTag = "http://www.google.com";
+    </script>
+	<title>Untitled</title>
+<!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="LVEB_Super_Retargeting_728x90_V101_data/edge.js"></script>
+    <style>
+        .edgeLoad-EDGE-759502676 { visibility:hidden; }
+    </style>
+<script>
+   AdobeEdge.loadComposition('LVEB_Super_Retargeting_728x90_V101', 'EDGE-759502676', {
+    scaleToFit: "none",
+    centerStage: "none",
+    minW: "0px",
+    maxW: "undefined",
+    width: "728px",
+    height: "90px"
+}, {"dom":{}}, {"dom":{}});
+</script>
+<!--Adobe Edge Runtime End-->
+
+</head>
+<body style="margin:0;padding:0;">
+<a href="javascript:window.open(window.clickTag)" style="position:absolute; z-index:1000; top:0px; left:0px;
+   width:100%; height:100%;">
+   </a>
+	<div style="position: relative; height: 90px; width: 728px; z-index: 0; right: auto; bottom: auto; background-color: rgb(255, 255, 255); overflow: hidden; text-overflow: clip; background-size: 100% 100%;" id="Stage" class="EDGE-759502676">
+	<div class="Stage_ad_mc_id" style="position: absolute; margin: 0px; width: 728px; height: 90px; left: 0px; top: 0px; right: auto; bottom: auto; z-index: 0;" id="Stage_ad_mc"><div class="Stage_ad_mc_paris_BG_id" style="position: absolute; margin: 0px; width: 728px; height: 115px; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_paris_BG"><div class="Stage_ad_mc_paris_BG_paris_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 728px; height: 115px; right: auto; bottom: auto; background-image: url(&quot;images/paris.jpg&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_paris_BG_paris"></div></div><div class="Stage_ad_mc_gradient2_id" style="position: absolute; margin: 0px; width: 35px; height: 87px; opacity: 1; left: 352px; top: 17px; right: auto; bottom: auto; transform: translate(0px, 0px) rotate(0deg) scale(21.3733, 1); z-index: 0;" id="Stage_ad_mc_gradient2"><div class="Stage_ad_mc_gradient2_gradient_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 35px; height: 87px; right: auto; bottom: auto; background-image: url(&quot;images/gradient.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_gradient2_gradient"></div></div><div class="Stage_ad_mc_CTA_div_id" style="position: absolute; margin: 0px; width: 150px; height: 41px; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(554px, 24px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_CTA_div"><div class="Stage_ad_mc_CTA_div_cta_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 150px; height: 41px; right: auto; bottom: auto; background-image: url(&quot;images/cta.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_CTA_div_cta"></div><div class="Stage_ad_mc_CTA_div_cta_arrow_div_id" style="position: absolute; margin: 0px; width: 11px; height: 18px; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(127.02px, 11px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_CTA_div_cta_arrow_div"><div class="Stage_ad_mc_CTA_div_cta_arrow_div_cta_arrow_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 11px; height: 18px; right: auto; bottom: auto; background-image: url(&quot;images/cta_arrow.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_CTA_div_cta_arrow_div_cta_arrow"></div></div></div><div class="Stage_ad_mc_blue_start2_id" style="position: absolute; margin: 0px; width: 728px; height: 90px; opacity: 0; left: 0px; top: 0px; right: auto; bottom: auto; z-index: 0;" id="Stage_ad_mc_blue_start2"><div class="Stage_ad_mc_blue_start2_blue_start_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 728px; height: 90px; right: auto; bottom: auto; background-image: url(&quot;images/blue_start.jpg&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_blue_start2_blue_start"></div></div><div class="Stage_ad_mc_bloom3_id" style="position: absolute; margin: 0px; width: 300px; height: 133px; opacity: 0.6; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(-10px, -23px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_bloom3"><div class="Stage_ad_mc_bloom3_bloom2_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 300px; height: 133px; right: auto; bottom: auto; background-image: url(&quot;images/bloom.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_bloom3_bloom2"></div></div><div class="Stage_ad_mc_laVie_id" style="position: absolute; margin: 0px; width: 230px; height: 140px; opacity: 0; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(175px, -15px) rotate(0deg) scale(0.3, 0.3); z-index: 0;" id="Stage_ad_mc_laVie"><div class="Stage_ad_mc_laVie_lveb_1_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 230px; height: 140px; right: auto; bottom: auto; background-image: url(&quot;images/lveb_1.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_laVie_lveb_1"></div></div><div class="Stage_ad_mc_estBelle_id" style="position: absolute; margin: 0px; width: 274px; height: 114px; opacity: 0; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(239px, -6px) rotate(0deg) scale(0.3, 0.3); z-index: 0;" id="Stage_ad_mc_estBelle"><div class="Stage_ad_mc_estBelle_lveb_2_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 274px; height: 114px; right: auto; bottom: auto; background-image: url(&quot;images/lveb_2.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_estBelle_lveb_2"></div></div><div class="Stage_ad_mc_logo_balken_id" style="position: absolute; margin: 0px; width: 87px; height: 21px; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(295px, 6px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_logo_balken"><div class="Stage_ad_mc_logo_balken_logo_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 87px; height: 21px; right: auto; bottom: auto; background-image: url(&quot;images/logo.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_logo_balken_logo"></div></div><div class="Stage_ad_mc_text_01_id" style="position: absolute; margin: 0px; width: 298px; height: 39px; opacity: 1; left: 189px; top: 40px; right: auto; bottom: auto; transform: translate(0px, 0px) rotate(0deg) scale(1, 1); z-index: 0;" id="Stage_ad_mc_text_01"><div class="Stage_ad_mc_text_01_Text_1_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 298px; height: 39px; right: auto; bottom: auto; background-image: url(&quot;images/Text_1.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_text_01_Text_1"></div></div><div class="Stage_ad_mc_text_02_id" style="position: absolute; margin: 0px; width: 432px; height: 57px; opacity: 0; left: 122px; top: 33px; right: auto; bottom: auto; transform: translate(0px, 0px) rotate(0deg) scale(0.5, 0.5); z-index: 0;" id="Stage_ad_mc_text_02"><div class="Stage_ad_mc_text_02_Text_2_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 432px; height: 57px; right: auto; bottom: auto; background-image: url(&quot;images/Text_2.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: none; background-position: 0px 0px;" id="Stage_ad_mc_text_02_Text_2"></div></div><div class="Stage_ad_mc_text_03_id" style="position: absolute; margin: 0px; width: 284px; height: 57px; opacity: 0; left: 196px; top: 32px; right: auto; bottom: auto; transform: translate(0px, 0px) rotate(0deg) scale(0.5, 0.5); z-index: 0;" id="Stage_ad_mc_text_03"><div class="Stage_ad_mc_text_03_Text_3_id" style="position: absolute; margin: 0px; left: 0px; top: 0px; width: 284px; height: 57px; right: auto; bottom: auto; background-image: url(&quot;images/Text_3.png&quot;); background-color: transparent; background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px;" id="Stage_ad_mc_text_03_Text_3"></div></div></div></div>
+
+</body></html>

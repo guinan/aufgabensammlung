@@ -1,0 +1,964 @@
+﻿/*
+Theme Name: BiSade
+Theme URI: http://bidusun.com
+Description: Minimalist bir tema :)
+Version: 1.0
+Author: Aycan Doganlar
+*/
+
+/*** genel ayalar ***/
+
+body {
+background:#fff url(mavi/ustcizgi.png) repeat-x;
+font-family:Georgia, Serif;
+text-align:center;
+color:#191919;
+font-size:small;
+margin:0;
+padding:25px 20px;
+}
+
+acronym,abbr {
+border-bottom:1px dashed #333;
+}
+
+acronym,abbr,span.caps {
+cursor:help;
+font-size:90%;
+letter-spacing:.07em;
+}
+
+blockquote {
+border-left:5px solid #B8D4E1;
+padding-left:7px;
+}
+
+cite {
+font-size:90%;
+font-style:normal;
+}
+
+/*** linkler ***/
+a {
+text-decoration:none;
+}
+
+a:link {
+color:#0682BB;
+text-decoration:none;
+}
+
+a:visited {
+color:#0682BB;
+text-decoration:none;
+
+}
+
+a:hover {
+color:#0682BB;
+text-decoration:none;
+
+}
+
+a:active {
+color:#0682BB;
+text-decoration:none;
+
+}
+
+a img {
+border-width:0;
+}
+/*** blog başlıyor ***/
+
+#rap {
+width:950px;
+text-align:left;
+margin:0 auto;
+padding:0;
+}
+
+/*** sayfalar ***/
+
+.sayfalar {
+padding-top:-40px;
+overflow:hidden;
+margin-left:-40px;
+margin-top:-20px;
+margin-bottom:-10px;
+}
+
+.sayfalar li {
+display:inline;
+font:bold 10px/10px "Trebuchet MS";
+float:left;
+}
+
+.sayfalar li a {
+margin-right:5px;
+float:left;
+text-transform:uppercase;
+background:#fff;
+color:#777;
+font-size:10px;
+border:1px solid #777;
+font-family:Trebuchet MS, sans-serif;
+}
+
+.sayfalar .current_page_item a {
+color:#fff;
+text-decoration:none;
+text-transform:uppercase;
+background:#777;
+font-size:10px;
+border:1px solid #77;
+font-family:Trebuchet MS, sans-serif;
+}
+
+.sayfalar li ul{
+display:none;
+}
+
+.sayfalar ul{
+float:left;
+}
+
+.sayfalar li a span {
+display:block;
+padding:5px;
+}
+
+.sayfalar li a:hover,.sayfalar .current_page_item a:hover {
+text-decoration:none;
+text-transform:uppercase;
+background:#777;
+color:#fff;
+font-size:10px;
+border:1px solid #777;
+font-family:Trebuchet MS, sans-serif;
+}
+
+/*** üst kısım ***/
+
+#logo{
+margin-top:-5px;
+padding-top:15px;
+float:left;
+height:73px;
+width:450px;
+
+}
+.logoresim{
+height:73px;
+width:500px;
+}
+#logoalti {
+height:5px;
+background:#fff url(mavi/ustcizgi.png) repeat-x;
+margin-bottom:20px;
+}
+
+.reklam {
+margin-top:15px;
+width:468px;
+height:60px;
+padding:2px;
+border:1px solid #ddd;
+float:right;
+}
+
+#reklam img {
+margin:5px;
+}
+
+/*** kategoriler ***/
+
+.kategori-menu {
+overflow:hidden;
+margin-left:-40px;
+}
+
+.kategori-menu li {
+display:inline;
+font:bold 10px/10px "Trebuchet MS";
+float:left;
+margin-bottom:5px;
+}
+
+.kategori-menu li a {
+margin-right:5px;
+float:left;
+text-transform:uppercase;
+background:#fff;
+color:#777;
+font-size:10px;
+border:1px solid #ccc;
+font-family:Trebuchet MS, sans-serif;
+}
+
+.kategori-menu li a:hover {
+text-decoration:none;
+text-transform:uppercase;
+background:#F9f9f9;
+color:#777;
+font-size:10px;
+border:1px solid #ccc;
+font-family:Trebuchet MS, sans-serif;
+}
+
+.kategori-menu li ul {
+display:none;
+}
+
+.kategori-menu ul {
+float:left;
+}
+
+.kategori-menu li a span {
+display:block;
+padding:5px;
+}
+
+.kategori-menu .kategori-baslik,.kategori-menu .kategori-baslik :hover {
+text-transform:uppercase;
+background:#fff;
+color:#777;
+font-size:10px;
+font-family:Trebuchet MS, sans-serif;
+}
+
+/*** içerik başlangıç ***/
+
+#content {
+width:650px;
+float:left;
+}
+
+/*** tarih - yorum sayısı - devamını oku ***/
+
+.devami{
+font-size:.75em;
+font-weight:400;
+float:right;
+color:#777;
+border:3px double #ccc;
+display:inline-block;
+text-transform:uppercase;
+background:#fff;
+margin:15px 5px 5px 5px;
+font:10px "Trebuchet MS";
+padding:3px;
+cursor:pointer;
+background:#f9f9f9;
+
+}
+.devami a{
+color:#777;
+}
+.devami:hover {
+color:#777;
+border:3px double #B8D4E1;
+background:#fff;
+}
+
+.meta {
+display:inline-block;
+border:3px double #B8D4E1;
+font-size:.75em;
+font-weight:400;
+text-transform:uppercase;
+color:#777;
+background:#fff;
+margin:3px 5px 0 0;
+border-bottom:none;
+font:10px "Trebuchet MS";
+padding:3px;
+cursor:pointer;
+}
+.meta:hover{
+border:3px double #ccc;
+border-bottom:none;
+}
+
+/*** anasayfa yazılar ***/
+
+.post {
+border-bottom:3px double #B8D4E1;
+padding-bottom:5px;
+margin:0 0 1.5em;
+}
+
+.post-entry{
+margin-top:-10px;
+color:#333;
+margin-bottom:75px;
+}
+
+.post-entry h1 {
+font-family:Georgia;
+font-style:italic;
+font-size:20px;
+font-weight:400;
+color:#0682BB;
+}
+h3 {
+font-family:georgia;
+font-weight:bold;
+color:#0682BB;
+margin: 10px 0 10px 0;
+}
+.post-entry li {
+line-height:25px;
+list-style-type:none;
+margin-left:-40px;
+background-image:url(mavi/li-yazi.png);
+background-repeat:no-repeat;
+background-position:0 4px;
+padding:0 0 0 20px;
+}
+
+.title {
+display:inline-block;
+font-size:20px;
+width:400px;
+font-family:Georgia, Serif;
+text-decoration:none;
+}
+
+.title a {
+text-decoration:none;
+color:#0682BB;
+}
+
+.title a:hover {
+text-decoration:none;
+color:#333;
+}
+
+.post-entry p {
+line-height:25px;
+margin:0 0 .75em;
+}
+
+.post-entry blockquote {
+line-height:25px;
+margin-left:0;
+}
+
+.post-entry blockquote p {
+line-height:25px;
+margin:.75em 0;
+}
+
+/*** küçük resimler ***/
+
+.thumbcan {
+border:1px solid #ccc;
+display:block;
+padding:3px;
+float:left;
+width:130px;
+height:130px;
+margin:5px 15px 5px 0px;
+}
+
+.thumb {
+max-width:130px;
+max-height:130px;
+min-width:130px;
+min-height:130px;
+}
+
+/*** sayfalandırma ***/
+
+.wp-pagenavi{
+	display:block;
+	overflow:hidden;
+	text-align: center;
+}
+
+.wp-pagenavi a, .wp-pagenavi a:link {
+	text-decoration: none;
+	display:block;
+	padding: 5px 10px 5px 10px;
+	margin-right:5px;
+	float:left;
+	text-transform:uppercase;
+	background:#fff;
+	color:#777;
+	font-size:11px;
+	border:1px solid #ccc;
+	font-family:Trebuchet MS, sans-serif;
+}
+
+.wp-pagenavi a:hover {
+	background:#F1F1F1;
+	color:#777;
+}
+.wp-pagenavi span.pages {
+	text-decoration: none;
+	display:block;
+	padding: 5px 10px 5px 10px;
+	margin-right:5px;
+	float:left;
+	text-transform:uppercase;
+	background:#fff;
+	color:#777;
+	font-size:11px;
+	border:1px solid #ccc;
+	font-family:Trebuchet MS, sans-serif;
+}
+.wp-pagenavi span.current {
+	text-decoration: none;
+	display:block;
+	padding: 5px 10px 5px 10px;
+	margin-right:5px;
+	float:left;
+	text-transform:uppercase;
+	background:#777;
+	color:#fff;
+	font-size:11px;
+	border:1px solid #777;
+	font-family:Trebuchet MS, sans-serif;
+}
+.wp-pagenavi span.extend {
+	text-decoration: none;
+	display:block;
+	padding: 5px;
+	margin-right:5px;
+	float:left;
+	text-transform:uppercase;
+	background:#777;
+	color:#fff;
+	font-size:11px;
+	border:1px solid #777;
+	font-family:Trebuchet MS, sans-serif;
+}
+
+/*** yazı içi ***/
+
+.post-entry1{
+border-bottom:3px double #B8D4E1;
+margin-top:-10px;
+color:#333;
+}
+
+.post-entry1 h1 {
+font-family:Georgia;
+font-style:italic;
+font-size:20px;
+font-weight:400;
+color:#0682BB;
+}
+
+.post-entry1 li {
+line-height:25px;
+list-style-type:none;
+margin-left:-40px;
+background-image:url(mavi/li-yazi.png);
+background-repeat:no-repeat;
+background-position:0 4px;
+padding:0 0 0 20px;
+}
+
+.post-entry1 p {
+line-height:25px;
+margin:0 0 .75em;
+}
+
+.post-entry1 blockquote {
+line-height:25px;
+margin-left:0;
+}
+
+.post-entry1 blockquote p {
+line-height:25px;
+margin:.75em 0;
+}
+
+/*** yazı içi - etiketler ***/
+
+
+.yazi-bilgi-etiket span{
+display:block; overflow:hidden; position:relative;
+}
+.yazi-bilgi-etiket span a {
+	text-decoration: none;
+	font: 11px georgia;
+	color: #444;
+	float:left;
+	display:block;
+	border: solid 1px #ccc;
+	padding: 5px;
+	margin:5px 10px 5px 0;
+}
+.yazi-bilgi-etiket span a:hover {
+	background: #0682BB;
+	color: #fff;
+	border: solid 1px #0682BB;
+}
+.etiketler{
+	text-decoration: none;
+	font: 11px georgia;
+	color: #fff;
+	background: #0682BB;
+	float:left;
+	border: solid 1px #0682BB;
+	padding: 5px;
+	margin:5px 10px 5px 0;
+}
+
+/*** yorumlar ***/
+
+#comments {
+font:bold 78%/1.4em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#777;
+margin-bottom:10px;
+}
+
+#commentform {
+text-align:left;
+}
+
+ol#comments li p {
+font-size:100%;
+}
+
+#commentlist div p{
+line-height:25px;
+}
+
+#comments-block {
+font-size:95%;
+}
+
+#commentform .kullanici input {
+width: 250px;
+padding:5px;
+color: #666;
+border: 1px solid #ccc;
+font-family:georgia;
+margin-bottom:5px;
+}
+
+#commentform  textarea {
+border: 1px solid #ccc;
+padding:5px;
+width:638px;
+background:#fff;
+color: #666;
+margin-top:-5px;
+font:13px georgia;
+}
+
+.yorumkac{
+font:bold 14px trebuchet ms;
+text-transform:uppercase;
+color:#777;
+padding:5px;
+border:1px solid #ccc;
+letter-spacing:.1em;
+display:inline-block;
+}
+
+.yorum-p p{
+margin-top:-8px;
+line-height:25px;
+}
+
+.commentlist {
+font-size:100%;
+list-style-type:none;
+text-align:left;
+}
+.commentlist .yorumarka{
+background: #fafafa;
+border:1px solid #B8D4E1;
+padding:5px;
+border-bottom:3px double #B8D4E1;
+margin-bottom:20px;
+}
+.commentlist .yorumkutusu{
+margin-left:20px;
+}
+
+.yorum-bilgi{
+margin-top:-8px;
+line-height:25px;
+}
+
+.yorum-bilgi-tarih {
+color:#0682BB;
+text-decoration:none;
+margin-bottom:20px;
+padding-bottom:5px;
+margin-top:-8px;
+border-bottom:1px solid #c9c9c9;
+}
+
+.yorum-bilgi a:hover,.yorum-bilgi-tarih a:hover {
+color:#0682BB;
+text-decoration:none;
+}
+.yorum-bilgi a,.yorum-bilgi-tarih a {
+color:#777;
+text-decoration:none;
+}
+
+.yorum-onay {
+color:#0682BB;
+margin-top:-5px;
+padding-bottom:5px;
+}
+
+#gonder {
+height:25px;
+text-transform:uppercase;
+background:#0682BB;
+color:#fff;
+font-size:11px;
+border:1px solid #fff;
+font-family:Trebuchet MS, sans-serif;
+}
+
+#gonder:hover {
+height:25px;
+text-transform:uppercase;
+background:#fff;
+color:#0682BB;
+font-size:11px;
+border:1px solid #0682BB;
+font-family:Trebuchet MS, sans-serif;
+}
+
+/*** yan menü***/
+
+#menu {
+width:250px;
+float:right;
+padding-left:15px;
+background:url(mavi/yancizgi.png) repeat-y left;
+}
+
+#menu p {
+color:#999;
+line-height:1.5em;
+}
+
+#menu form {
+margin:0 0 0 13px;
+}
+
+#menu input {
+background:#111;
+border:1px solid #777;
+color:#fff;
+letter-spacing:-.05em;
+width:80%;
+}
+
+#menu ul {
+list-style:none;
+font:bold 78%/1.4em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#777;
+line-height:1.5em;
+margin:1.5em 0 .75em;
+padding:0 0 1.5em;
+}
+
+#menu ul li {
+margin-top:-15px;
+padding-bottom:15px;
+}
+
+#menu ul ul {
+font-variant:normal;
+font-weight:400;
+line-height:100%;
+list-style-type:none;
+text-align:left;
+font-size:120%;
+text-transform:none;
+letter-spacing:0;
+margin:0;
+padding:0;
+}
+
+#menu ul ul li {
+border:0 none;
+letter-spacing:0;
+margin-top:.25em;
+font-style:normal;
+font-variant:normal;
+font-weight:400;
+line-height:20px;
+font-size:12px;
+font-family:Georgia, sans-serif;
+padding-left:7px;
+padding-bottom:0;
+margin-bottom:0;
+background:url(mavi/li.png) no-repeat left;
+}
+
+#menu .children{
+display:none;
+}
+
+
+#menu ul ul li :hover{
+color:#333;
+}
+
+/*** bileşen başlığı ***/
+
+.widgettitle,.screen-reader-text {
+width:250px;
+font-family:"Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+font-size:14px;
+padding-top:10px;
+padding-bottom:4px;
+border-bottom:1px solid #ccc;
+text-transform:uppercase;
+letter-spacing:.1em;
+}
+
+/*** yan menü - bileşenler ***/
+
+/*** ketegoriler ***/
+.widget_categories ul{
+font-weight:400;
+list-style:none;
+width:265px;
+overflow:hidden;
+margin:0 0 0 2px;
+}
+
+.widget_categories li{
+float:left;
+width:145px;
+color:#999;
+margin:0;
+}
+
+.widget_categories ul li {
+float:left;
+width:115px;
+padding-left:7px;
+background:url(mavi/li.png) no-repeat left 4px;
+margin:0;
+}
+
+/*** arşiv ***/
+.widget_archive ul {
+font-weight:400;
+list-style:none;
+width:265px;
+overflow:hidden;
+margin:0 0 0 2px;
+}
+
+.widget_archive li {
+float:left;
+width:145px;
+color:#999;
+margin:0;
+}
+
+.widget_archive ul li {
+float:left;
+width:125px;
+margin:0;
+}
+
+/*** metin bileşeni ***/
+
+.textwidget {
+text-transform:none;
+font-weight:400;
+letter-spacing:0;
+font-size:11px;
+font-family:Georgia, sans-serif;
+line-height:20px;
+}
+
+
+/*** sosyal medya ***/
+
+.sosyal-medya{
+width:100%;
+margin-bottom: 10px;
+
+}
+.sosyal-medya .sosyal-ikon{
+border:1px solid #ccc;
+padding:3px;
+margin-right:8.5px;
+}
+.sosyal-ikon:hover{
+border:1px solid #B8D4E1;
+}
+/*** arama formu ***/
+.arama{
+border-top: 1px solid #ccc;
+padding-top:10px;
+}
+
+#searchform #s {
+background:#fff;
+border:1px solid #ccc;
+color:#999;
+width:100%;
+margin-top:3px;
+margin-left:-12px;
+font-family:Georgia,Sans-serif;
+padding:5px;
+margin-bottom:10px;
+border-bottom:1px solid #ccc;
+padding-bottom:5px;
+}
+
+#searchform #searchsubmit{
+display:none;
+}
+
+
+/*** takvim ***/
+
+.widget_calendar h2 {
+display:block;
+}
+
+#wp-calendar {
+color:#777;
+border:1px solid #f1f1f1;
+empty-cells:show;
+font:bold 100% "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+width:250px;
+}
+
+#wp-calendar #next a {
+color:#777;
+padding-right:10px;
+text-align:right;
+}
+
+#wp-calendar #prev a {
+color:#777;
+padding-left:10px;
+text-align:left;
+}
+
+#wp-calendar a {
+color:#000;
+display:block;
+text-decoration:none;
+}
+
+#wp-calendar caption {
+text-align:center;
+padding-top:4px;
+height:20px;
+background:#f1f1f1;
+color:#333;
+}
+
+#wp-calendar td {
+color:#777;
+letter-spacing:normal;
+text-align:center;
+padding:2px 0;
+}
+
+#wp-calendar td.pad:hover {
+background:none;
+}
+
+#wp-calendar td:hover,#wp-calendar #today {
+background:#f1f1f1;
+color:#333;
+}
+
+#wp-calendar th {
+color:#0682BB;
+font-style:normal;
+text-transform:capitalize;
+text-align:center;
+}
+
+#wp-calendar a:hover {
+color:#333;
+}
+
+/*** etiket bulutu - yazı tipi boyutları ***/
+
+.tagsz-1 {
+font-size:10px;
+}
+
+.tagsz-2 {
+font-size:11px;
+}
+
+.tagsz-3 {
+font-size:12px;
+}
+
+.tagsz-4 {
+font-size:13px;
+}
+
+.tagsz-5 {
+font-size:14px;
+}
+
+/*** resimler ***/
+
+img.aligncenter {
+display:block;
+margin-left:auto;
+margin-right:auto;
+border:solid 1px #ccc;
+padding:4px;
+}
+
+img.alignright {
+display:inline;
+border:solid 1px #ccc;
+float:right;
+margin:5px 0 10px 20px;
+padding:4px;
+}
+
+img.alignleft {
+display:inline;
+border:solid 1px #ccc;
+float:left;
+margin:5px 20px 10px 0;
+padding:4px;
+}
+
+/*** alt kısım ***/
+
+#altkisim {
+margin-top:100px;
+background:#fff url(mavi/ustcizgi.png) repeat-x;
+font:78%/1.4em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+#text-transform:uppercase;
+letter-spacing:.1em;
+color:#777;
+}
+
+#copyright{
+margin-top: 10px;
+}
+
+#ikonlar{
+margin:25px 0 20px 0; 
+float: right;
+}
+
+/*** aramızdaki her şey bitti ***/

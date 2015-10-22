@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class=" js flexbox flexboxlegacy hashchange history rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Scheduled Jobs with Custom Clock Processes in Java with Quartz and RabbitMQ | Heroku Dev Center</title>
+  <link href="https://d2f2p26ywennn8.cloudfront.net/assets/favicon-82f8669f6323129704e02b6db377deaa68f30823915273d895c95d323692fc91.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+
+    <link rel="alternate" type="application/atom+xml" title="Heroku Recent Articles" href="http://feeds.feedburner.com/herokudevcenterarticles">
+    <link rel="alternate" type="application/atom+xml" title="Heroku Changelog" href="http://feeds.feedburner.com/herokuchangelog">
+  <link rel="search" type="application/opensearchdescription+xml" title="Heroku Dev Center" href="https://devcenter.heroku.com/opensearch.xml">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/277498ec79" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/pd.js" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/nr-768.js"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/linkid.js" async="" type="text/javascript"></script><script id="undefined" src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/inpage_linkid.js" async="" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/51b6483a434bba0f0c000016.js" async="" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/analytics.js" async="" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/ga.js" async="" type="text/javascript"></script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/gtm.js" async=""></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"277498ec79","applicationID":"7135218","transactionName":"JQxeQ0peWVVTQ01UExIKU1tdQhpKXl4V","queueTime":5,"applicationTime":61,"agent":"js-agent.newrelic.com/nr-768.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):void(r.q&&(r.q[e]||(r.q[e]=[]),r.q[e].push(n)))}var r=e("ee").create();n.exports=t,t.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=window,f=u.document;e(2);var s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="N4ztuK3Ij2phBVWTpd9OJl5A92tsjKs1QKTZXNmEuJU=" name="csrf-token">
+
+  
+
+  <meta name="description" content="Develop a Java application that uses Quartz and RabbitMQ to create a scalable method of scheduling background jobs on Heroku.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@herokudevcenter">
+    <meta name="twitter:title" content="Scheduled Jobs with Custom Clock Processes in Java with Quartz and RabbitMQ | Heroku Dev Center">
+    <meta name="twitter:description" content="Develop a Java application that uses Quartz and RabbitMQ to create a scalable method of scheduling background jobs on Heroku.">
+
+  <meta name="google-site-verification" content="V3T3n-QnyNOZlSVZgEfdXaKkJKyfw2yIP55nR00C8ZU">
+
+
+  <link href="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/public-dd3abf1fb9fd6b95288df1eba7919d26e8c976566d97996c943d9.css" media="screen" rel="stylesheet">
+  
+<script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/tagjs" async="" type="text/javascript"></script><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_008.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_003.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_004.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_002.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_005.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_006.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a_007.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/a.gif" border="0" height="1" width="1"><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/seg.gif" border="0" height="1" width="1"><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/analytics" type="text/javascript"></script></head>
+<body>
+<div class="page-wrapper">
+<header><div class="gradient-primary gradient-primary-short"><div class="heroku-header"><div class="container">
+<a class="heroku-brand" href="https://devcenter.heroku.com/">Heroku Dev Center</a><ul class="nav">
+<li class="heroku-nav-item">
+<a href="https://www.heroku.com/pricing">Pricing</a></li><li class="heroku-nav-item">
+<a href="https://elements.heroku.com/">Elements</a></li><li class="heroku-nav-item">
+<a href="https://blog.heroku.com/">Blog</a></li><li class="heroku-nav-item">
+<a href="https://help.heroku.com/">Support</a></li><li class="heroku-nav-item">
+<a href="https://www.heroku.com/contact">Contact</a></li><li class="heroku-nav-item">
+<a href="https://devcenter.heroku.com/login?back_to=%2Farticles%2Fscheduled-jobs-custom-clock-processes-java-quartz-rabbitmq">Log in</a></li><li class="heroku-nav-item">
+<a href="https://signup.heroku.com/signup/dc">Sign up</a>
+</li></ul>
+<span class="mobile-nav">Show nav</span>
+</div></div></div>
+<div class="main-nav-bar"><div class="container">
+<ul class="nav navbar-nav">
+<li><a href="https://devcenter.heroku.com/articles/quickstart">Getting Started</a></li>
+<li><a href="https://devcenter.heroku.com/categories/reference">Reference</a></li>
+<li><a class=" active" href="https://devcenter.heroku.com/categories/learning">Learning</a></li>
+</ul>
+<form accept-charset="UTF-8" action="/search/raw" class="search-form" method="get">
+<div style="display:none"><input name="utf8" value="✓" type="hidden"></div>
+<div class="search-input-group">
+<span class="icon-search"></span><input tabindex="1" class="js-search form-control" id="query" name="query" placeholder="Search" required="required" type="text">
+</div>
+</form>
+</div></div></header><div class="container">
+<div class="js-admin-tabs js-article"></div>
+<div class="col-md-4 sidebar nocontent"><ul class="secondary-nav nav"><li>
+<h2>Learning</h2>
+<ul><li><a href="https://devcenter.heroku.com/categories/application-architecture">Application Architecture</a></li></ul>
+<ul>
+<li><a href="https://devcenter.heroku.com/categories/ruby">Ruby</a></li>
+<li><a class=" active" href="https://devcenter.heroku.com/categories/java">Java</a></li>
+<li><a href="https://devcenter.heroku.com/categories/nodejs">Node.js</a></li>
+<li><a href="https://devcenter.heroku.com/categories/python">Python</a></li>
+<li><a href="https://devcenter.heroku.com/categories/php">PHP</a></li>
+<li><a href="https://devcenter.heroku.com/categories/clojure">Clojure</a></li>
+<li><a href="https://devcenter.heroku.com/categories/scala">Scala</a></li>
+<li><a href="https://devcenter.heroku.com/categories/go">Go</a></li>
+</ul>
+<ul>
+<li><a href="https://devcenter.heroku.com/categories/mobile">Mobile</a></li>
+<li><a href="https://devcenter.heroku.com/categories/database">Database</a></li>
+</ul>
+<ul><li><a href="https://devcenter.heroku.com/categories/miscellaneous">Miscellaneous</a></li></ul>
+<ul><li><a href="https://devcenter.heroku.com/categories/add-on-documentation">All Add-ons</a></li></ul>
+</li></ul></div>
+<div class="col-md-8 content"><article class="js-autolink "><h1>Scheduled Jobs with Custom Clock Processes in Java with Quartz and RabbitMQ</h1>
+<p class="last-updated"><span class="icon-clock"></span>Last updated 14 October 2015</p>
+<div id="table-of-contents">
+<h3>
+<span class="icon-list"></span>Table of Contents</h3>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#scheduling-jobs-with-quartz">Scheduling jobs with Quartz</a></li>
+<li><a href="#queuing-jobs-with-rabbitmq">Queuing jobs with RabbitMQ</a></li>
+<li><a href="#processing-jobs">Processing jobs</a></li>
+<li><a href="#running-on-heroku">Running on Heroku</a></li>
+<li><a href="#further-learning">Further learning</a></li>
+</ul>
+</div>
+<p>There are numerous ways to <a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes">schedule background jobs</a>
+ in Java applications.  This article will teach you how to setup a Java 
+application that uses the Quartz library along with RabbitMQ to create a
+ scalable and reliable method of scheduling background jobs on Heroku.</p>
+
+<p>Many of the common methods for background processing in Java advocate
+ running background jobs within the same application as the web tier.  
+This approach has scalability and reliability constraints.</p>
+
+<p>A better approach is to move background jobs into separate processes 
+so that the web tier is distinctly separate from the background 
+processing tier.  This allows the web tier to be exclusively for 
+handling web requests.  The scheduling of jobs should also be it’s own 
+tier that puts jobs onto a queue.  The worker processing tier can then 
+be scaled independently from the rest of the application.</p>
+
+<div class="callout">
+<p>The source for this article’s reference application is <a href="http://github.com/heroku/devcenter-java-quartz-rabbitmq">available on GitHub</a>.</p>
+</div>
+
+<h2 id="prerequisites"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#prerequisites">Prerequisites</a></h2>
+
+<ul>
+<li>The <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a> installed.</li>
+<li>
+<a href="http://maven.apache.org/download.html">Maven 3.0.4</a> installed.</li>
+<li>A Heroku user account.  <a href="https://api.heroku.com/signup/devcenter">Signup is free and instant</a>.</li>
+</ul>
+
+<p>To clone the sample project to your local computer run:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> git clone https://github.com/heroku/devcenter-java-quartz-rabbitmq.git
+</span><span class="string">Cloning into devcenter-java-quartz-rabbitmq...
+</span><span class="string">
+</span><span class="prompt">$</span><span class="function"> cd devcenter-java-quartz-rabbitmq/
+</span></pre></div>
+</div>
+
+
+<h2 id="scheduling-jobs-with-quartz"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#scheduling-jobs-with-quartz">Scheduling jobs with Quartz</a></h2>
+
+<p>A <a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes">custom clock process</a> will be used to create jobs and add them to a queue.  To setup a custom clock process use the <a href="http://quartz-scheduler.org/">Quartz</a> library.  In Maven the dependency is declared with:</p>
+
+<div class="callout">
+<p>See the reference app’s <a href="https://github.com/heroku/devcenter-java-quartz-rabbitmq/blob/master/pom.xml">pom.xml</a> for the full Maven build definition.</p>
+</div>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.quartz-scheduler<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>quartz<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.1.5<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+
+
+<p>Now a Java application can be used to schedule jobs.  Here is an example:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="keyword">package</span> <span class="namespace">com.heroku.devcenter</span>;
+
+<span class="keyword">import</span> <span class="include">org.quartz</span>.*;
+<span class="keyword">import</span> <span class="include">org.quartz.impl.StdSchedulerFactory</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.Logger</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.LoggerFactory</span>;
+
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.JobBuilder.newJob</span>;
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.SimpleScheduleBuilder.repeatSecondlyForever</span>;
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.TriggerBuilder.newTrigger</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SchedulerMain</span> {
+
+    <span class="directive">final</span> <span class="directive">static</span> <span class="predefined-type">Logger</span> logger = LoggerFactory.getLogger(SchedulerMain.class);
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+        scheduler.start();
+
+        JobDetail jobDetail = newJob(HelloJob.class).build();
+
+        Trigger trigger = newTrigger()
+                .startNow()
+                .withSchedule(repeatSecondlyForever(<span class="integer">2</span>))
+                .build();
+
+        scheduler.scheduleJob(jobDetail, trigger);
+    }
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">class</span> <span class="class">HelloJob</span> <span class="directive">implements</span> Job {
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> execute(JobExecutionContext jobExecutionContext) <span class="directive">throws</span> JobExecutionException {
+            logger.info(<span class="string"><span class="delimiter">"</span><span class="content">HelloJob executed</span><span class="delimiter">"</span></span>);
+        }
+    }
+}
+</pre></div>
+</div>
+
+
+<p>This simple example creates a <code>HelloJob</code> every two seconds that simply logs a message.  Quartz has a <a href="http://quartz-scheduler.org/api/2.1.5/org/quartz/SimpleScheduleBuilder.html">very extensive API</a> for creating <code>Trigger</code> schedules.</p>
+
+<p>To test this application locally you can run the Maven build and then run the <code>SchedulerMain</code> Java class:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> mvn package
+</span><span class="string">[INFO] Scanning for projects...
+</span><span class="string">[INFO]
+</span><span class="string">[INFO] ------------------------------------------------------------------------
+</span><span class="string">[INFO] Building devcenter-java-quartz-rabbitmq 1.0-SNAPSHOT
+</span><span class="string">[INFO] ------------------------------------------------------------------------
+</span><span class="string">
+</span><span class="prompt">$</span><span class="function"> java -cp target/classes:target/dependency/* com.heroku.devcenter.SchedulerMain
+</span><span class="string">...
+</span><span class="string">66 [main] INFO org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'DefaultQuartzSchedule initialized from default resource file in Quartz package: 'quartz.properties'
+</span><span class="string">66 [main] INFO org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.1.5
+</span><span class="string">66 [main] INFO org.quartz.core.QuartzScheduler - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+</span><span class="string">104 [DefaultQuartzScheduler_Worker-1] INFO com.heroku.devcenter.SchedulerMain - HelloJob executed
+</span><span class="string">2084 [DefaultQuartzScheduler_Worker-2] INFO com.heroku.devcenter.SchedulerMain - HelloJob executed
+</span></pre></div>
+</div>
+
+
+<p>Press <code>Ctrl-C</code> to exit the app.</p>
+
+<p>If the <code>HelloJob</code> actually did work itself then we would 
+have a runtime bottleneck because we could not scale the scheduler while
+ avoiding duplicate jobs being scheduled.  Quartz does have a JDBC 
+module that can use a database to prevent jobs from being duplicated but
+ a simpler approach is to only run one instance of the scheduler and 
+have the scheduled jobs added to a message queue where they can be 
+processes in parallel by job worker processes.</p>
+
+<h2 id="queuing-jobs-with-rabbitmq"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#queuing-jobs-with-rabbitmq">Queuing jobs with RabbitMQ</a></h2>
+
+<p>RabbitMQ can be used as a message queue so the scheduler process can 
+be used just to add jobs to a queue and worker processes can be used to 
+grab jobs from the queue and process them.  To add the RabbitMQ client 
+library as a dependency in Maven specify the following in dependencies 
+block of the <code>pom.xml</code> file:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>com.rabbitmq<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>amqp-client<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.8.2<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+
+
+<p>If you want to test this locally then <a href="http://www.rabbitmq.com/download.html">install RabbitMQ</a> and set an environment variable that will provide the application the connection information to your RabbitMQ server.</p>
+
+<p>On Windows:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> set CLOUDAMQP_URL="amqp://guest:guest@localhost:5672/%2f"
+</span></pre></div>
+</div>
+
+
+<p>On Mac/Linux:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> export CLOUDAMQP_URL="amqp://guest:guest@localhost:5672/%2f"
+</span></pre></div>
+</div>
+
+
+<p>The <code>CLOUDAMQP_URL</code> environment variable will be used by 
+the scheduler and worker processes to connect to the shared message 
+queue.  This example uses that environment variable because that is the 
+way the <a href="https://elements.heroku.com/addons/cloudamqp">CloudAMQP Heroku Add-on</a> will provide it’s connection information to the application.</p>
+
+<p>The <code>SchedulerMain</code> class needs to be updated to add a new message onto a queue every time the <code>HelloJob</code> is executed.  Here are the new <code>SchedulerMain</code> and <code>HelloJob</code> classes from the <a href="https://github.com/heroku/devcenter-java-quartz-rabbitmq/blob/master/src/main/java/com/heroku/devcenter/SchedulerMain.java">SchedulerMain.java file in the sample project</a>:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="keyword">package</span> <span class="namespace">com.heroku.devcenter</span>;
+
+
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.Channel</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.Connection</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.ConnectionFactory</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.MessageProperties</span>;
+<span class="keyword">import</span> <span class="include">org.quartz</span>.*;
+<span class="keyword">import</span> <span class="include">org.quartz.impl.StdSchedulerFactory</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.Logger</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.LoggerFactory</span>;
+
+<span class="keyword">import</span> <span class="include">java.util.HashMap</span>;
+<span class="keyword">import</span> <span class="include">java.util.Map</span>;
+
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.JobBuilder.newJob</span>;
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.SimpleScheduleBuilder.repeatSecondlyForever</span>;
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">org.quartz.TriggerBuilder.newTrigger</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SchedulerMain</span> {
+
+    <span class="directive">final</span> <span class="directive">static</span> <span class="predefined-type">Logger</span> logger = LoggerFactory.getLogger(SchedulerMain.class);
+    <span class="directive">final</span> <span class="directive">static</span> ConnectionFactory factory = <span class="keyword">new</span> ConnectionFactory();
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+        factory.setUri(<span class="predefined-type">System</span>.getenv(<span class="string"><span class="delimiter">"</span><span class="content">CLOUDAMQP_URL</span><span class="delimiter">"</span></span>));
+        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+        scheduler.start();
+
+        JobDetail jobDetail = newJob(HelloJob.class).build();
+
+        Trigger trigger = newTrigger()
+                .startNow()
+                .withSchedule(repeatSecondlyForever(<span class="integer">5</span>))
+                .build();
+
+        scheduler.scheduleJob(jobDetail, trigger);
+    }
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">class</span> <span class="class">HelloJob</span> <span class="directive">implements</span> Job {
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> execute(JobExecutionContext jobExecutionContext) <span class="directive">throws</span> JobExecutionException {
+
+            <span class="keyword">try</span> {
+                <span class="predefined-type">Connection</span> connection = factory.newConnection();
+                <span class="predefined-type">Channel</span> channel = connection.createChannel();
+                <span class="predefined-type">String</span> queueName = <span class="string"><span class="delimiter">"</span><span class="content">work-queue-1</span><span class="delimiter">"</span></span>;
+                <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt; params = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt;();
+                params.put(<span class="string"><span class="delimiter">"</span><span class="content">x-ha-policy</span><span class="delimiter">"</span></span>, <span class="string"><span class="delimiter">"</span><span class="content">all</span><span class="delimiter">"</span></span>);
+                channel.queueDeclare(queueName, <span class="predefined-constant">true</span>, <span class="predefined-constant">false</span>, <span class="predefined-constant">false</span>, params);
+
+                <span class="predefined-type">String</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">Sent at:</span><span class="delimiter">"</span></span> + <span class="predefined-type">System</span>.currentTimeMillis();
+                <span class="type">byte</span><span class="type">[]</span> body = msg.getBytes(<span class="string"><span class="delimiter">"</span><span class="content">UTF-8</span><span class="delimiter">"</span></span>);
+                channel.basicPublish(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>, queueName, MessageProperties.PERSISTENT_TEXT_PLAIN, body);
+                logger.info(<span class="string"><span class="delimiter">"</span><span class="content">Message Sent: </span><span class="delimiter">"</span></span> + msg);
+                connection.close();
+            }
+            <span class="keyword">catch</span> (<span class="exception">Exception</span> e) {
+                logger.error(e.getMessage(), e);
+            }
+
+        }
+
+    }
+
+}
+</pre></div>
+</div>
+
+
+<p>In this example every time the <code>HelloJob</code> is executed it 
+adds a message onto a RabbitMQ message queue simply containing a String 
+with the time the String was created.  Running the updated <code>SchedulerMain</code> should add a new message to the queue every 5 seconds.</p>
+
+<h2 id="processing-jobs"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#processing-jobs">Processing jobs</a></h2>
+
+<p>Next, create a Java application that will pull messages from the queue and handle them.  This application will also use the <code>RabbitFactoryUtil</code> to get a connection to RabbitMQ from the <code>CLOUDAMQP_URL</code> environment variable.  Here is the <code>WorkerMain</code> class from the <a href="https://github.com/heroku/devcenter-java-quartz-rabbitmq/blob/master/src/main/java/com/heroku/devcenter/WorkerMain.java">WorkerMain.java file in the example project</a>:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="keyword">package</span> <span class="namespace">com.heroku.devcenter</span>;
+
+
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.Channel</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.Connection</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.ConnectionFactory</span>;
+<span class="keyword">import</span> <span class="include">com.rabbitmq.client.QueueingConsumer</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.Logger</span>;
+<span class="keyword">import</span> <span class="include">org.slf4j.LoggerFactory</span>;
+
+<span class="keyword">import</span> <span class="include">java.util.Collections</span>;
+<span class="keyword">import</span> <span class="include">java.util.HashMap</span>;
+<span class="keyword">import</span> <span class="include">java.util.Map</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">WorkerMain</span> {
+
+    <span class="directive">final</span> <span class="directive">static</span> <span class="predefined-type">Logger</span> logger = LoggerFactory.getLogger(WorkerMain.class);
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+
+        ConnectionFactory factory = <span class="keyword">new</span> ConnectionFactory();
+        factory.setUri(<span class="predefined-type">System</span>.getenv(<span class="string"><span class="delimiter">"</span><span class="content">CLOUDAMQP_URL</span><span class="delimiter">"</span></span>));
+        <span class="predefined-type">Connection</span> connection = factory.newConnection();
+        <span class="predefined-type">Channel</span> channel = connection.createChannel();
+        <span class="predefined-type">String</span> queueName = <span class="string"><span class="delimiter">"</span><span class="content">work-queue-1</span><span class="delimiter">"</span></span>;
+        <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt; params = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt;();
+        params.put(<span class="string"><span class="delimiter">"</span><span class="content">x-ha-policy</span><span class="delimiter">"</span></span>, <span class="string"><span class="delimiter">"</span><span class="content">all</span><span class="delimiter">"</span></span>);
+        channel.queueDeclare(queueName, <span class="predefined-constant">true</span>, <span class="predefined-constant">false</span>, <span class="predefined-constant">false</span>, params);
+        QueueingConsumer consumer = <span class="keyword">new</span> QueueingConsumer(channel);
+        channel.basicConsume(queueName, <span class="predefined-constant">false</span>, consumer);
+
+        <span class="keyword">while</span> (<span class="predefined-constant">true</span>) {
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            <span class="keyword">if</span> (delivery != <span class="predefined-constant">null</span>) {
+                <span class="predefined-type">String</span> msg = <span class="keyword">new</span> <span class="predefined-type">String</span>(delivery.getBody(), <span class="string"><span class="delimiter">"</span><span class="content">UTF-8</span><span class="delimiter">"</span></span>);
+                logger.info(<span class="string"><span class="delimiter">"</span><span class="content">Message Received: </span><span class="delimiter">"</span></span> + msg);
+                channel.basicAck(delivery.getEnvelope().getDeliveryTag(), <span class="predefined-constant">false</span>);
+            }
+        }
+
+    }
+
+}
+</pre></div>
+</div>
+
+
+<p>This class simply waits for new messages on the message queue and 
+logs that it received them.  You can run this example locally by doing a
+ build and then running the <code>WorkerMain</code> class:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> mvn package
+</span><span class="prompt">$</span><span class="function"> java -cp target/classes:target/dependency/* com.heroku.devcenter.WorkerMain
+</span></pre></div>
+</div>
+
+
+<p>You can also run multiple instances of this example locally to see how the job processing can be horizontally distributed.</p>
+
+<h2 id="running-on-heroku"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#running-on-heroku">Running on Heroku</a></h2>
+
+<p>Now that you have everything working locally you can run this on Heroku.  First declare the <a href="https://devcenter.heroku.com/articles/process-model">process model</a> in a new file named <code>Procfile</code> containing:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>scheduler: java $JAVA_OPTS -cp target/classes:target/dependency/* com.heroku.devcenter.SchedulerMain
+worker: java $JAVA_OPTS -cp target/classes:target/dependency/* com.heroku.devcenter.WorkerMain
+</pre></div>
+</div>
+
+
+<p>This defines two process types that can be executed on Heroku; one named <code>scheduler</code> for the <code>SchedulerMain</code> app and one named <code>worker</code> for the <code>WorkerMain</code> app.</p>
+
+<p>To run on Heroku you will need to push a Git repository to Heroku containing the Maven build descriptor, source code, and <code>Procfile</code>.
+  If you cloned the example project then you already have a Git 
+repository.  If you need to create a new git repository containing these
+ files, run:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> git init
+</span><span class="prompt">$</span><span class="function"> git add src pom.xml Procfile
+</span><span class="prompt">$</span><span class="function"> git commit -m init
+</span></pre></div>
+</div>
+
+
+<p>Create a new application on Heroku from within the project’s root directory:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> heroku create
+</span><span class="string">Creating furious-cloud-2945... done, stack is cedar-14
+</span><span class="string">http://furious-cloud-2945.herokuapp.com/ | git@heroku.com:furious-cloud-2945.git
+</span><span class="string">Git remote heroku added
+</span></pre></div>
+</div>
+
+
+<p>Then add the CloudAMQP add-on to your application:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> heroku addons:create cloudamqp
+</span><span class="string">Adding cloudamqp to furious-cloud-2945... done, v2 (free)
+</span><span class="string">cloudamqp documentation available at: https://devcenter.heroku.com/articles/cloudamqp
+</span></pre></div>
+</div>
+
+
+<p>Now push your Git repository to Heroku:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> git push heroku master
+</span><span class="string">Counting objects: 165, done.
+</span><span class="string">Delta compression using up to 2 threads.
+</span><span class="string">...
+</span><span class="string">-----&gt; Heroku receiving push
+</span><span class="string">-----&gt; Java app detected
+</span><span class="string">...
+</span><span class="string">-----&gt; Discovering process types
+</span><span class="string">       Procfile declares types -&gt; scheduler, worker
+</span><span class="string">-----&gt; Compiled slug size is 1.4MB
+</span><span class="string">-----&gt; Launching... done, v5
+</span><span class="string">       http://furious-cloud-2945.herokuapp.com deployed to Heroku
+</span></pre></div>
+</div>
+
+
+<p>This will run the Maven build for your project on Heroku and create a
+ slug file containing the executable assets for your application.  To 
+run the application you will need to allocate dynos to run each process 
+type.  You should only allocate one dyno to run the <code>scheduler</code> process type to avoid duplicate job scheduling.  You can allocate as many dynos as needed to the <code>worker</code> process type since it is event driven and parallelizable through the RabbitMQ message queue.</p>
+
+<p>To allocate one dyno to the <code>scheduler</code> process type run:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> heroku ps:scale scheduler=1
+</span><span class="string">Scaling scheduler processes... done, now running 1
+</span></pre></div>
+</div>
+
+
+<p>This should begin adding messages to the queue every five seconds. To allocate two dynos to the <code>worker</code> process type run:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> heroku ps:scale worker=2
+</span><span class="string">Scaling worker processes... done, now running 2
+</span></pre></div>
+</div>
+
+
+<p>This will provision two dynos, each which will run the <code>WorkerMain</code>
+ app and pull messages from the queue for processing. You can verify 
+that this is happening by watching the Heroku logs for your application.
+  To open a feed of your logs run:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="prompt">$</span><span class="function"> heroku logs -t
+</span><span class="string">2012-06-26T22:26:47+00:00 app[scheduler.1]: 100223 [DefaultQuartzScheduler_Worker-1] INFO com.heroku.devcenter.SchedulerMain - Message Sent: Sent at:1340749607126
+</span><span class="string">2012-06-26T22:26:47+00:00 app[worker.2]: 104798 [main] INFO com.heroku.devcenter.WorkerMain - Message Received: Sent at:1340749607126
+</span><span class="string">2012-06-26T22:26:52+00:00 app[scheduler.1]: 105252 [DefaultQuartzScheduler_Worker-2] INFO com.heroku.devcenter.SchedulerMain - Message Sent: Sent at:1340749612155
+</span><span class="string">2012-06-26T22:26:52+00:00 app[worker.1]: 109738 [main] INFO com.heroku.devcenter.WorkerMain - Message Received: Sent at:1340749612155
+</span></pre></div>
+</div>
+
+
+<p>In this example execution the scheduler creates 2 messages which are handled by the two different worker dynos (<code>worker.1</code> and <code>worker.2</code>).  This shows that the work is being scheduled and distributed correctly.</p>
+
+<h2 id="further-learning"><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes-java-quartz-rabbitmq#further-learning">Further learning</a></h2>
+
+<p>This example application just shows the basics for architecting a 
+scalable and reliable system for scheduling and processing background 
+jobs.  To learn more see:</p>
+
+<ul>
+<li><a href="http://www.rabbitmq.com/">RabbitMQ</a></li>
+<li><a href="http://quartz-scheduler.org/">Quartz</a></li>
+</ul>
+<div class="article-footer panel">
+<div class="article-tags">
+<span class="icon-tags"></span><a href="https://devcenter.heroku.com/tags/java">java</a> <a href="https://devcenter.heroku.com/tags/quartz">quartz</a> <a href="https://devcenter.heroku.com/tags/rabbitmq">rabbitmq</a> <a href="https://devcenter.heroku.com/tags/scheduled-jobs">scheduled jobs</a>
+</div>
+<div class="nocontent keep-reading" id="keep-reading">
+<h3>
+<span class="icon-book-open"></span><a href="#keep-reading">Keep reading</a>
+</h3>
+<ul class="list-icons">
+<li>
+<span class="icon-files"></span><a href="https://devcenter.heroku.com/categories/java">Java</a>
+</li>
+<li>
+<span class="icon-file"></span><a href="https://devcenter.heroku.com/articles/scheduled-jobs-custom-clock-processes">Scheduled Jobs and Custom Clock Processes</a>
+</li>
+<li>
+<span class="icon-file"></span><a href="https://devcenter.heroku.com/articles/process-model">The Process Model</a>
+</li>
+</ul>
+</div>
+<div class="article-feedback" id="feedback">
+<h3><a href="#feedback"><span class="icon-discussion"></span>Feedback</a></h3>
+<p><a href="https://devcenter.heroku.com/login?back_to=%2Farticles%2Fscheduled-jobs-custom-clock-processes-java-quartz-rabbitmq&amp;utm_campaign=login&amp;utm_medium=feedback&amp;utm_source=web">Log in to submit feedback.</a></p>
+</div>
+</div></article></div>
+<div class="pagination">
+<a href="https://devcenter.heroku.com/articles/run-non-web-java-processes-on-heroku" rel="prev">Run Non-web Java Dynos on Heroku</a><a href="https://devcenter.heroku.com/articles/java-memory-issues" rel="next">Troubleshooting Memory Issues in Java Applications</a>
+</div>
+</div>
+<footer><div class="container"><ul>
+<li><a href="https://www.heroku.com/home">heroku.com</a></li>
+<li><a href="https://www.heroku.com/policy/privacy">Privacy Policy</a></li>
+</ul></div></footer>
+</div>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-JD26" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-JD26');</script>
+<!-- End Google Tag Manager -->
+<script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/public-a9702f8f633fe158a65ba2c7a44e8c48df31fbe98f768b802ca593.js"></script><script id="" type="text/javascript">(function(){window._pa=window._pa||{};var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https:":"http:")+"//tag.perfectaudience.com/serve/51b6483a434bba0f0c000016.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+
+<script id="" type="text/javascript">piAId="37622";piCId="30300";(function(){function a(){var b=document.createElement("script");b.type="text/javascript";b.src=("https:"==document.location.protocol?"https://pi":"http://cdn")+".pardot.com/pd.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})();</script>
+
+<script id="" type="text/javascript">!function(){function f(a){var c=/[?&]?([^=]c)=([^&]*)/;a=c.exec(a)||[];return a=decodeURIComponent(a[2])}function g(a){var c="; "+document.cookie;a=c.split("; "+a+"\x3d");return 2==a.length?a.pop().split(";").shift():void 0}function h(a,c){var b="",b=new Date;b.setTime(b.getTime()+12096E5);b="; expires\x3d"+b.toGMTString();document.cookie=a+"\x3d"+c+b+";domain\x3d.heroku.com;path\x3d/"}var e="campaign",d=g(e);"undefined"==typeof d&&(d=f(document.location.search),"undefined"!==d&&h(e,d))}();</script><script src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/js" id="" type="text/javascript"></script><img src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/img.gif" height="1" width="1"><iframe src="Scheduled%20Jobs%20with%20Custom%20Clock%20Processes%20in%20Java%20with%20Quartz%20and%20RabbitMQ%20%7C%20Heroku%20Dev%20Center_files/iframe.html" style="visibility: hidden; display: none;"></iframe>
+
+<!--[if lt IE 9]>
+<script src="//d2f2p26ywennn8.cloudfront.net/assets/public/vendor/selectivizr-1.0.min-d17b2fafa766c68aadc50158d12a315549758537eecc733e5162735c89d37674.js"></script>
+<![endif]-->
+
+<script>
+  
+</script>
+<script>
+  
+</script>
+
+
+</body></html>

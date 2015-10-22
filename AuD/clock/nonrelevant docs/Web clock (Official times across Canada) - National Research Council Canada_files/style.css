@@ -1,0 +1,511 @@
+@charset "utf-8";
+/* CSS Document */
+/*  CONTENTS */
+/*    Screen and print CSS  */
+/*    Screen-only CSS  */
+/*    LEFT NAV - MODIFIED  */
+/*    STYLES FOR CLOCK WIDGET  */
+/*    BILLBOARD CONTENT FOUND ON ABOUT & OUTREACH PAGES  */
+/*    FINANCIAL TABLES' PRESENTATION START  */
+/*    FUNNELBACK RESULTS FORM  */
+/*    COLLECTIVE AGREEMENTS  */
+/*    INLINE LIST NSL SEARCH OPTIONS  */
+/*    SUP-SUB line spacing fix for WET 3+ (14-03-11 CEC)  */
+/*    MISCELLANEOUS UTILITY  */
+
+ /** Screen and print CSS **/
+@media screen,print {
+	.signature {width: 45%; margin-left: 3.5%; float: left; border-top: 1px solid #000 !important;}
+	th {text-align:left !important;}
+	.align-left{text-align:left !important;}
+	.align-center{text-align:center !important;}
+	.align-right{text-align:right !important;}
+	.align-top{vertical-align:top !important;}
+	.align-top img{vertical-align:text-top !important;}
+	.align-middle{vertical-align:middle !important;}
+	.align-bottom{vertical-align:bottom !important;}
+	.align-bottom img{vertical-align:text-bottom !important;}
+	.bold_text {font-weight:bold !important;}
+	.italic_text {font-style:italic !important;}
+	.uppercase {text-transform:uppercase !important;}
+}
+
+
+/** Screen-only CSS **/
+@media screen {
+
+	/* fakes mid-footer h4 when it has no children; added 2013-09-30 */
+	div.gcwu-col-head, div.wet-col-head {color: #222222; font-size: 120%; font-weight: bold; margin: 20px 0px 0.25em 0px; }
+
+	/* generic nrc classes - available to all (or almost all) pages */
+	div#homepage a[rel="external"] { background-image: none !important; }
+	img#page_banner {margin-top: 6px;}
+	.nrc_font_weight_boldest {font-weight: 900;}
+	.nrc_border_top_blue {border-top: 2px solid #069;}
+	.nrc_border_bottom_dotted {border-bottom: 2px dotted #069; padding-bottom: 10px; background-color: inherit;}
+	.nrc_font_blue {margin: 5px; color: #069; padding-bottom: 10px;}
+	.text_decoration_none a {text-decoration: none !important;}
+    .text_decoration_none a:visited {text-decoration: none !important;}
+	.text_decoration_none a:hover {text-decoration: underline !important;}	
+	.bold_text {font-weight:bold;}
+	.italic_text {font-style:italic;}
+
+	/* overrides gcwut level 3 megamenu 'nav-current' color */
+	.mb-menu .mb-sm-open a.nav-current, .mb-menu .mb-sm-open a.nav-current:link, .mb-menu .mb-sm-open a.nav-current:visited {color: #000;}
+
+	/*overrides color of cn-nav text, as part of it was showing in IE8 */
+	ul#cn-tphp li#cn-sh-link-1 a, ul#cn-tphp li#cn-sh-link-2 a {color: #000 !important;}
+
+	/* nrc homepage top-level slideshow/tabbed interface styles */
+	div#cn-body-inner-1col #tab-container-1 {position: relative; top: -5px;}
+	div#cn-body-inner-1col #tab-container-1 h2 a[href^="http://www"] {background-image: none; padding-right: 0px;}
+	div#cn-body-inner-1col #tab-container-1 div.row-start{padding-left: 10px;}
+	div#cn-body-inner-1col #tab-container-1 .span-6 img {width: 100% !important; height: auto !important; margin: 0px; padding: 0px;}
+	div#cn-body-inner-1col #tab-container-1 .tabs {color: #000; background-color: #CCC;}
+	div#cn-body-inner-1col #tab1, div#cn-body-inner-1col #tab2, div#cn-body-inner-1col #tab3, div#cn-body-inner-1col #tab4, div#cn-body-inner-1col #tab5, div#cn-body-inner-1col #tab6 {color: #000; background-color: #EEE;}
+	div#cn-body-inner-1col #tab-container-1 .span-2 a {color: #069;}
+
+	/* hide nrc homepage h1 (and on 1-col pages as well) */
+	div#cn-body-inner-1col h1#cn-cont {display: none;}
+
+	/* nrc homepage center column styles */
+	div.nrc_home_thumbs_row {margin-top: 10px;}
+	div.nrc_home_thumbs_row div {width: 18%; margin: 0px 1%; float: left; text-align: center;}
+	div.nrc_home_thumbs_row div p {margin: 5px 0px; text-align: left;}
+	#nrc_home_news_feed, #nrc_home_events_feed, #nrc_home_achieves_feed {padding: 5px;}
+	#nrc_home_news_feed h3, #nrc_home_events_feed h3, #nrc_home_achieves_feed h3 {font-weight: 900;}
+	#nrc_home_news_feed date, #nrc_home_events_feed date, #nrc_home_achieves_feed date {font-weight: 900;}
+
+
+
+	/* nrc homepage priorities styles */
+	div#nrc_home_priorities {margin-top: 10px;}
+	div#nrc_home_priorities h3 {font-size: 130%; font-weight: bold; margin-top: 2px; padding-bottom: 10px;}
+
+	div#cn-connect a[href^="http://www"] {background-image: none; padding-right: 0px;}
+	a.no-icon, a.social-media-icon {background-image: none !important; padding-right: 0px !important;}
+
+
+	/* nrc contact box styles - aerospace */
+	#nrc_contact_box_aerospace {background-color: #FFC; border: 1px solid #FFC; margin-bottom: 20px; padding: 10px;}
+	#nrc_contact_box_aerospace h3 {background-color: #FFC; padding: 5px;}
+	#nrc_contact_box_aerospace address {padding: 5px;}
+
+	/* nrc contact box styles - construction */
+	#nrc_contact_box_construction {background-color: #FFC; border: 1px solid #FFC; margin-bottom: 20px; padding: 10px;}
+	#nrc_contact_box_construction h3 {background-color: #FFC; padding: 5px;}
+	#nrc_contact_box_construction address {padding: 5px;}
+
+
+
+	/* nrc right-col list box styles SECTION PAGES ONLY*/
+	.nrc_aside_list_box {margin-top: 10px;}
+	.nrc_aside_list_box h3 {font-size: 130%; font-weight:bold; margin-top: 2px; padding-bottom: 10px;}
+	.nrc_aside_list_box ul li {background-color: #eee; padding: 5px 10px; margin-bottom: 2px; margin-left: 5px;}
+	.nrc_aside_list_box a {text-decoration:none;}
+	.nrc_aside_list_box a:hover {text-decoration:underline;}
+	.nrc_aside_list_box a:visited {text-decoration:underline; color:#000;}
+
+
+	/* nrc right-col list box white styles LEVEL 2&3 PAGES */
+	.nrc_aside_list_box_white {margin-top: 10px;}
+	.nrc_aside_list_box_white h3 {font-size: 130%; font-weight:bold; margin-top: 2px; padding-bottom: 10px;}
+	.nrc_aside_list_box_white ul li {border: 2px solid #fff; padding: 5px 5px; margin-bottom: 5px;}
+	.nrc_aside_list_box_white a {text-decoration:none;}
+	.nrc_aside_list_box_white a:hover {text-decoration:underline;}
+	.nrc_aside_list_box_white a:visited {text-decoration:underline; color:#000;}
+
+
+
+	.nrc_aside_nav_wpic h3{font-size: 110%; font-weight: bold; padding-top: 5px; padding-left: 10px; color: #FFF;}
+		
+	.nrc_aside_nav_wpic h3 a {text-decoration:none; color:#FFF;}
+	.nrc_aside_nav_wpic h3 a:hover {text-decoration:underline; color:#FF0;}
+	.nrc_aside_nav_wpic h3 a:visited {text-decoration:underline; color:#FFC;}
+
+
+	/* nrc center-col feature box styles */
+	.nrc_feature_box_light {background-color: #eee; margin-top: 10px; margin-left: 2px; margin-right: 2px; padding-bottom: 10px;}
+	.nrc_feature_box_light > div, .nrc_feature_box_light > p, .nrc_feature_box_light > h2 {margin-right: 10px; margin-left: 10px; }
+
+
+/*STYLES FOR LEFT NAV - MODIFIED*/
+
+                
+/*STYLES FOR LEFT NAV*/
+/* level 1 */
+div.wb-sec-def section div ul li.top-level a, div.wb-sec-def section div ul li.top-level a:hover,
+div.wb-sec-def section section h3 a, div.wb-sec-def section section h3 a:hover
+{background-color: #DDD; color: #000; font-weight: bold;}
+div.wb-sec-def section div ul li.top-level span.nav-heading, div.wb-sec-def section section h3 span.nav-heading
+{background-color: #DDD; color: #000; font-weight: bold; display: block; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px;}
+div.wb-sec-def section div ul li.top-level a.nav-current, div.wb-sec-def section section h3 a.nav-current
+{background-color: #DDD; color: #000 !important; font-weight: bold; border: 1px solid #777;}
+
+/* level 2 */
+div.wb-sec-def section section ul li a, div.wb-sec-def section section ul li a:hover
+{background-color: #EEE; color: #000;}
+div.wb-sec-def section section ul li span.nav-heading
+{background-color: #EEE; color: #000; display: block; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px;}
+
+/* level 3 */
+div.wb-sec-def section section ul li ul li a, div.wb-sec-def section section ul li ul li a:hover
+{background-color: #FFF; color: #1a3d6c; font-weight: normal;}
+div.wb-sec-def section section ul li ul li span.nav-heading
+{background-color: #FFF; color: #000; font-weight: bold;padding-top: 2px;}
+
+/* level 4 */
+div.wb-sec-def section section ul li ul li ul li a, div.wb-sec-def section section ul li ul li ul li a:hover
+{background-color: #FFF; color: #1a3d6c; font-weight: normal;}
+div.wb-sec-def section section ul li ul li ul li span.nav-heading
+{background-color: #FFF; color: #000; font-weight: bold;}
+
+
+/*STYLES FOR CLOCK WIDGET
+clock-tabbedinterface-tab-style-2-active {
+	background: #333;
+	color: #fff !important;
+	outline-color: #000;
+	padding-top: 2px;
+}
+.clock-tabs-style-2 {
+	border: 0;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+ .tabs {
+border: none;
+background: #eee;
+opacity: 0.95;
+min-height: 100px;
+position: absolute;
+width: 100%;
+z-index: 2;
+padding-top: 1px;
+margin-top: 0;
+bottom: 0;
+left: 0;
+ li {
+border: none;
+margin-right: -3px;
+width: auto;
+ a {
+border: 1px solid #999;
+padding: 2px 5px;
+ @include border-radius(2px);
+&.active {
+@extend %tabbedinterface-tab-style-2-active;
+}
+@include pseudo-focus {
+@extend %tabbedinterface-tab-style-2-active;
+}
+}
+&.active {
+border: none;
+top: auto;
+color: #fff !important;
+}
+ &.tabs-toggle {
+ @extend %tabbedinterface-gradient-background;
+margin-left: 6px;
+margin-right: -6px;
+ a {
+ background-color: transparent !important;
+@include pseudo-focus {
+@extend %tabbedinterface-color-000-important;
+}
+}
+}
+}
+}
+.clock-tabs-panel, .ui-collapsible-content {
+	border: none;
+	min-height: 100px;
+	background: url(../images/tabs/gradient3.png) repeat-x 0 bottom #555;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+a, a:visited, # {
+headings(2, 6)
+}
+{
+color: #fff !important;
+}
+}
+.clock-tabs-content-pad {
+	padding: 10px 10px 36px;
+}
+.clock-tabs-roller {
+	background-color: #fff;
+@include opacity(0.25);
+}
+}
+
+
+*/
+
+
+/*
+STYLES SET-UP FOR BILLBOARD CONTENT FOUND ON ABOUT & OUTREACH PAGES
+*/
+
+.billboard-successstories{background-image:url(/obj/images/about-apropos/dev_rnav_successstories.jpg);}
+.billboard-annualreport-e{background-image:url(/obj/images/about-apropos/dev_rnav_ar_e.jpg);}
+.billboard-annualreport-f{background-image:url(/obj/images/about-apropos/dev_rnav_ar_f.jpg);}
+.billboard-portfolios{background-image:url(/obj/images/about-apropos/dev_rnav_portfolios.jpg);}
+.billboard-strategy-e{background-image:url(/obj/images/about-apropos/dev_rnav_strategy_e.jpg);}
+.billboard-strategy-f{background-image:url(/obj/images/about-apropos/dev_rnav_strategy_f.jpg);}
+
+
+.billboard-corp{background-image:url(/obj/images/about-apropos/rnav_about_corpoverview.jpg);}
+.billboard-orgchrt{background-image:url(/obj/images/about-apropos/rnav_about_orgchart.jpg);}
+.billboard-ethics{background-image:url(/obj/images/about-apropos/rnav_about_ethics.jpg);}
+.billboard-ip{background-image:url(/obj/images/about-apropos/rnav_about_ip.jpg);}
+.billboard-planreport{background-image:url(/obj/images/about-apropos/rnav_about_corpplanning.jpg);}
+.billboard-drive{background-image:url(/obj/images/about-apropos/rnav_about_driving.jpg);}
+.billboard-globalreach{background-image:url(/obj/images/about-apropos/rnav_global_reach.jpg);}
+.billboard-eureka{background-image:url(/obj/images/about-apropos/rnav_eureka.jpg);}
+
+.billboard-dimensions-e{background-image:url(/obj/images/outreach-vulgarisation/rnav_outreach_dimensions_e.jpg);}
+.billboard-dimensions-f{background-image:url(/obj/images/outreach-vulgarisation/rnav_outreach_dimensions_f.jpg);}
+
+.billboard-cu{background-image:url(/obj/images/outreach-vulgarisation/rnav_outreach_cu.jpg);}
+.billboard-skygazing{background-image:url(/obj/images/outreach-vulgarisation/rnav_skygazing_1.jpg);}
+.billboard-community{background-image:url(/obj/images/outreach-vulgarisation/rnav_outreach_community.jpg);}
+.billboard-holmesawards{background-image:url(/obj/images/outreach-vulgarisation/rnav_holmes_award.jpg);}
+.billboard-constructioninnovation-e{background-image:url(/obj/images/publications-publications/rnav_ci_e.jpg);}
+.billboard-constructioninnovation-f{background-image:url(/obj/images/publications-publications/rnav_ci_f.jpg);}
+.billboard-constructioninnovation{background-image:url(/obj/images/publications-publications/rnav_ci.jpg);}
+.billboard-constructionupdates-e{background-image:url(/obj/images/publications-publications/rnav_ctu_e.jpg);}
+.billboard-constructionupdates-f{background-image:url(/obj/images/publications-publications/rnav_ctu_f.jpg);}
+.billboard-modelcodes{background-image:url(/obj/images/publications-publications/rnav_modelcodes.jpg);}
+.billboard-nparc{background-image:url(/obj/images/publications-publications/rnav_nparc.jpg);}
+         
+
+
+
+
+/*
+STYLES FOR FINANCIAL TABLES' PRESENTATION START
+*/ 
+
+.border_top_1 {
+border-top:solid 1px;}
+
+.border_top_2 {
+border-top:solid 2px;}
+
+.border_top_3 {
+border-top:solid 3px;}
+
+.border_top_4 {
+border-top:solid 4px;}
+
+.border_bottom_1 {
+border-bottom:solid 1px;}
+
+.border_bottom_2 {
+border-bottom:solid 2px;}
+
+.border_bottom_3 {
+border-bottom:solid 3px;}
+
+.border_bottom_4 {
+border-bottom: solid 4px;}
+
+.border_right_1 {
+border-right: solid 1px;}
+
+.border_right_2 {
+border-right: solid 2px;}
+
+.border_right_3 {
+border-right: solid 3px;}
+
+.border_right_4 {
+border-right: solid 4px;}
+
+.border_left_1 {
+border-left: solid 1px;}
+
+.border_left_2 {
+border-left: solid 2px;}
+
+.border_left_3 {
+border-left: solid 3px;}
+
+.border_left_4 {
+border-left: solid 4px;}
+
+.border_bottom_double {
+border-bottom:double;}
+
+.font_normal {
+font-weight:normal;}
+
+.padding_top_20 {
+padding-top: 20px;}
+
+/*
+STYLES FOR FINANCIAL TABLES' PRESENTATION END
+*/
+
+
+/*
+FUNNELBACK RESULTS FORM --> CSS OVERRIDES BEGIN
+*/
+#left-col, #center-col, #right-col {overflow: hidden;}
+#left-col h2, #right-col h2 {font-size: 120%; font-weight: bold; border: none;}
+#left-col h3, #right-col h3 {font-size: 110%; font-weight: bold; border: none;}
+#fb-results li p {line-height: 150%;}
+div.facet, div.category {margin: 5px 10px;}
+#right-col ul.list-bullet-none li {margin: 5px 10px;}
+#right-col #fb-contextual-navigation-type h3 strong, #right-col #fb-contextual-navigation-topic h3 strong, #right-col #fb-contextual-navigation-site h3 em, span.fb-summary strong {color: #000; background-color: #FF3; border: 0px dotted #000; padding: 0px 2px; font-weight: bold; font-style: italic;}
+#fb-results p, #fb-summary, p.fb-page-nav {width: inherit;}
+#fb-advanced input {width: 90%; margin: auto 5%;}
+.facetLabel {font-weight: bold; font-size: 110%; font-style: italic; margin-top: 0em;}
+/* Funnelback override: RESULT SUMMARY */
+#fb-matching {background-color: #EFEFFF; border: 1px solid #BBBBDD; border-width: 1px 0; margin: 15px -8px 0 -8px; padding: 5px 0 5px 18px; font-size: small;}
+#fb-matching #fb-utils {width: 179px; float: right; margin-right: 10px;}
+#fb-matching #fb-utils a {text-decoration: none;}
+#fb-matching #fb-utils a:hover {text-decoration: underline;}
+#fb-summary #fb-spelling {font-size: medium; display: block; margin-bottom: 1em;}
+/* Funnelback override: RESULTS */
+#fb-results, .fb-best-bet {list-style-type: none; width: inherit; margin: 0; padding: 0; display: block;}
+#fb-results h3, .fb-best-bet h3 {font-size: medium; font-weight: normal;}
+#fb-results h3, .fb-best-bet h3, #fb-results p, .fb-best-bet p {margin: 0;}
+#fb-results li, .fb-best-bet {padding: 0; margin-bottom: 1em; width: inherit;}
+#fb-results p, #fb-wrapper .fb-best-bet p, cite {font-size: small; padding: 1px 0;}
+#fb-results .fb-file-format {padding-bottom: 1px;}
+#fb-results cite, .fb-best-bet cite {font-style: normal; color: #008800;}
+#fb-results a.fb-cached, #fb-results a.fb-explore, #fb-results .fb-file-format a {color: #7777DD;}
+.fb-date, .fb-meta, .fb-file-format span {color: #666666; font-size: small;}
+.fb-meta {display: block;}
+.fb-title {font-size: medium;}
+#fb-results .fb-filetype {vertical-align: middle; font-size: x-small; font-weight: bold; color: #1F1FcF;}
+p.fb-page-nav {text-align: center; margin: 2em 0;}
+a.fb-page-nav {padding: .2em;}
+#fb-wrapper #fb-no-results li {list-style-type: disc; margin: .5em;}
+#fb-wrapper #fb-no-results span {display: block; margin-top: 1em; font-size: medium;}
+/* Funnelback override: BEST BETS */
+.fb-best-bet {background-color: #FFF8DD; padding: 10px; margin-left: -10px;}
+#fb-wrapper .fb-best-bet h3, #fb-wrapper .fb-best-bet p {background-color: #FFF8DD;}
+/* Funnelback override: QUICK LINKS */
+#fb-results ul.fb-quicklinks, #fb-results form.fb-quicklinks-search {font-size: small; padding-left: 1.5em; margin-top: 0.5em; width: inherit;}
+#fb-results .fb-quicklinks li {display: inline; margin-right: 1.5em; white-space: nowrap;}
+#fb-results .fb-quicklinks a {text-decoration: none;}
+#fb-results form.fb-quicklinks-search input {font-size: small; vertical-align: middle; letter-spacing: normal; line-height: normal;}
+#fb-results form.fb-quicklinks-search input[type=text] {width: 150px; padding: 2px;}
+/* Funnelback override: CONTEXTUAL NAVIGATION */
+#fb-contextual-navigation h2 {font-weight: bold;}
+#fb-contextual-navigation h3, #fb-contextual-navigation h2 {padding-right: 0px;}
+/* Ensure long contextual-navigations (eg. URLs) don't break the layout */
+.fb-fade { background: url('fb-fade.png') top right repeat-y; display: block; height: 100%; width: 20px; position: absolute; top: 0; right: 0; z-index: 5;}
+#fb-contextual-navigation {border-left: 1px solid #BBBBDD; overflow: hidden; font-size: small;}
+#fb-contextual-navigation h2, #fb-contextual-navigation h3, #fb-facets h3 {font-weight: bold; font-style: italic; font-size: 1.1em; margin-top: 0; margin-bottom: .5em;}
+#fb-contextual-navigation h3 {margin: 1em 0 0em 0; font-weight: normal;}
+#fb-contextual-navigation ul, .facetedSearch ul {list-style-type: none; margin: 0; padding: 0;}
+#fb-contextual-navigation li {margin-bottom: .1em;}
+#fb-contextual-navigation a {text-decoration: none;}
+#fb-contextual-navigation .fb-contextual-navigation-more {text-align: right; margin: 5px 15px 0 0;}
+#fb-contextual-navigation .fb-contextual-navigation-more a {color: #7777DD;}
+#fb-contextual-navigation a:hover, .facetedSearch a:hover {text-decoration: underline;}
+/* Funnelback override: FACETING */
+#fb-wrapper.fb-with-faceting {border: 1px solid white;}
+#fb-matching.fb-with-faceting {padding-left: 0px;}
+#fb-facets {margin-top: -0.5em; overflow: hidden;}
+#fb-facets h3 {margin: 0 0 .5em 0; padding-top: 0;}
+.facet {margin-bottom: 1em;}
+.facetedSearch {margin-bottom: 1em;}
+.facetedSearch .category {padding: 0 0 .3em .3em;}
+.fb-facet-count {color: #7777DD;}
+.moreOrLessCategories {padding-left: 4px;}
+.moreOrLessCategories a {color: #7777DD;}
+#fb-facets a {text-decoration: none;}
+#fb-facets a:hover, .facetedSearch a:hover {text-decoration: underline;}
+#fb-facets .category {margin-bottom: 0.25em;}
+#fb-facets ul, #fb-facets li {margin: 0; padding: 0;}
+#fb-facets input {vertical-align: middle;}
+#fb-facets .category .selected {font-weight: bold;}
+#fb-facets span.categoryLabel {color: #666;}
+/* Funnelback override: QUERY COMPLETION - Uses jquery-ui */
+ul.ui-autocomplete {font-family: 'Arial'; background: white; text-align: left; border: solid 1px #bbbbdd; list-style-type: none; padding: 0px; margin: 0; width: 385px; position: absolute;}
+ul.ui-autocomplete h2 {font-size: small; background-color: #efefef; padding: 5px;}
+ul.ui-autocomplete li.ui-menu-item {padding: 0; margin: 0;}
+ul.ui-autocomplete li.ui-menu-item a {display: block; padding: 3px;}
+ul.ui-autocomplete li.ui-menu-item a.description, ul.ui-autocomplete li.ui-menu-item a.url {padding-top: 0px;}
+ul.ui-autocomplete li.ui-menu-item span {display: block; font-size: small; padding-left: 10px;}
+ul.ui-autocomplete li.ui-menu-item a.ui-state-hover {background-color: #efefff;}
+/* new additions - 2012-06-28 */
+#fb-wrapper { min-width: 0px; overflow: hidden;}
+ol#fb-results li { max-width: 75%; overflow: hidden;}
+p#fb-scope { max-width: 75%; overflow: hidden;}
+#fb-results p, #fb-summary, p.fb-page-nav {width: auto;}
+/*
+FUNNELBACK RESULTS FORM --> CSS OVERRIDES END
+*/
+	
+/* nrc center-col --> tabbed interface box styles
+	#cn-body-inner-2col .tabs:first-child {margin-left: -2px;}
+	#cn-body-inner-2col .tabs, #cn-content .tabs-style-1 .tabs {background-color: #FFF; background-image: none; border-width: 0px 0px 1px 0px;}
+	#cn-body-inner-2col .tabs-style-1 {border-width: 0px;}
+	#cn-body-inner-2col .tabs-panel {border: 1px solid #cccccc !important; border-top-width: 0px !important;}
+	#cn-body-inner-2col #tab-containerTabs ul.tabs li a {color: #FFF; background-color: #006699; background-image: url("/theme-nrc-cnrc/images/gradient.jpg"); background-repeat: repeat-x;}
+	#cn-body-inner-2col #tab-containerTabs ul.tabs li a.active, #tab-containerTabs ul.tabs li a.active:hover {color: #000; background-color: #FFF; padding-top: 5px; background-image: none; background-repeat: repeat; cursor: text;}
+	 */
+}
+
+/*
+STYLES FOR COLLECTIVE AGREEMENTS
+*/
+
+.indent
+{
+  margin-left: 2em;
+}
+
+/*STYLES FOR INLINE LIST NSL SEARCH OPTIONS*/
+
+ul.moretools {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+ul.moretools li {
+	display: inline;
+}
+
+div.moretools {
+	padding-left: 12px;
+	padding-bottom: 5px;
+}
+
+/* START - SUP-SUB line spacing fix for WET 3+ */ 
+/* ADDED: Mar 11, 2014 - CEC */
+/* from https://github.com/wet-boew/wet-boew/issues/2392 - not needed if WET 4 bootstrap is used */
+sup, sub {
+    height: 0;
+    line-height: 1;
+    position: relative;
+    vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+/* Printing fix for sub descenders (g,j,p,q) if above sup caps */
+@media print {
+sup { top: -0.3em; }
+sub { bottom: -0.25em; }
+}
+/* END - SUP-SUB line spacing fix */
+
+/* START - MISCELLANEOUS UTILITY */
+
+.uppercase { 
+	text-transform:uppercase;
+}
+
+/* END - MISCELLANEOUS UTILITY */

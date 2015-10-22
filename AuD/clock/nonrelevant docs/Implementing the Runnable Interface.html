@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Implementing the Runnable Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body bgcolor="#ffffff" link="#000099">
+<b><font size="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</font></b>
+<br>
+<table summary="layout" width="550">
+<tbody><tr>
+<td align="left" valign="middle">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/simple.html" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/PreviousArrow.gif" alt="Previous Page" align="middle" border="0" height="26" width="26"></a>
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/TOC.html#threads" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/TOCIcon.gif" alt="Lesson Contents" align="middle" border="0" height="26" width="26"></a>
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/lifecycle.html" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/NextArrow.gif" alt="Next Page" align="middle" border="0" height="26" width="26"></a></td>
+
+<td align="center" valign="middle">
+<font size="-1">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="middle">
+<font size="-1">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/search.html" target="_top">Search</a>
+<br><a href="http://www.math.uni-hamburg.de/doc/java/tutorial/forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</tbody></table>
+<img src="Implementing%20the%20Runnable%20Interface_files/blueline.gif" alt="" align="BOTTOM" height="8" width="550">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+Implementing the Runnable Interface
+</h2>
+<blockquote>
+
+The <code>Clock</code> applet displays the 
+current time and updates its display every second.
+You can scroll the page and perform other tasks while the
+clock updates. The reason is that the code that updates the
+clock's display runs within its own thread.
+<p>
+<applet code="Implementing%20the%20Runnable%20Interface_files/Clock.html" height="10" width="60">
+</applet>
+
+</p><p>
+The <code>Clock</code> applet uses a technique different from 
+<code>SimpleThread</code>’s for providing the <code>run</code> 
+method for its thread. Instead of subclassing <code>Thread</code>, 
+<code>Clock</code> implements the <code>Runnable</code> interface 
+and therefore implements the <code>run</code> method defined in it. 
+<code>Clock</code> then creates a thread with itself as the 
+<code>Thread</code>’s target. When created in this way, the 
+<code>Thread</code> gets its run method from its target. The 
+code that accomplishes this is highlighted:
+
+</p><blockquote><pre>import java.awt.Graphics;
+import java.util.*;
+import java.text.DateFormat;
+import java.applet.Applet;
+
+public class Clock extends Applet <b>implements Runnable</b> {
+    private Thread clockThread = null;
+    public void start() {
+        if (clockThread == null) {
+            <b>clockThread = new Thread(this, "Clock");</b>
+            clockThread.start();
+        }
+    }
+    <b>public void run() {
+        Thread myThread = Thread.currentThread();
+        while (clockThread == myThread) {
+            repaint();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                //the VM doesn’t want us to sleep anymore,
+                //so get back to work
+            }
+        }
+    }</b>
+    public void paint(Graphics g) {
+        //get the time and convert it to a date
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        //format it and display it
+        DateFormat dateFormatter =
+				DateFormat.getTimeInstance();
+        g.drawString(dateFormatter.format(date), 5, 10);
+    }
+    //overrides Applet’s stop method, not Thread’s
+    public void stop() {
+        clockThread = null;
+    }
+}
+</pre></blockquote>
+
+The <code>Clock</code> applet’s <code>run</code> method loops until 
+the browser asks it to stop. During each iteration of the loop, the 
+clock repaints its display. The <code>paint</code> method figures out 
+what time it is, formats it in a localized way, and displays it. You’ll 
+see more of the <code>Clock</code> applet in the section 
+<a target="_top" href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/lifecycle.html">The Life Cycle of a Thread</a><a target="_top" href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/lifecycle.html"><img src="Implementing%20the%20Runnable%20Interface_files/tutorialIcon.gif" alt=" (in the Essential Java Classes trail)" align="MIDDLE" border="0" height="11" width="11"></a>, which uses it to teach you about the life of a thread.
+
+</blockquote>
+<h3>Deciding to Use the <code>Runnable</code> Interface</h3>
+<blockquote>
+You have now seen two ways to provide the <code>run</code> method.
+<ul>
+<li>
+Subclass the <code>Thread</code> class and override
+the <code>run</code> method.
+See the <code>SimpleThread</code> class described in the section 
+<a target="_top" href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/simple.html">Subclassing Thread and Overriding run</a><a target="_top" href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/simple.html"><img src="Implementing%20the%20Runnable%20Interface_files/tutorialIcon.gif" alt=" (in the Essential Java Classes trail)" align="MIDDLE" border="0" height="11" width="11"></a>. 
+</li><li>
+Provide a class that implements the <code>Runnable</code> interface 
+and therefore implements the <code>run</code> method. In this case, 
+a <code>Runnable</code> object provides the <code>run</code> method to 
+the thread. See the <code>Clock</code> applet in the preceding section.
+</li></ul>
+
+There are good reasons for choosing either of these options over the
+other. However, for most cases,
+including that of the <code>Clock</code> applet, 
+if your class <i>must</i> subclass some other class
+(the most common example being <code>Applet</code>),
+you should use <code>Runnable</code>. 
+<p>
+To run in a browser, the <code>Clock</code> class has to be a 
+subclass of the <code>Applet</code> class. Also, the 
+<code>Clock</code> applet needs a thread so that it can 
+continuously update its display without taking over the 
+process in which it is running. (Some browsers might create 
+a new thread for each applet so as to prevent a misbehaved 
+applet from taking over the main browser thread. However, 
+you should not count on this when writing your applets; your 
+applets should create their own threads when doing 
+computer-intensive work.) But because the Java programming 
+language does not support multiple-class inheritance, the 
+<code>Clock</code> class cannot be a subclass of both 
+<code>Thread</code> and <code>Applet</code>. Thus, the 
+<code>Clock</code> class must use the <code>Runnable</code> 
+interface to provide its threaded behavior. 
+
+
+</p></blockquote>
+
+<img src="Implementing%20the%20Runnable%20Interface_files/blueline.gif" alt="" align="BOTTOM" height="8" width="550">
+<br>
+<table summary="layout" width="550">
+<tbody><tr>
+<td align="left" valign="middle">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/simple.html" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/PreviousArrow.gif" alt="Previous Page" align="middle" border="0" height="26" width="26"></a>
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/TOC.html#threads" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/TOCIcon.gif" alt="Lesson Contents" align="middle" border="0" height="26" width="26"></a>
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/lifecycle.html" target="_top"><img src="Implementing%20the%20Runnable%20Interface_files/NextArrow.gif" alt="Next Page" align="middle" border="0" height="26" width="26"></a></td>
+
+<td align="center" valign="middle">
+<font size="-1">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="middle">
+<font size="-1">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/search.html" target="_top">Search</a>
+<br><a href="http://www.math.uni-hamburg.de/doc/java/tutorial/forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</tbody></table>
+<p>
+<font size="-1">
+<a href="http://www.math.uni-hamburg.de/doc/java/tutorial/information/copyright.html">Copyright</a>
+1995-2005 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+
+
+</body></html>

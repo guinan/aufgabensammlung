@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script>
+<meta content="IE=10" http-equiv="X-UA-Compatible">
+<meta charset="UTF-8">
+<title>chair_html5_336x280</title>
+<meta name="ad.size" content="height=280,width=336">
+<script src="chair_html5_336x280_data/easeljs-0.js"></script>
+<script src="chair_html5_336x280_data/tweenjs-0.js"></script>
+<script src="chair_html5_336x280_data/movieclip-0.js"></script>
+<script src="chair_html5_336x280_data/preloadjs-0.js"></script>
+<script src="chair_html5_336x280_data/chair_html5_336x280.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	createjs.MotionGuidePlugin.install();
+
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	exportRoot = new lib.chair_html5_336x280();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+<!-- clicktag-script -->
+ <script>
+       var clickTag = "http://www.google.org";
+       function resizeWindow()
+       {
+         $('p').css({ 'width':'100%', 'text-align':'center' });
+         var h1 = $('h1').height();
+         var h = h1/2;
+         var WinHeight = $(window).height();
+         var w = WinHeight/2;
+         var m = w - h;
+         var WinWidth=$(window).width();
+         $('p').css("margin-top",m + "px");
+         $("p").text("Size="+WinWidth+"x"+WinHeight);
+       }
+       $(document).ready(function () {
+         ResizeWindow ();
+       });
+       $(window).resize(function () {
+         ResizeWindow ();
+       }); 
+      </script>
+</head>
+
+<body onload="init();" style="margin: 0; padding: 0;">
+	<a href="javascript:window.open(window.clickTag)"><canvas id="canvas" width="334" height="278" style="background-color:#000000; border:#000 1px solid;"></canvas></a>
+
+
+</body></html>

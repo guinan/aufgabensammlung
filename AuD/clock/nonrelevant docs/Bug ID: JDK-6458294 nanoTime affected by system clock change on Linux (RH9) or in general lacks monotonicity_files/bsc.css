@@ -1,0 +1,110 @@
+/* 
+    Document   : bsc
+    Created on : Jul 12, 2012, 3:03:53 PM
+    Author     : nelson
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.bugTitle {display: block;
+font-family: Trebuchet,Verdana;
+font-size: 13px;
+font-weight: bold;
+color: #000;
+float: left;
+word-wrap: break-word;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+.bugContent {display: block;
+font-family: Trebuchet,Verdana;
+font-size: 11px;
+font-weight: normal;
+color: #838383;
+float: left;
+word-wrap: break-word;
+margin-top: 0px;
+margin-right: 10px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+.bugContentDownload {display: block;
+font-family: Verdana;
+font-size: 9px;
+font-weight: normal;
+color: #FF00000;
+float: left;
+word-wrap: break-word;
+margin-top: 0px;
+margin-right: 10px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+.bugComments {display: block;
+font-family: Trebuchet,Verdana;
+font-size: 11px;
+font-weight: normal;
+color: #838383;
+float: left;
+word-wrap: break-word;
+margin-top: 0px;
+margin-right: 10px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.bugContentBold {
+font-family: Verdana;
+font-size: 11px;
+font-weight: bold;
+color: #000000;
+margin-top: 0px;
+margin-right: 1px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+.commentDate {
+font-family: Verdana;
+font-size: 11px;
+font-style:italic;
+    color: #808080;
+margin-top: 0px;
+margin-right: 1px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+.bugTitleBold {display: block;
+font-family: Trebuchet,Verdana;
+font-size: 12px;
+font-weight: bold;
+color: #000000;
+float: left;
+word-wrap: break-word;
+margin-top: 0px;
+margin-right: 10px;
+margin-bottom: 5px;
+margin-left: 0px;
+}
+
+
+.bottom_line {
+border-bottom-style: solid ; 
+border-bottom-color: #C4C4C4; 
+border-bottom-width: 1px;
+} 

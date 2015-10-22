@@ -1,0 +1,23 @@
+/**/
+(function() {
+    metric = function(url, wait)
+    {
+        setTimeout(function() {
+                var e = document.createElement("img");
+                e.src = url;
+            }, wait);
+    }
+
+    var intervals = [0, 10];
+    var inlen = intervals.length;
+    for (var k = 0; k < inlen; ++k)
+        this.metric("https://pixel.mathtag.com/misc/img?mm_bnc&bcdv="+k, intervals[k] * 1000);
+})();
+
+//used to sync advertiser without leaking referer to final destination
+	    var frm = document.createElement('iframe');
+	    frm.style.visibility = 'hidden';
+	    frm.style.display = 'none';
+	    frm.src = "https://pixel.mathtag.com/sync/iframe?mt_adid=131453&v1=&v2=&v3=&s1=&s2=&s3=&mt_uuid=015455d4-7ef3-4600-92a5-6db799c86dff&no_iframe=1";
+	    document.body.appendChild(frm);
+      

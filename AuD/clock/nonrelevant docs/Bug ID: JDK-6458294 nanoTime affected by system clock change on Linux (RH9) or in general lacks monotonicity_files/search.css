@@ -1,0 +1,37 @@
+
+
+.main-container{ width:974px; height:auto;}
+.main-container .t-t{background:url(t-bg.gif) repeat-x; width:974px; height:50px;}
+.main-container .t-t span.tt-l-corner{  background:url(t-l-corner.gif) no-repeat left; width:15px; height:50px;}
+.main-container .t-t span.tt-r-corner{float:right; background:url(t-r-corner.gif) no-repeat right; width:15px; height:50px;}
+.main-container .t-b{background:url(b-bg.gif) repeat-x; width:974px; height:15px;}
+.main-container .t-b span.tb-l-corner{  background:url(b-l-corner.gif) no-repeat left; width:15px; height:15px;}
+.main-container .t-b span.tb-r-corner{float:right; background:url(b-r-corner.gif) no-repeat right; width:15px; height:15px;}
+
+.main-container .login-mainarea{ width:972px; height:auto; background: #FFF; border-left:1px solid #d2d2d2;border-right:1px solid #d2d2d2; padding:0px 0px 5px 0px;}
+
+.graybox-wrapper{margin:0px auto; width:450px;}
+.graybox-signintxt{ margin:0px; padding:5px 0px 7px 8px; width:308px; height:20px; text-align:left;}
+.graybox-container{ width:450px; height:auto;}
+.graybox-container .gb-t{width:450px; height:20px; background:url(gray-t-line.gif) repeat-x;}
+.graybox-container .gb-t span.gb-t-l{float:left;  width:20px; height:20px; background:url(gray-b-l-t.gif) no-repeat left;}
+.graybox-container .gb-t span.gb-t-r{float:right; width:20px; height:20px; background:url(gray-b-r-t.gif) no-repeat right;}
+.graybox-container .gb-b{width:450px; height:20px; background:url(gray-b-line.gif) repeat-x; padding-bottom:5px;}
+.graybox-container .gb-b span.gb-b-l{float:left;  width:20px; height:20px; background:url(gray-b-l-b.gif) no-repeat left;}
+.graybox-container .gb-b span.gb-b-r{float:right; width:20px; height:20px; background:url(gray-b-r-b.gif) no-repeat right;}
+
+.graybox-container .gb-m{ width:448px; height:auto; background:#f3f3f5;border-left:1px solid #d2d2d2;border-right:1px solid #d2d2d2;}
+.graybox-container .gb-m .bugsearch{ padding:0px 20px 5px 20px; width:420px; height:auto; font-size:12px;}
+.bugsearch form label.bs-header, .bugsearch form label{width:276px;height:15px; padding-top:5px; color:000000;font-weight:bold;} 
+.bugsearch form label.bs-lbl, .bugsearch form label{width:276px;height:15px; padding-top:5px;} 
+.bugsearch form input.bs-txtbox, .bugsearch form input[type='text']{width:272px;height:20px; border:0px; border:1px solid #7e9db9; margin-top:5px;}
+.bugsearch form input.bs-bugidbox[type='text']{width:100px;height:20px;border:0px; border:1px solid #7e9db9;margin-top:5px;}
+.bugsearch form span.logerror-instruct{ width:272px; padding-top:5px;font-size:11px; color:#E10000;}
+.bugsearch form span.sf-instruct{ width:272px; padding-top:5px;font-size:10px;}
+.bugsearch form .sf-btnarea{ width:272px; margin-top:10px; text-align:left;}
+.sf-btnarea .buttonLinkText{ width:auto; height:28px;background:url(red-b-m-bg.gif) repeat-x top center;font-size:10px;text-decoration:none;color:#FFF;font-weight:bold; padding:0px 0px 0px 0px; cursor:pointer;}
+.sf-btnarea .buttonLinkText .blt-l{ width:3px; height:28px; background:url(red-b-l.gif) #666 no-repeat left;}
+.sf-btnarea .buttonLinkText .blt-txt{width:auto; height:22px; padding:5px 5px 0px 5px;background:url(red-b-m-bg.gif) #666 repeat-x top center; vertical-align:middle; align:right;}
+.sf-btnarea .buttonLinkText .blt-r{ width:4px; height:28px; background:url(red-b-r.gif) #666 no-repeat left;}
+a.content-links{color:#666;}
+a.content-links:hover{color:#F00;}

@@ -1,0 +1,438 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Programming in Java - Notes - Classes and Objects I</title>
+  <style type="text/css"> 
+    A {text-decoration:none} 
+    PRE {Color:#99ffcc}
+    H1 {Color:#ffff33}
+    H2 {Color:#ffff66}
+    DT {Color:#ffff66}
+  </style>
+</head>
+
+<body alink="#ff0000" bgcolor="#000000" link="#6666ff" text="ffffff" vlink="#6666ff">
+
+<a href="http://phys.columbia.edu/%7Estephen/shp/notes.html"><font color="#999999">notes</font></a><font color="#999999">
+
+<br><br>
+<br>
+<center>
+
+<table noborder="" width="75%" cellspacing="0">
+
+<tbody><tr><td> 
+<h1>Classes and Objects</h1>
+
+<h2>Class Definition And Object Instantiation</h2>
+<p>
+When we define a class, we define the components and the behavior of a
+type of object.  As an example, let's take a complex number.  Our
+complex number will have two pieces of data - its real and imaginary
+components.  It's class definition, without any methods yet, would
+look something like:
+</p>
+
+<pre>public class Complex
+{
+    public double real;
+    public double imag;
+}
+</pre>
+
+<p>
+This says that every Complex object we create will have two doubles
+inside of it, called real and imag.  (you can ignore the "public" till later
+in this lesson, but basically it means that anyone who can see a given
+Complex can get or set the values of real and imag in that Complex)</p>
+
+<p>
+Next, we want to add some methods
+to the class - behavior of the objects of the class.  In general, a
+method looks like this:
+</p>
+
+<pre>access_modifier return_type method_name( arguments... )
+{
+    one or more statements 
+}
+</pre>
+
+<p>
+access_modifier is either public, protected, private, or can be left
+out.  It defines what objects can execute the method.  
+return_type is any valid type - one of the 8 fundamental types, any
+defined object type, or "void".  It specifies what the method call
+evaluates to in the code that calls it.  We say that this is what it
+<em>returns</em>.  method_name is any word composed of letters, numbers
+and underscores, beginning with a letter or underscore.  You should
+stick with the convention of starting with a lowercase letter,
+reserving words starting with an uppercase for class names.  The
+arguments can be zero or more pairs of type and argument name (any
+word), seperated by commas.  
+</p>
+
+<p>
+The first methods we want to add are constructors, which are used to
+build the objects.  We'll add one that doesn't set real and imag, but just leaves them 0,
+and another that sets them with arguments passed to the constructor:
+</p>
+
+<pre>public class Complex
+{
+    public double real;
+    public double imag;
+
+    public Complex() {}
+    public Complex(double r, double i)
+    {
+        real = r;
+	imag = i;
+    }
+}
+</pre>
+
+<p>
+Take note of a few things here.  First, constructors are the one kind
+of method for which no return type is specified.  This is because the
+constructor always operates to create an object of the given type,
+Complex in this case.  Second, note how the arguments work by looking
+at the second constructor.  Here we declare that two doubles will be
+passed in to this constructor, and we will call them r and i from
+within the body of the constructor.  
+</p>
+
+<p>
+Now, we could create Complex objects and set their values two
+different ways.  We could construct empty objects and set 
+the values seperately:
+</p>
+
+<pre>Complex c = new Complex();
+c.real = 1.5;
+c.imag = -2.3;
+</pre>
+
+<p>
+Or we could do it in one step using the second constructor:
+</p>
+
+<pre>Complex c = new Complex(1.5, -2.3);
+</pre>
+
+<p>
+In either case, the new operator sets aside enough memory for a
+Complex object, passes it to the constructor, which in the second case
+fills in the values, and then returns the location of the object in
+memory, which is used to set c,
+a Complex reference.  It is important to understand here that c is
+just a reference - it refers or points to the area in memory that
+actually holds the data.  In this case:
+</p>
+
+<pre>Complex c = new Complex(2.1,1.4);
+Complex b = c;
+</pre>
+
+<p>
+there is now only one Complex object in memory, which is referred to
+by two seperate references.  When we do:
+</p>
+
+<pre>c.real = 5.6;
+System.out.println(d.real);
+</pre>
+
+<p>
+we see that 5.6 is printed out.  This is because the first line says
+to set the real part of <em>the object referred to
+by c</em> to 5.6, and that object is the same that is referred to by
+d.  So, when the second line says to print the real part of <em>the
+object referred to by d</em>, we get 5.6.
+</p>
+
+<p>
+Now let's make some methods other than the constructor.  In
+particular, let's make a magnitude method to get the magnitude of a
+complex number, and an add method to add a second complex number to
+the first and return the sum:
+</p>
+
+<pre>public class Complex
+{
+    public double real;
+    public double imag;
+
+    public Complex() {}
+    public Complex(double r, double i)
+    {
+        real = r;
+	imag = i;
+    }
+
+    public double magnitude()
+    {
+        return Math.sqrt(real*real + imag*imag);
+    }
+    public Complex add(Complex other)
+    {
+        return new Complex(real + other.real, imag + other.imag);
+    }
+}
+</pre>
+
+<p>
+When inside of these methods, real and imag refer to the real and imag
+components of the object in question.  So, when we create a Complex
+and ask for its magnitude:
+</p>
+
+<pre>Complex c = new Complex(3.0,4.0);
+System.out.println(c.magnitude());
+</pre>
+
+<p>
+the magnitude method is called on the Complex we created, where real
+is 3.0 and imag 4.0, so c.magnitude() evaluates to the double value
+5.0, which println prints out.  Note that we call a method on an
+object by writing the reference name, followed by a period, followed
+by the method name, followed by parenthesis, possibly containing
+arguments to the method.
+</p>
+
+<p>
+The add method takes the real and imag values from the Complex it is
+called on, adds them to the values from the Complex passed to the
+method, and uses them to construct a new Complex object, which it
+returns.
+So, we might use it like this:
+</p>
+
+<pre>Complex a = new Complex(-1.0,2.0);
+Complex b = new Complex(3.0,4.5);
+Complex c = a.add(b);
+</pre>
+
+<p>
+Which would result in c referring to a Complex with real of 2.0 and
+imag of 6.5.  
+</p>
+
+<h2>Packages</h2>
+<p>
+When building real life java code, classes will often be grouped into
+<em>packages</em>.  This is a way of placing together certain related classes
+and of allowing certain grouped classes to have special access
+privileges with each other.  To declare a class part of a package, use
+the package keyword before the class definition.  For instance, if we
+wanted to make Complex part of the myMath package, we would specify
+that like so: 
+</p>
+
+<pre>package myMath;
+
+public class Complex
+{
+    ....
+}
+</pre>
+
+<h2>Accessibility Modifiers and Encapsulation</h2>
+<p>
+There are four levels of accessibility, in increasing order: private,
+package, protected and public.  These are applied to the class
+defintion, the components of the class and the methods of the class.
+For now, you'll just always make one class in a file, and make it
+public, so don't worry about visibility in the class definition.  For
+components and methods, visibility determines whether a given piece of
+code can access the component or execute the method.  Private
+visibility is the most restrictive.  A private component or method can
+only be accessed from methods within the class definition.  For
+instance, let's say we defined the class Foo like so:
+</p>
+
+<pre>public class Foo
+{
+    private int i;
+
+    public int getI() { return i; }
+    public void setI(int _i) { i = _i; }
+}
+</pre>
+
+<p>
+Now, the getI and setI methods can access the i component of the Foo
+object in question because they are inside the definition of Foo, but
+from outside they cannot be accessed, so the following would not compile:
+</p>
+
+<pre>Foo f = new Foo();
+f.i = 7;             // this line will cause a compiler error
+                     // because the i component is private
+</pre>
+
+<p>
+The setI and getI methods effectively allow access to the i component,
+but provide a place that we can monitor that access, as well as
+allowing us to change the actual internals of Foo without breaking
+outside code - we might have the actual integer hidden in a database
+somewhere for instance.  Hiding components and then providing access
+through special methods is called <em>encapsulation</em> and is an
+important technique in object-oriented programming.
+</p>
+
+<p>
+If we don't specify the visibility of a component or method, it gets
+package visibility.  This means that it can be accessed from methods
+of the class and from methods of other classes in the same package as
+the class, so if we defined:
+</p>
+
+<pre>package widgets;
+
+public class Warble
+{
+    double d;
+
+    public double getD() { return d; }
+    public void setD( double _d ) { d = _d; }
+}
+</pre>
+
+<p>
+then not only can getD and setD access d because they are methods of
+Warble, but methods of any other classes in the widgets package can
+also access d on a Warble object.  For instance, this is ok:
+</p>
+
+<pre>package widgets;
+
+public class Blurble
+{
+    public static void main(String[] args)
+    {
+        Warble w = new Warble();
+	w.d = 5.9;               // this is ok because Blurble
+                                 // is in the widgets package
+    }
+}
+</pre>
+
+<p>
+The next visibility is protected visibility.  Components and methods
+with protected visibility can be accessed from within the same class,
+from within methods of classes in the same package, and from within
+methods of subclasses of the given class.  Don't worry yet what this
+means.  Thats another lesson..
+</p>
+
+<p>
+Finally, public visibility means that components and methods of
+objects of the given class can be accessed by any code with a
+reference to the given object.  So if we have:
+</p>
+
+<pre>public class Sample
+{
+    public int i;
+}
+</pre>
+
+<p>
+Then any code can feel free to do:
+</p>
+
+<pre>Sample s = new Sample();
+s.i = 75;
+System.out.println(s.i);
+</pre>
+
+
+<h2>Garbage Collection</h2>
+<p>
+When you create an object, for instance:
+</p>
+ 
+<pre>Foo f = new Foo();
+</pre>
+
+<p>
+memory is set aside by the new operator for that object.  In some
+other languages, like C++, you need to explicitly delete the object in
+order to get the memory back.  In Java, you don't.  Java uses what is
+called a <em>garbage collector</em>, which looks for unreferenced
+objects and returns their memory to the system.  So, in Java, all you
+need to do to give back the memory from an object is drop your
+references to it, for instance by assigning the reference to a new
+object, or to null, meaning no object, like:  
+</p>
+
+<pre>f = null;   // drop the reference to the Foo object we created
+</pre>
+
+<h2>The Class Path </h2>
+<p>
+When java code is compiled or run, it needs to know where to look for
+class definitions.  It generally will look in the current directory,
+and you can avoid dealing with the classpath for now by just keeping
+everything in the current directory and not using packages,
+but you might also want it to look other places.  You can get it to
+look other places by setting your CLASSPATH environment variable.
+Environment variables are special variables that you can set from the
+shell to give information to programs or to use in the shell
+yourself.  How to set environment variables is different depending on
+your shell (and your OS).  On a UNIX machine, your shell is probably
+bash or tcsh.  You can tell by typing:
+</p>
+
+<pre>&gt;echo $SHELL
+</pre>
+
+<p>
+which happens to find out by printing the value of the SHELL
+environment variable.  If your shell if bash, you set CLASSPATH like so:
+</p>
+
+<pre>&gt;export CLASSPATH=.;~/java;~/code/java
+</pre>
+
+<p>
+or, if your shell is tcsh:
+</p>
+
+<pre>&gt;setenv CLASSPATH .;~/java;~/code
+</pre>
+
+<p>
+On Windows, you have to do it through the GUI and MS seems to have had 
+fun making how you do it different on every Windows version.  Good luck.
+</p>
+
+<p>
+Either way, this says to look for class definitions in three places:
+the current directory, the java directory off your home directory (~/
+always means your home directory), and the code directory off your
+home directory.  Note that the directories are seperated by semicolons.
+</p>
+
+<p>
+If you put your classes into packages, then they need to be in
+directories off the classpath according to the packages.  So, if you
+defined your class Blurble to be in the widgets package, then
+Blurble.java should be in a widgets directory off any directory in the
+classpath, for instance, in ~/java/widgets.  
+</p>
+
+</td></tr>
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+</center></font></body></html>

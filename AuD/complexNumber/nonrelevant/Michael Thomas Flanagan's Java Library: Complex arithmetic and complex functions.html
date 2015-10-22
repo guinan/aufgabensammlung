@@ -1,0 +1,2078 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Michael Thomas Flanagan's Java Library: Complex arithmetic and complex functions</title>
+<meta name="description" content="Complex Arithmetic">
+<meta name="keywords" content="Complex, arithmetic, trigonometric, flanagan, scientific, library, class, Java">
+</head>
+<body alink="purple" bgcolor="white" link="blue" vlink="blue">
+
+<center>
+<table border="5" bordercolor="green">
+   <tbody>
+    <tr>
+     <td valign="top">
+<table>
+<tbody>
+<tr><td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td valign="top">
+<center>
+      <br><b style="font-size: 150%;">Michael Thomas Flanagan's Java Scientific Library</b><br><br><b style="font-size: 160%;">Complex Class:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Complex Arithmetic and Complex Functions</b><br><br></center>
+     </td>
+<td valign="top">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+    </tr>
+   </tbody>
+</table>
+</center>
+<br>
+<b><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/updates.html#09Nov09">Last update: 6  June 2010</a></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/index.html">Main Page of Michael Thomas Flanagan's Java Scientific Library</a><br><br>
+
+This class defines an object that represents a complex number, <i>x + jy</i>. The engineering representation of the square root of minus one, <i>j</i>, may be changed to the more common form <i>i</i>; <i>x + iy</i>. This class includes an extensive range of the methods needed in complex arithmetic, including<ul>
+<li> addition, subtration, multiplication and division</li>
+<li> trigonometric functions and mathematical functions, e.g. conjugate,
+ modulus, argument, hypotenuse, log, roots, powers, exponential, 
+reciprocal;</li>
+<li> logical tests;</li>
+<li> input and output, truncation, type conversion, deep copies;</li>
+<li> one, two and three dimensional array creation, mean of a one dimensional array;</li>
+<li> some useful complex numbers.</li>
+</ul>
+
+<a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexMatrix.html">Complex matrices</a>, <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexPoly.html">Complex polynomials</a> and <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexErrorProp.html">Complex error propagation</a> are handled in separate classes.<br>
+The <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html">Stat</a> class contains methods for the analysis of Complex one-dimensional arrays. See <a href="#stats">Statistical analysis</a> below for more details.<br>
+The <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ArrayMaths.html">ArrayMaths</a> class contains methods for arithmetic operations on Complex one-dimensional arrays. See <a href="#arrays">One dimensional arrays</a> below for more details.<br>
+
+<br><br>
+<b>import directive:</b> import flanagan.complex.Complex;
+
+<ul>
+<li><a href="#summ">Summary table of constructors and methods</a></li>
+<li><a href="#construct">Details of constructors and methods</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Complex.java">Java source file</a> (<font color="red">Last update: 6 June 2010</font>);</li>
+<li><a href="#class">Other classes, in this library, used by this class</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/index.html">Main Page of Michael Thomas Flanagan Java library</a></li>
+</ul>
+Related classes
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexMatrix.html">ComplexMatrix</a>- Complex Matrices: complex matrix operations, solution of a complex linear set of equations.</li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexPoly.html">ComplexPoly</a> - Complex Polynomials and their roots</li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ComplexErrorProp.html">ComplexErrorProp</a> - Error propagation in complex arithmetic</li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Phasor.html">Phasor</a> - Arithmetic methods for complex numbers expressed as phasors</li>
+</ul>
+<a name="summ"><h3>SUMMARY OF CONSTRUCTORS AND METHODS</h3></a>
+
+<table border="" cellpadding="3">
+<tbody><tr><td rowspan="4" valign="top">
+<a href="#construct">Constructors</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex()<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex(<b><font color="blue">double</font></b> real, <b><font color="blue">double</font></b> imag)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex(<b><font color="blue">double</font></b> real)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex(Complex c)
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="6" valign="top">
+<a href="#set">Set Values</a>
+</td><td>
+<b><font color="blue">public void </font></b>setReal<b><font color="blue">(double</font></b> real)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void </font></b>setImag<b><font color="blue">(double</font></b> imag)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void </font></b>reset<b><font color="blue">(double</font></b> real, <b><font color="blue">double</font></b> imag)<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void </font></b>polar<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> argRad)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void </font></b>polarRad<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> argRad)
+</td><td>
+&nbsp;
+</td></tr><tr><td>
+<b><font color="blue">public void </font></b>polarDeg<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> argDeg)
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="3" valign="top">
+<a href="#get">Get Values</a>
+</td><td>
+<b><font color="blue">public double</font></b> getReal()<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public double</font></b> getImag()<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public int</font></b> hashCode()<br>
+</td><td>&nbsp;
+</td></tr>
+
+<tr><td rowspan="14" valign="top">
+<a href="#io">Input and Output</a>
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex readComplex(<b><font color="blue">String</font></b> prompt, <b><font color="blue">String</font></b> default)
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex readComplex(<b><font color="blue">String</font></b> prompt)
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex readComplex()<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> print(<b><font color="blue">String</font></b> message)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> print()<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> println(<b><font color="blue">String</font></b> message)
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> println()<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> println(<b><font color="blue">String</font></b> message, <b>Complex</b> cc[])<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> println(<b>Complex</b> cc[])<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> print(<b><font color="blue">String</font></b> message, <b>Complex</b> cc[])<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> print(<b>Complex</b> cc[])<br>
+</td></tr>
+
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> setj()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> seti()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static char</font></b> getjori()<br>
+
+</td></tr>
+
+<tr><td rowspan="1" valign="top">
+<a href="#trunc">Truncate mantissae to n places</a>
+</td><td rowspan="1">
+<b><font color="blue">public</font></b> Complex truncate(<b><font color="blue">int</font></b> n)
+</td><td>
+<b><font color="blue">public static</font></b> Complex truncate(Complex x, <b><font color="blue">int</font></b> n)
+</td></tr>
+
+<tr><td rowspan="1" valign="top">
+<a href="#swap">Swap two complex numbers</a>
+</td><td rowspan="1">
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex swap(Complex aa, Complex bb)
+</td></tr>
+
+<tr><td rowspan="4" valign="top">
+<a href="#string">Conversions</a>
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex parseComplex(String ss)
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex valueOf(String ss)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public String</font></b> toString()<br>
+</td><td>
+<b><font color="blue">public static String</font></b> toString(Complex aa)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public int</font></b> hashCode()<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="2" valign="top">
+<a href="#abs">Modulus</a>
+</td>
+<td>
+<b><font color="blue">public double</font></b> abs()<br>
+</td><td>
+<b><font color="blue">public static double</font></b> abs(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public double</font></b> squareAbs()<br>
+</td><td>
+<b><font color="blue">public static double</font></b> squareAbs(Complex a)<br>
+</td></tr>
+
+<tr><td rowspan="3" valign="top">
+<a href="#arg">Argument</a>
+</td>
+<td>
+<b><font color="blue">public double</font></b> arg()<br>
+</td><td>
+<b><font color="blue">public static double</font></b> arg(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public double</font></b> argRad()<br>
+</td><td>
+<b><font color="blue">public static double</font></b> argRad(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public double</font></b> argDeg()<br>
+</td><td>
+<b><font color="blue">public static double</font></b> argDeg(Complex a)<br>
+</td></tr>
+
+<tr><td valign="top">
+<a href="#conj">Conjugate</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex conjugate()<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex conjugate(Complex a)<br>
+</td></tr>
+
+<tr><td rowspan="6" valign="top">
+<a href="#add">Addition</a>
+</td><td valign="top">
+<b><font color="blue">public</font></b> Complex plus(Complex a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex plus(Complex a, Complex b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex plus<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex plus(Complex a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex plus<b><font color="blue">(double</font></b> a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex plus(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> plusEquals(Complex a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b>  plusEquals<b><font color="blue">(double</font></b> a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="6" valign="top">
+<a href="#sub">Subtraction</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex minus(Complex a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex minus(Complex a, Complex b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex minus<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex minus(Complex a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex transposedMinus<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex minus<b><font color="blue">(double</font></b> a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex minus(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> minusEquals(Complex a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> minusEquals<b><font color="blue">(double</font></b> a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="3" valign="top">
+<a href="#infopt">Infinity Handling Option<br>for multiplication<br>and division</a>
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> setInfOption(<b><font color="blue">boolean</font></b> opt)
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static void</font></b> setInfOption(<b><font color="blue">int</font></b> opt) 
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static boolean</font></b> getInfOption()
+</td></tr>
+
+
+
+<tr><td rowspan="6" valign="top">
+<a href="#mult">Multiplication</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex times(Complex a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex times(Complex a, Complex b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex times<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex times(Complex a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex times<b><font color="blue">(double</font></b> a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex times(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> timesEquals(Complex a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> timesEquals<b><font color="blue">(double</font></b> a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td rowspan="6" valign="top">
+<a href="#div">Division</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex over(Complex a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex over(Complex a, Complex b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex over<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex over(Complex a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex transposedOver<b><font color="blue">(double</font></b> a)<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex over<b><font color="blue">(double</font></b> a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex over(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> overEquals(Complex a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+<b><font color="blue">public void</font></b> overEquals<b><font color="blue">(double</font></b> a )<br>
+</td><td>
+&nbsp;
+</td></tr>
+
+<tr><td valign="top">
+<a href="#inv">Reciprocal</a>
+</td>
+<td>
+<b><font color="blue">public</font></b> Complex inverse()<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex inverse(Complex a)<br>
+</td></tr>
+
+<tr><td valign="top">
+<a href="#inv">Negation</a>
+</td>
+<td>
+<b><font color="blue">public</font></b> Complex negate()<br>
+</td><td>
+<b><font color="blue">public static</font></b> Complex negate(Complex a)<br>
+</td></tr>
+
+<tr><td rowspan="4" valign="top">
+<a href="#exp">Exponential</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex exp()
+</td><td>
+<b><font color="blue">public static</font></b> Complex exp(Complex aa)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex exp(<b><font color="blue">double</font></b> aa)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex expPlusJayArg(<b><font color="blue">double</font></b> arg)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex expMinusJayArg(<b><font color="blue">double</font></b> arg)<br>
+</td></tr>
+
+<tr><td valign="top">
+<a href="#log">Logarithm</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex log()
+</td><td><b><font color="blue">public static</font></b> Complex log(Complex aa )<br></td></tr>
+
+<tr><td rowspan="2" valign="top">
+<a href="#root">Root</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex sqrt()
+</td><td>
+<b><font color="blue">public static</font></b> Complex sqrt(Complex aa )<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex nthRoot(<b><font color="blue">int</font></b> n)
+</td><td>
+<b><font color="blue">public static</font></b> Complex nthRoot(Complex aa, <b><font color="blue">int</font></b> n 
+)<br>
+</td></tr>
+
+<tr><td rowspan="6" valign="top">
+<a href="#pow">Power</a>
+</td><td>
+<b><font color="blue">public</font></b> Complex square()
+</td><td>
+<b><font color="blue">public static</font></b> Complex square(Complex aa)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex pow(<b><font color="blue">int</font></b> b)
+</td><td>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, <b><font color="blue">int</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex pow(<b><font color="blue">double</font></b> b)
+</td><td>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public</font></b> Complex pow(Complex b)
+</td><td>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex pow<b><font color="blue">(int</font></b> a, Complex b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex pow<b><font color="blue">(double</font></b> a, Complex b)<br>
+</td></tr>
+
+
+<tr><td rowspan="32" valign="top">
+<a href="#trig">Trigonometric<br>Functions</a>
+</td><td>
+<b><font color="blue">public </font></b> Complex sin()
+</td><td>
+<b><font color="blue">public static</font></b> Complex sin(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex asin()
+</td><td>
+<b><font color="blue">public static</font></b> Complex asin(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex cos()
+</td><td>
+<b><font color="blue">public static</font></b> Complex cos(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acos()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acos(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex tan()
+</td><td>
+<b><font color="blue">public static</font></b> Complex tan(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex atan()
+</td><td>
+<b><font color="blue">public static</font></b> Complex atan(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex cot()
+</td><td>
+<b><font color="blue">public static</font></b> Complex cot(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acot()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acot(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex sec()
+</td><td>
+<b><font color="blue">public static</font></b> Complex sec(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex asec()
+</td><td>
+<b><font color="blue">public static</font></b> Complex asec(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex csc()
+</td><td>
+<b><font color="blue">public static</font></b> Complex csc(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acsc()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acsc(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex exsec()
+</td><td>
+<b><font color="blue">public static</font></b> Complex exsec(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex aexsec()
+</td><td>
+<b><font color="blue">public static</font></b> Complex aexsec(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex vers()
+</td><td>
+<b><font color="blue">public static</font></b> Complex vers(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex avers()
+</td><td>
+<b><font color="blue">public static</font></b> Complex avers(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex covers()
+</td><td>
+<b><font color="blue">public static</font></b> Complex covers(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acovers()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acovers(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex hav()
+</td><td>
+<b><font color="blue">public static</font></b> Complex hav(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex ahav()
+</td><td>
+<b><font color="blue">public static</font></b> Complex ahav(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex sinh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex sinh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex asinh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex asinh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex cosh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex cosh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acosh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acosh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex tanh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex tanh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex atanh()
+</td><td>
+<b><font color="blue">public static</font></b> Complex atanh(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex coth()
+</td><td>
+<b><font color="blue">public static</font></b> Complex coth(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acoth()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acoth(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex sech()
+</td><td>
+<b><font color="blue">public static</font></b> Complex sech(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex asech()
+</td><td>
+<b><font color="blue">public static</font></b> Complex asech(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex csch()
+</td><td>
+<b><font color="blue">public static</font></b> Complex csch(Complex aa )<br>	
+</td></tr>
+<tr><td>
+<b><font color="blue">public </font></b> Complex acsch()
+</td><td>
+<b><font color="blue">public static</font></b> Complex acsch(Complex aa )<br>	
+</td></tr>
+<tr><td valign="top">
+<a href="#hypot">Hypotenuse</a>
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static double</font></b> hypot(Complex aa, Complex bb)<br>	
+</td></tr>
+
+<tr><td rowspan="13" valign="top">
+<a href="#logic">Logical Tests</a>
+</td><td>
+<b><font color="blue">public boolean</font></b> equals(Complex x)<br>
+<b><font color="blue">public boolean</font></b> isEqual(Complex x)<br>
+</td><td>
+&nbsp;<br>
+<b><font color="blue">public static boolean</font></b> isEqual(Complex a, Complex b)<br>
+</td></tr>
+
+<tr><td>
+<b><font color="blue">public boolean</font></b> equalsWithinLimits(Complex x, <b><font color="blue">double</font></b> limit)<br>
+<b><font color="blue">public boolean</font></b> isEqualWithinLimits(Complex x, <b><font color="blue">double</font></b> limit)<br>
+</td><td>
+&nbsp;<br>
+<b><font color="blue">public static boolean</font></b> isEqualWithinLimits(Complex a, Complex b, <b><font color="blue">double</font></b> limit)<br>
+</td></tr>
+
+<tr><td>
+<b><font color="blue">public boolean</font></b>  isReal()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">&nbsp;<br>
+</font></b></td><td>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex[ ] a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b>  isReal(<b><font color="blue">double</font></b> limit)<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex a, <b><font color="blue">double</font></b> limit)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">&nbsp;<br>
+</font></b></td><td>
+<b><font color="blue">public static boolean</font></b>  isRealPerCent(Complex[ ] a, <b><font color="blue">double</font></b> limit)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b>  isRealPerCent(<b><font color="blue">double</font></b> percentage)<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b>  isRealPerCent(Complex a, <b><font color="blue">double</font></b> percentage)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">&nbsp;<br>
+</font></b></td><td>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex[ ] a, <b><font color="blue">double</font></b> percentage)<br>
+</td></tr><tr><td>
+<b><font color="blue">public boolean</font></b> isZero()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b> isZero(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b> isInfinite()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b> isInfinite(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b> isPlusInfinity()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b> isPlusInfinity(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b> isMinusInfinity()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b> isMinusInfinity(Complex a)<br>
+
+</td></tr>
+<tr><td>
+<b><font color="blue">public boolean</font></b> isNaN()<br>
+</td><td>
+<b><font color="blue">public static boolean</font></b> isNaN(Complex a)<br>
+</td></tr>
+
+<tr><td rowspan="10" valign="top">
+<a href="#array">Arrays</a><br><br>
+see <a href="#io">Input and Output</a><br>
+for printing complex arrays
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n, Complex xx)
+</td></tr>
+
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex mean(Complex[] xx)
+</td></tr>
+
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, Complex xx)
+</td></tr>
+
+
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k, Complex xx)
+</td></tr>
+
+
+
+
+<tr><td rowspan="5" valign="top">
+<a href="#copy">Deep Copy</a>
+</td><td>
+<b><font color="blue">public</font></b>  Complex copy()<br>
+</td><td>
+<b><font color="blue">public static</font></b>  Complex copy(Complex a)<br>
+</td></tr>
+<tr><td>
+<b><font color="blue">public Object</font></b> clone()<br>
+</td><td>
+&nbsp;
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[] copy(Complex[] a)<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][] copy(Complex[][] a)
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b>  Complex[][][] copy(Complex[][][] a)
+</td></tr>
+
+<tr><td rowspan="9" valign="top">
+<a href="#zero">Some Useful<br>Numbers</a>
+</td><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex zero()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex plusOne()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex minusOne()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex plusJay()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex minusJay()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex pi()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex twoPiJay()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex plusInfinty()<br>
+</td></tr>
+<tr><td>
+&nbsp;
+</td><td>
+<b><font color="blue">public static</font></b> Complex minusInfinty()<br>
+</td></tr>
+
+</tbody></table>
+
+<br><hr><br>
+
+<a name="construct"><h3> CONSTRUCTORS</h3></a>
+
+<b><font color="blue">public</font></b> Complex()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Complex aa = <font color="blue">new</font> Complex();</b><br>
+This creates a new instance of Complex(), aa,  and initialises both the real part (real) and the imaginary part (imag) to 
+zero<br><br>
+
+<b><font color="blue">public </font></b> Complex(<b><font color="blue">double</font></b> real, <b><font color="blue">double</font></b> imag)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex aa = <font color="blue">new</font> Complex(x, y);</b><br>
+This creates a new instance of Complex(), aa,  and initialises the real part (real) to x and the imaginary part (imag) to y<br><br>
+
+<b><font color="blue">public </font></b> Complex<b><font color="blue">(double</font></b> real)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex aa = <font color="blue">new</font> Complex(x);</b><br>
+This creates a new instance of Complex(), aa,  and initialises the real part (real) to x and the imaginary part (imag) to 
+zero<br><br>
+
+<b><font color="blue">public </font></b> Complex(Complex c)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex aa = <font color="blue">new</font> Complex(cc);</b><br>
+This creates a new instance of Complex(), aa,  and initialises the real 
+part  to the real part of cc and the imaginary part to the imaginary 
+part of cc. 
+<br><br><hr><br>
+
+<h3>METHODS</h3>
+
+<a name="set"><b>SET VALUES</b></a><br>
+
+<b><font color="blue">public void </font></b>setReal<b><font color="blue">(double</font></b> real)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa.setReal(x);</b><br>
+Sets the real part of the existing Complex aa to x<br><br>
+
+<b><font color="blue">public void </font></b>setImag<b><font color="blue">(double</font></b> imag)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa.setReal(x);</b><br>
+Sets the imaginary part of the existing Complex aa to x<br><br>
+
+<b><font color="blue">public void </font></b>reset<b><font color="blue">(double</font></b> real, <b><font color="blue">double</font></b> imag)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa.reset(x, y);</b><br>
+Sets the real part of the existing Complex aa to x and the imaginary part to y<br><br>
+
+<b><font color="blue">public void </font></b>polar<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> arg)<br>
+<b><font color="blue">public void </font></b>polarRad<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> arg)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa.polar(mod, arg);</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>aa.polarRad(mod, arg);</b><br>
+both methods set the real part of the existing Complex aa to 
+mod.cos(arg) and the imaginary part to mod.sin(arg) where mod is the 
+modulus and arg is the argument (in radians)
+<br><br>
+
+<b><font color="blue">public void </font></b>polarDeg<b><font color="blue">(double</font></b> mod, <b><font color="blue">double</font></b> arg)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa.polarDeg(mod, arg);</b><br>
+sets the real part of the existing Complex aa to mod.cos(arg) and the 
+imaginary part to mod.sin(arg) where mod is the modulus and arg is the 
+argument (in degrees)
+<br><br>
+
+<hr><br>
+
+<a name="get"><b>GET VALUES</b></a><br>
+
+<b><font color="blue">public double</font></b> getReal()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = aa.getReal();</b><br>
+The value of the real part of the complex number represented by aa is returned to x.<br><br>
+
+<b><font color="blue">public double</font></b> getImag()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = aa.getImag();</b><br>
+The value of the imaginary part of the complex number represented by aa is returned to x.<br><br>
+
+
+Return a hash code for the Complex number<br>
+<b><font color="blue">public int</font></b> hashCode()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  hc = aa.hashCode();</b><br>
+The hashcode for aa is returned to hc.<br>
+Overrides java.lang.Object.hashCode()
+<br><br><hr><br>
+
+<a name="io"><h3>INPUT AND OUTPUT</h3></a>
+<b><font color="red">NOTE:</font></b> The standard Java output methods, 
+e.g. System.out.println, System.out.print, drawString, will output 
+instances of this class, Complex, as this Complex class contains a 
+method that overrides the Java method, toString.<br><br>
+<b>READ IN A COMPLEX NUMBER FROM THE KEYBOARD</b><br>
+<b><font color="blue">public static</font></b> Complex readComplex(<b><font color="blue">String</font></b> prompt)<br>
+<b><font color="blue">public static</font></b> Complex readComplex(<b><font color="blue">String</font></b> prompt, Complex default)<br>
+<b><font color="blue">public static</font></b> Complex readComplex(<b><font color="blue">String</font></b> prompt, <b><font color="blue">String</font></b> default)<br>
+<b><font color="blue">public static</font></b> Complex readComplex()<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa=Complex.readComplex("Input a complex number ");</b><br>
+Writes the String prompt to the screen.   The user may then enter a complex number, via the keyboard, in one of the 
+following formats:<br>
+x+jy&nbsp;&nbsp;&nbsp;&nbsp;x+iy&nbsp;&nbsp;&nbsp;&nbsp;x + jy&nbsp;&nbsp;&nbsp;&nbsp;x + 
+iy&nbsp;&nbsp;&nbsp;&nbsp;x-jy&nbsp;&nbsp;&nbsp;&nbsp;x-iy&nbsp;&nbsp;&nbsp;&nbsp;x - 
+jy&nbsp;&nbsp;&nbsp;&nbsp;x - 
+iy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g. 2.3e-5 - j0.453<br>
+Complex.read then creates and returns a new Complex() with real initialised to x and imag initialised to y<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa=Complex.readComplex("Input a complex number ", 1.2 + j3.5);</b><br>
+As above, but if the return (enter) key alone is depresed, the default 
+value (1.2 + j3.5 in the above example) is returned, to aa in the above 
+example.  The default value may be passed as a Complex variable or as a 
+String using one of the above formats.<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa=Complex.readComplex();</b><br>
+As above but with no prompt message before entering the complex number.<br><br>
+
+
+
+ 
+<b>WRITE A COMPLEX NUMBER TO THE SCREEN</b><br>
+<b><font color="red">NOTE:</font></b> The standard Java output methods, 
+e.g. System.out.println, System.out.print, drawString, will output 
+instances of this class, Complex, as this Complex class contains a 
+method that overrides the Java method, toString.  In addition the 
+following methods are provided:<br><br>
+<b><font color="blue">public void</font></b> print(<b><font color="blue">String</font></b> message)<br>
+<b><font color="blue">public void</font></b> print()<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa.print("The value of the complex number aa is");</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window, the message followed by the value of the 
+complex number (in aa in the above example) in the form x + jy or x + iy (see setj() and seti()).<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa.print();</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS 
+window, the value of a complex number (in aa in the above example) in 
+the form x + jy or x + iy (see setj() and seti()).<br><br> 
+ 
+
+<b><font color="blue">public void</font></b> println(<b><font color="blue">String</font></b> message)<br>
+<b><font color="blue">public void</font></b> println()<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa.println("The value of the complex number aa is");</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window, the message followed by the value of the 
+complex number (in aa in the above example) in the form x + jy or x + iy (see setj() and seti()) followed by a line return.<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ aa.println();</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS 
+window, the value of a complex number (in aa in the above example) in 
+the form x + jy or x + iy (see setj() and seti()) followed by a line 
+return.<br><br> 
+See also <a href="#string">Type Conversions</a><br><br> 
+
+ 
+<b>WRITE AN ARRAY OF COMPLEX NUMBERS TO THE SCREEN</b><br>
+<b><font color="blue">public static void</font></b> print(<b><font color="blue">String</font></b> message, <b>Complex</b> cc[])<br>
+<b><font color="blue">public static void</font></b> print(<b>Complex</b> cc[])<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Complex.print("The array of complex numbers, cc, is", cc);</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window, the message followed by the values of the 
+complex numbers in the array argument (<b>cc</b> in the above example) 
+in the form x + jy or x + iy (see setj() and seti()).  Each value is 
+followed by a space and the last number is followed by a line return.<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Complex.print(<b>Complex</b> cc[]);</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window,  the values of the 
+complex numbers in the array argument (<b>cc</b> in the above example) 
+in the form x + jy or x + iy (see setj() and seti()).  Each value is 
+followed by a space and the last number is followed by a line return.<br><br>
+
+<b><font color="blue">public static void</font></b> println(<b><font color="blue">String</font></b> message, <b>Complex</b> cc[])<br>
+<b><font color="blue">public static void</font></b> println(<b>Complex</b> cc[])<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Complex.println("The value of the complex number cc is", cc);</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window, the message followed by the values of the 
+complex numbers in the array argument (<b>cc</b> in the above example) in the form x + jy or x + iy (see setj() and seti()).  Each value is followed by a line return.<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Complex.println(cc);</b><br>
+Writes to the screen, e.g. the workstation terminal window, the MSDOS window, the complex numbers in the array argument (<b>cc</b> in the above example) in the form x + jy or x + iy (see setj() and seti()).  Each value is followed by a line return.<br><br> 
+
+ 
+
+<b>SET i OR j NOTATION</b><br>
+<b><font color="blue">public static void</font></b> setj()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Complex.setj();</b><br>
+Sets the symbol, used in output Strings, for the square root of minus 
+one to j.   If neither setj() nor seti() are invoked the default option 
+is j.<br><br>
+
+<b><font color="blue">public static void</font></b> seti()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Complex.seti();</b><br>
+Sets the symbol, used in output Strings, for the square root of minus 
+one to i.   If neither setj() nor seti() are invoked the default option 
+is j.<br><br>
+
+<b><font color="blue">public static char</font></b> getjori()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ch=Complex.getjori();</b><br>
+Returns the symbol, used in output Strings, that has been set to 
+represent for the square root of minus one.   The default option is j.  
+See setj() and seti().
+<br><br><hr><br>
+
+<a name="trunc"><b>TRUNCATE MANTISSAE TO N PLACES</b></a><br>
+Instance method<br>
+<b><font color="blue">public </font></b> Complex truncate(<b><font color="blue">int</font></b> n)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xt=x.truncate(n);</b><br>
+Returns the value of x with the mantissae of both the real and imaginary
+ parts rounded to n decimal places.  If  the argument indicating the 
+number of places before truncation, i.e. n in the above example,  is any
+ negative integer, the variable to be truncated, i.e. x in the above 
+example, is returned without truncation.  This method can be useful in 
+outputting data.
+<br><br>
+Static method<br>
+<b><font color="blue">public static</font></b> Complex truncate(Complex x, <b><font color="blue">int</font></b> n)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xt = Complex.truncate(x, n);</b><br>
+Returns the value of x with the mantissae of both the real and imaginary
+ parts rounded to n decimal places.  If  the argument indicating the 
+number of places before truncation, i.e. n in the above example,  is any
+ negative integer, the variable to be truncated, i.e. x in the above 
+example, is returned without truncation.  This method can be useful in 
+outputting data.
+<br><br><hr><br>
+
+<a name="swap"><b>SWAP TWO COMPLEX NUMBERS</b></a><br>
+Static method<br>
+<b><font color="blue">public static</font></b> Complex swap(Complex aa, Complex bb)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Complex.swap(aa, bb);</b><br>
+Swaps the two Complex numbers, <b>aa</b> and <b>bb</b>, i.e. after the method, swap, is called the real part of <b>aa</b> equals the real part of <b>bb</b> before swap was called, the imaginary part of <b>aa</b> equals the imaginary part of <b>bb</b> before swap was called, the real part of <b>bb</b> equals the real part of <b>aa</b> before swap was called, the imaginary part of <b>bb</b> equals the imaginary part of <b>aa</b> before swap was called.
+<br><br><hr><br>
+
+
+
+<a name="add"><b>ADDITION</b></a><br>
+<b>Instance methods</b><br>
+<b><font color="blue">public</font></b> Complex plus(Complex a)<br>
+<b><font color="blue">public</font></b> Complex plus<b><font color="blue">(double</font></b> a)<br>
+
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.plus(y);</b><br>
+
+Performs the operation z = x + y  where z and x are Complex and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Static methods</b><br>
+<b><font color="blue">public static</font></b> Complex plus(Complex a, Complex b)<br>
+
+<b><font color="blue">public static</font></b> Complex plus(Complex a, <b><font color="blue">double</font></b> b)<br>
+
+<b><font color="blue">public static</font></b> Complex plus<b><font color="blue">(double</font></b> a, Complex b)<br>
+
+<b><font color="blue">public static</font></b> Complex plus(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = Complex.plus(x, y);</b><br>
+Performs the operation z = x + y  where z is Complex and x and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Equivalence of the += operator</b><br>
+<b><font color="blue">public void</font></b> plusEquals(Complex a )<br>
+<b><font color="blue">public void</font></b>  plusEquals<b><font color="blue">(double</font></b> a )<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.plusEquals(y);</b><br>
+Performs the operation x = x + y where x is Complex and y may be either Complex or double (i.e. real)
+<br><br><hr><br>
+
+<a name="sub"><b>SUBTRACTION</b></a><br>
+<b>Instance methods</b><br>
+<b><font color="blue">public</font></b> Complex minus(Complex a)<br>
+<b><font color="blue">public</font></b> Complex minus<b><font color="blue">(double</font></b> a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.minus(y);</b><br>
+Performs the operation z = x - y  where z and x are Complex and y may be either Complex or double (i.e. real)<br><br>
+
+<b><font color="blue">public</font></b> Complex transposedMinus<b><font color="blue">(double</font></b> a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.transposedMinus(y);</b><br>
+Performs the operation z = y - x  where z and x are Complex and y is double (i.e. real)<br><br>
+
+<b>Static methods</b><br>
+<b><font color="blue">public static</font></b> Complex minus(Complex a, Complex b)<br>
+
+<b><font color="blue">public static</font></b> Complex minus(Complex a, <b><font color="blue">double</font></b> 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex minus<b><font color="blue">(double</font></b> a, Complex 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex minus(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = Complex.minus(x, y);</b><br>
+Performs the operation z = x - y  where z is Complex and x and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Equivalence of the -= operator</b><br>
+<b><font color="blue">public void</font></b> minusEquals(Complex a )<br>
+<b><font color="blue">public void</font></b> minusEquals<b><font color="blue">(double</font></b> a )<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.minusEquals(y);</b><br>
+Performs the operation x = x - y where x is Complex and y may be either Complex or double (i.e. real)
+<br><br><hr><br>
+
+<a name="infopt"><b>INFINITY HANDLING OPTIONS IN MULTIPLICATION AND DIVISION</b></a><br>
+
+
+
+<b><font color="blue">public static void</font></b> setInfOption(<b><font color="blue">boolean</font></b> opt)<br>
+<b><font color="blue">public static void</font></b> setInfOption(<b><font color="blue">int</font></b> opt) <br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex.setInfOpt(opt);</b><br>
+If the argument <b>opt</b> is set to true or to 0:
+<ul>
+<li>a complex number, with both real and imaginary parts equal to Double.PLUS_INFINITY, will be returned when:
+<ul> 
+<li> any multiplication of two complex numbers occurs in which either 
+number's real and/or imaginary part is equal to Infinity and if one of 
+the numbers does not have both real and imaginary part equal to zero </li><li>
+ any multiplication of a complex number and a real number occurs in 
+which either the real and/or imaginary part is equal to Infinity or the 
+ real number is equal to Infinity and if the complex number does not 
+have both real and imaginary part equal to zero  or the real number is 
+not zero </li>
+</ul></li>
+
+<li>a complex number, with both real and imaginary parts equal to zero, will be returned when:
+<ul> 
+<li> any division of a complex number by a complex number occurs in 
+which the divisor's real and/or imaginary part is equal to Infinity and 
+if the dividend does not have a real and/or imaginary part equal to 
+Infinity</li>
+<li> any division of a complex number by a real number occurs in which 
+the divisor is equal to Infinity and if the dividend does not have a 
+real and/or imaginary part equal to Infinity
+</li><li> any division of a real number by a complex number occurs in 
+which the divisor's real and/or imaginary part is equal to Infinity and 
+if the dividend is not equal to Infinity</li>
+</ul></li>
+</ul>
+If the argument <b>opt</b> is set to false or to 1:
+<ul>
+<li>Standard Java arithmetic is performed throughout all multiplication and division methods</li>
+</ul>
+<br><br>
+<b><font color="blue">public static boolean</font></b> getInfOption()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  opt = Complex.getInfOpt();</b><br>
+Returns the infinity handling option as true or false with the meanings listed above.<br><br>
+
+
+<a name="mult"><b>MULTIPLICATION</b></a><br>
+<b>Instance methods</b><br>
+<b><font color="blue">public</font></b> Complex times(Complex a)<br>
+<b><font color="blue">public</font></b> Complex times<b><font color="blue">(double</font></b> a)<br>
+
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.times(y);</b><br>
+
+Performs the operation z = x*y  where z and x are Complex and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Static methods</b><br>
+<b><font color="blue">public static</font></b> Complex times(Complex a, Complex b)<br>
+
+<b><font color="blue">public static</font></b> Complex times(Complex a, <b><font color="blue">double</font></b> 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex times<b><font color="blue">(double</font></b> a, Complex 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex times(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = Complex.times(x, y);</b><br>
+Performs the operation z = x*y  where z is Complex and x and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Equivalence of the *= operator</b><br>
+<b><font color="blue">public void</font></b> timesEquals(Complex a )<br>
+<b><font color="blue">public void</font></b> timesEquals<b><font color="blue">(double</font></b> a )<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.timesEquals(y);</b><br>
+Performs the operation x = x*y where x is Complex and y may be either Complex or double (i.e. real)
+<br><br><hr><br>
+
+<a name="div"><b>DIVISION</b></a><br>
+<b>Instance methods</b><br>
+<b><font color="blue">public</font></b> Complex over(Complex a)<br>
+<b><font color="blue">public</font></b> Complex over<b><font color="blue">(double</font></b> a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.over(y);</b><br>
+Performs the operation z = x/y  where z and x are Complex and y may be either Complex or double (i.e. real)<br><br>
+
+<b><font color="blue">public</font></b> Complex transposedOver<b><font color="blue">(double</font></b> a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = x.transposedOver(y);</b><br>
+Performs the operation z = y/x  where z and x are Complex and y is double (i.e. real)<br><br>
+
+<b>Static methods</b><br>
+<b><font color="blue">public static</font></b> Complex over(Complex a, Complex b)<br>
+
+<b><font color="blue">public static</font></b> Complex over(Complex a, <b><font color="blue">double</font></b> 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex over<b><font color="blue">(double</font></b> a, Complex 
+b)<br>
+
+<b><font color="blue">public static</font></b> Complex over(<b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  z = Complex.over(x, y);</b><br>
+Performs the operation z = x/y  where z is Complex and x and y may be either Complex or double (i.e. real)<br><br>
+
+<b>Equivalence of the /= operator</b><br>
+<b><font color="blue">public void</font></b> overEquals(Complex a )<br>
+<b><font color="blue">public void</font></b> overEquals<b><font color="blue">(double</font></b> a )<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.overEquals(y);</b><br>
+Performs the operation x = x/y where x is Complex and y may be either Complex or double (i.e. real)
+<br><br><hr><br>
+
+<a name="inv"><b>RECIPROCAL</b></a><br>
+Invert a complex number<br>
+<b><font color="blue">public</font></b> Complex inverse()<br>
+
+<b><font color="blue">public static</font></b> Complex inverse(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.inverse();</b><br><b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.inverse(y);</b><br>
+Performs the operation x = 1.0/y.
+<br><br><hr><br>
+
+<b>NEGATION</b><br>
+Negate a Complex number<br>
+<b><font color="blue">public</font></b> Complex negate()<br>
+<b><font color="blue">public static</font></b> Complex negate(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.negate();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.negate(y);</b><br>
+Performs the operation x = -y.
+<br><br><hr><br>
+
+<a name="conj"><b>CONJUGATE</b></a><br>
+Complex conjugate<br>
+<b><font color="blue">public</font></b> Complex conjugate()<br>
+<b><font color="blue">public static</font></b> Complex conjugate(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.conjugate();</b><br><b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.conjugate(y);</b><br>
+
+Returns the complex conjugate of y to x.
+<br><br><hr><br>
+
+<a name="exp"><b>EXPONENTIALS</b></a><br>
+NOTE! <i>e<sup>z</sup></i> is periodic with the imaginary period 2<i>πj</i>; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>e<sup>z</sup></i> = <i>e</i><sup><i>z</i>±2<i>nπj</i></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>n</i>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;0, 1, 2, . . . .<br>
+Exponential of a complex number<br>
+<b><font color="blue">public</font></b> Complex exp()<br>
+<b><font color="blue">public static</font></b> Complex exp(Complex aa)<br>
+<b><font color="blue">public static</font></b> Complex exp(<b><font color="blue">double</font></b> aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.exp();</b><br>
+where x and y are Complex.<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.exp(y);</b><br>
+where x is Complex and y may be either Complex or real (a double).<br><br>
+
+Exponential of +j.arg where arg is real.  Result returned as Complex.<br>
+<b><font color="blue">public static</font></b> Complex expPlusJayArg(<b><font color="blue">double</font></b> aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.expPlusJayArg(y);</b><br>
+where x is Complex and y is real (a double).<br><br>
+
+Exponential of -j.arg where arg is real.  Result returned as Complex.<br>
+<b><font color="blue">public static</font></b> Complex expMinusJayArg(<b><font color="blue">double</font></b> aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.expMinusJayArg(y);</b><br>
+where x is Complex and y is real (a double).
+<br><br><hr><br>
+
+<a name="log"><b>LOGARITHM OF A COMPEX NUMBER</b></a><br>
+Principal value of the natural log of an Complex number<br>
+<b><font color="blue">public</font></b> Complex log()<br>
+<b><font color="blue">public static</font></b> Complex log(Complex aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.log();</b>
+<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.log(y);</b>
+<br><br><hr><br>
+
+<a name="root"><b>ROOT OF A COMPLEX NUMBER</b></a><br>
+The square root of a complex number<br>
+<b><font color="blue">public</font></b> Complex sqrt()<br>
+<b><font color="blue">public static</font></b> Complex sqrt(Complex aa )<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.sqrt();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.sqrt(y);</b><br>
+<b>-x</b> is also a valid square root of <b>y</b>.<br><br>
+
+Principal value of the nth root of a complex number (n = integer &gt; 0)<br>
+<b><font color="blue">public</font></b> Complex nthRoot<b><font color="blue">int</font></b> n)<br>
+<b><font color="blue">public static</font></b> Complex nthRoot(Complex aa, <b><font color="blue">int</font></b> n)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.nthRoot(n);</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.nthRoot(y, n);</b><br>
+Performs the operation x = the nth root of y where y is Complex and n is an integer (type <b><font color="blue">int</font></b>) greater than zero.
+<br><br><hr><br>
+
+<a name="pow"><b>POWER OF A COMPEX NUMBER</b></a><br>
+Square of a complex number<br>
+<b><font color="blue">public</font></b> Complex square()<br>
+<b><font color="blue">public static</font></b> Complex square(Complex aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.square();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.square(y);</b><br><br>
+Complex number raised to a power<br>
+<b><font color="blue">public</font></b> Complex pow(<b><font color="blue">int</font></b> b)<br>
+<b><font color="blue">public</font></b> Complex pow(<b><font color="blue">double</font></b> b)<br>
+<b><font color="blue">public</font></b> Complex pow(Complex b)<br>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, <b><font color="blue">int</font></b> b)<br>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, <b><font color="blue">double</font></b> b)<br>
+<b><font color="blue">public static</font></b> Complex pow(Complex a, Complex b)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; z = x.pow(y);</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; z = Complex.pow(x, y);</b><br>
+The complex number, x, raised to the power y which may be int, double or Complex.
+<br><br>
+Integer or double raised to a Complex power<br>
+<b><font color="blue">public static</font></b> Complex pow<b><font color="blue">(int</font></b> a, Complex b)<br>
+<b><font color="blue">public static</font></b> Complex pow<b><font color="blue">(double</font></b> a, Complex b)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; z = Complex.pow(x, y);</b><br>
+The int or double, x, is raised to the power y which is Complex
+<br><br><hr><br>
+
+<a name="abs"><b>MODULUS</b></a><br>
+Absolute value (modulus) of a complex number<br>
+<b><font color="blue">public double</font></b> abs()<br>
+
+<b><font color="blue">public static double</font></b> abs(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.abs();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.abs(y);</b><br><br>
+
+Square of the absolute value (modulus) of a complex number<br>
+<b><font color="blue">public double</font></b> squareAbs()<br>
+<b><font color="blue">public static double</font></b> squareAbs(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.squareAbs();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.squareAbs(y);</b>
+<br><br><hr><br>
+
+<a name="arg"><b>ARGUMENT</b></a><br>
+Argument of a complex number returned as <b>radians</b><br>
+<b><font color="blue">public double</font></b> arg()<br>
+<b><font color="blue">public static double</font></b> arg(Complex a)<br>
+<b><font color="blue">public double</font></b> argRad()<br>
+<b><font color="blue">public static double</font></b> argRad(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.arg();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.argRad();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.arg(y);</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.argRad(y);</b><br>
+<br>
+
+Argument of a complex number returned as <b>degrees</b><br>
+<b><font color="blue">public double</font></b> argDeg()<br>
+<b><font color="blue">public static double</font></b> argDeg(Complex a)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y.argDeg();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.argDeg(y);</b>
+<br><br><hr><br>
+
+<a name="trig"><b>TRIGONOMETRIC FUNCTIONS</b></a><br>
+<b><font color="green">General 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ x = y.funct();</b><br>
+<b><font color="green">General 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ x = Complex.funct(y);</b><br> 
+where funct is the trigonometric function, e.g. sin.<br><br>
+
+Sine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex sin()<br>
+<b><font color="blue">public static</font></b> Complex sin(Complex aa )<br>	
+Cosine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex cos()<br>
+<b><font color="blue">public static</font></b> Complex cos(Complex aa )<br>
+Tangent of an Complex number<br>
+<b><font color="blue">public</font></b> Complex tan()<br>
+<b><font color="blue">public static</font></b> Complex tan(Complex aa )<br>
+Cotangent of an Complex number<br>
+<b><font color="blue">public</font></b> Complex cot()<br>
+<b><font color="blue">public static</font></b> Complex cot(Complex aa )<br>
+Secant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex sec()<br>
+<b><font color="blue">public static</font></b> Complex sec(Complex aa )<br>
+Cosecant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex csc()<br>
+<b><font color="blue">public static</font></b> Complex csc(Complex aa )<br>
+Exsecant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex exsec()<br>
+<b><font color="blue">public static</font></b> Complex exsec(Complex aa )<br>
+Versine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex vers()<br>
+<b><font color="blue">public static</font></b> Complex vers(Complex aa )<br>
+Coversine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex covers()<br>
+<b><font color="blue">public static</font></b> Complex covers(Complex aa )<br>
+Haversine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex hav()<br>
+<b><font color="blue">public static</font></b> Complex hav(Complex aa )<br><br>
+
+Hyperbolic sine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex sinh()<br>
+<b><font color="blue">public static</font></b> Complex sinh(Complex a )<br>
+Hyperbolic cosine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex cosh()<br>
+<b><font color="blue">public static</font></b> Complex cosh(Complex a )<br>
+Hyperbolic tangent of a Complex number<br>
+<b><font color="blue">public</font></b> Complex tanh()<br>
+<b><font color="blue">public static</font></b> Complex tanh(Complex a )<br>
+Hyperbolic cotangent of a Complex number<br>
+<b><font color="blue">public</font></b> Complex coth()<br>
+<b><font color="blue">public static</font></b> Complex coth(Complex a )<br>
+Hyperbolic secant of a Complex number<br>
+<b><font color="blue">public</font></b> Complex sech()<br>
+<b><font color="blue">public static</font></b> Complex sech(Complex a )<br>
+Hyperbolic cosecant of a Complex number<br>
+<b><font color="blue">public</font></b> Complex csch()<br>
+<b><font color="blue">public static</font></b> Complex csch(Complex a )<br><br>
+	 
+<a name="inver">Inverse</a> sine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex asin()<br>
+<b><font color="blue">public static</font></b> Complex asin(Complex a )<br>
+Inverse cosine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex acos()<br>
+<b><font color="blue">public static</font></b> Complex acos(Complex a )<br>
+Inverse tangent of a Complex number<br>
+<b><font color="blue">public</font></b> Complex atan()<br>
+<b><font color="blue">public static</font></b> Complex atan(Complex a )<br>
+Inverse cotangent of an Complex number<br>
+<b><font color="blue">public</font></b> Complex acot()<br>
+<b><font color="blue">public static</font></b> Complex acot(Complex aa )<br>
+Inverse secant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex asec()<br>
+<b><font color="blue">public static</font></b> Complex asec(Complex aa )<br>
+Inverse cosecant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex acsc()<br>
+<b><font color="blue">public static</font></b> Complex acsc(Complex aa )<br>
+Inverse exsecant of an Complex number<br>
+<b><font color="blue">public</font></b> Complex aexsec()<br>
+<b><font color="blue">public static</font></b> Complex aexsec(Complex aa )<br>
+Inverse versine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex avers()<br>
+<b><font color="blue">public static</font></b> Complex avers(Complex aa )<br>
+Inverse coversine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex acovers()<br>
+<b><font color="blue">public static</font></b> Complex acovers(Complex aa )<br>
+Inverse haversine of an Complex number<br>
+<b><font color="blue">public</font></b> Complex ahav()<br>
+<b><font color="blue">public static</font></b> Complex ahav(Complex aa )<br><br>
+
+Inverse hyperbolic sine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex asinh()<br>
+<b><font color="blue">public static</font></b> Complex asinh(Complex a )<br>
+Inverse hyperbolic cosine of a Complex number<br>
+<b><font color="blue">public</font></b> Complex acosh()<br>
+<b><font color="blue">public static</font></b> Complex acosh(Complex a )<br>
+Inverse hyperbolic tangent of a Complex number<br>
+<b><font color="blue">public</font></b> Complex atanh()<br>
+<b><font color="blue">public static</font></b> Complex atanh(Complex a )<br>
+Inverse hyperbolic cotangent of a Complex number<br>
+<b><font color="blue">public</font></b> Complex acoth()<br>
+<b><font color="blue">public static</font></b> Complex acoth(Complex a )<br>
+Inverse hyperbolic secant of a Complex number<br>
+<b><font color="blue">public</font></b> Complex asech()<br>
+<b><font color="blue">public static</font></b> Complex asech(Complex a )<br>
+Inverse hyperbolic cosecant of a Complex number<br>
+<b><font color="blue">public</font></b> Complex acsch()<br>
+<b><font color="blue">public static</font></b> Complex acsch(Complex a )<br>
+
+<br><hr><br>
+	
+<a name="hypot"><b>HYPOTENUSE</b></a><br>
+Returns the length of the hypotenuse of a and b, i.e. sqrt(abs(a)*abs(a)+abs(b)*abs(b))<br>
+where a and b are Complex. This method avoids unecessary overflow or underflow.<br>
+<b><font color="blue">public static double</font></b> hypot(Complex a, Complex b)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d = Complex.hypot(a,b);</b>
+<br><br><hr><br>
+
+<a name="logic"><b>LOGICAL FUNCTIONS</b></a><br>
+<b><font color="blue">public boolean</font></b> equals(Complex x)<br>
+<b><font color="blue">public boolean</font></b> isEqual(Complex x)<br>
+<b><font color="blue">public static boolean</font></b> isEqual(Complex a, Complex b)<br>
+Returns <b><font color="blue">true</font></b> if the real and imaginary parts of the complex numbers represented by the two Complex instances are identical; returns <b><font color="blue">false</font></b> if they are not.<br>
+Follows the Sun Java convention of treating two NaNs as equal which does
+ not satisfy the  IEEE 754 specification but does let hashtables operate
+ properly.<br>
+
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (a.equals(b)){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (a.isEqual(b)){
+&nbsp;&nbsp; . . .</b><br><b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (Complex.isEqual(a, b)){
+&nbsp;&nbsp; . . .</b><br>
+
+where a and b are complex<br>
+<b><font color="red">REMEMBER:</font></b> <b><font color="blue">if</font></b>(a==b) does not test for equality of the 
+contents of instances of objects, a and b, it only tests the referencing.<br><br>
+
+
+<b><font color="blue">public boolean</font></b> equalsWithinLimits(Complex x, <b><font color="blue">double </font></b>limit)<br>
+<b><font color="blue">public boolean</font></b> isEqualWithinLimits(Complex x, <b><font color="blue">double </font></b>limit)<br>
+<b><font color="blue">public static boolean</font></b> isEqualWithinLimits(Complex a, Complex b, 
+<b><font color="blue">double </font></b>limit)<br>
+Returns <b><font color="blue">true</font></b> if the differences between the real and imaginary parts 
+of two complex numbers are less the argument <b>limit</b> times the larger of the real and imaginary parts;
+ returns <b><font color="blue">false</font></b> if they are not.<br>
+
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (a.equalsWithinLimits(b, limit)){
+&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (a.isEqualWithinLimits(b, limit)){
+&nbsp;&nbsp; . . .</b>
+<br><b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font> (Complex.isEqualWithinLimits(a, b, limit)){
+&nbsp;&nbsp; . . .</b><br>
+
+where a and b are complex and limit is double<br><br>
+
+<b><font color="blue">public boolean</font></b>  isReal()<br>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex a)<br>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex[ ] a)<br>
+Returns <b><font color="blue">true</font></b> if the Complex number has a
+ zero imaginary part, i.e. is a real number, or if all the elements of 
+the array of Complex have a zero imaginary part, i.e. are real numbers; 
+returns <b><font color="blue">false</font></b> if it does not or they are not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> a.isReal()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isReal(a)){&nbsp;&nbsp; . . .</b><br>where a is Complex or Complex[].<br><br>
+
+
+
+<b><font color="blue">public boolean</font></b>  isReal(<b><font color="blue">double</font></b> limit)<br>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex a, <b><font color="blue">double</font></b> limit)<br>
+<b><font color="blue">public static boolean</font></b>  isRealPerCent(Complex[ ] a, <b><font color="blue">double</font></b> limit)<br>
+Returns <b><font color="blue">true</font></b> if the Complex number has a imaginary part less than the limit, <b>limit</b>, or if all the elements of the array of Complex have an imaginary part less than the limit, <b>limit</b>; 
+returns <b><font color="blue">false</font></b> if it does not or they have not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> a.isReal(limit)){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isReal(a, limit)){&nbsp;&nbsp; . . .</b><br>where a is Complex or Complex[].<br><br>
+
+
+<b><font color="blue">public boolean</font></b>  isRealPerCent(<b><font color="blue">double</font></b> percentage)<br>
+<b><font color="blue">public static boolean</font></b>  isRealPerCent(Complex a, <b><font color="blue">double</font></b> percentage)<br>
+<b><font color="blue">public static boolean</font></b>  isReal(Complex[ ] a, <b><font color="blue">double</font></b> percentage)<br>
+Returns <b><font color="blue">true</font></b> if the Complex number has a imaginary part less than the percentage, <b>percentage</b>, of the real part, or if all the elements of the array of Complex have an imaginary part less than the percentage, <b>percentage</b>, of the real part; 
+returns <b><font color="blue">false</font></b> if it does not or they have not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> a.isRealPerCent(percentage)){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isRealPerCent(a, percentage)){&nbsp;&nbsp; . . .</b><br>where a is Complex or Complex[].<br><br>
+
+
+
+<b><font color="blue">public boolean</font></b> isZero()<br>
+<b><font color="blue">public static boolean</font></b> isZero(Complex a)<br>
+Returns <b><font color="blue">true</font></b> if the Complex number has a zero real and a zero imaginary part i.e. has a 
+zero modulus; returns <b><font color="blue">false</font></b> if it does not.<br><b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (a.isZero()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isZero(a)){&nbsp;&nbsp; . . .</b><br>
+where a is complex<br><br>
+ 
+<b><font color="blue">public boolean</font></b> isInfinite()<br>
+<b><font color="blue">public static boolean</font></b> isInfinite(Complex a)<br>
+Returns <b><font color="blue">true</font></b> if either the real or the imaginary part of the Complex number is equal to 
+either plus infinity or minus infinity; returns <b><font color="blue">false</font></b> if they are not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (a.isInfinite()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isInfinite(a)){&nbsp;&nbsp; . . .</b><br>where a is complex<br><br>
+
+<b><font color="blue">public boolean</font></b> isPlusInfinity()<br>
+<b><font color="blue">public static boolean</font></b> isPlusInfinity(Complex a)<br>
+Returns <b><font color="blue">true</font></b> if either the real or the imaginary part of the Complex number is equal to 
+plus infinity; returns <b><font color="blue">false</font></b> if they are not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (a.isPlusInfinity()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isPlusInfinity(a)){&nbsp;&nbsp; . . .</b><br>where a is complex<br><br>
+
+<b><font color="blue">public boolean</font></b> isMinusInfinity()<br>
+<b><font color="blue">public static boolean</font></b> isMinusInfinity(Complex a)<br>
+Returns <b><font color="blue">true</font></b> if either the real or the imaginary part of the Complex number is equal to 
+minus infinity; returns <b><font color="blue">false</font></b> if they are not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (a.isMinusInfinity()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isMinusInfinity(a)){&nbsp;&nbsp; . . .</b><br>
+where a is complex<br><br>
+  
+<b><font color="blue">public boolean</font></b> isNaN()<br>
+<b><font color="blue">public static boolean</font></b> isNaN(Complex a)<br>
+Returns <b><font color="blue">true</font></b> if the Complex number is NaN (not-a-number)<br>
+i.e. is the result of an uninterpretable mathematical operation; returns <b><font color="blue">false</font></b> if it is 
+not.<br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (a.isNaN()){&nbsp;&nbsp; . . .</b><br>
+<b><font color="green">Example of 
+Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="blue">if</font> (Complex.isNaN(a)){&nbsp;&nbsp; . . .</b><br>
+where a is complex
+<br><br><hr><br>
+
+<a name="string"><b>TYPE CONVERSIONS</b></a><br>
+String to Complex<br>
+<b><font color="blue">public static</font></b>  Complex parseComplex(String ss)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aa = Complex.parseComplex(ss);</b><br>
+If the String,  ss, is the String representation of a Complex, i.e. is 
+'sxs+sjsys', 'sxs-sjsys', 'sxs+sisys' or 'sxs-sisys' where s is 
+any number of spaces (including no spaces) the complex number is 
+returned, as a Complex, to aa<br><br>
+
+<b><font color="blue">public static</font></b>  Complex valueOf(String ss)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aa = Complex.valueOf(ss);</b><br>
+Method as for parseComplex above. Complex.valueOf overides java.lang.Object.valueOf<br><br>
+
+Complex to String<br>
+<b><font color="blue">public String</font></b> toString()<br>
+<b><font color="blue">public static String</font></b> toString(Complex aa)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ss = aa.toString();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ss = Complex.toString(aa);</b><br>
+Converts the complex number in aa to a string (referenced by ss in the above example) of the form x + jy.<br>
+This method overides java.lang.String.toString().  Consequently you may add a complex number to the string in the 
+standard output methods, e.g. System.out.print(), System.out.println(), g.drawString, and it will automatically be converted 
+to the x + jy format on output.<br><br>
+
+Complex to hashcode<br>
+<b><font color="blue">public int</font></b> hashCode()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  hc = aa.hashCode();</b><br>
+The hashcode for aa is returned to hc.<br>
+Overides java.lang.Object.hashCode()
+<br><br><hr><br>
+
+<a name="array"><b>ARRAYS</b></a><br>
+See <a href="#io">Input and output</a> above for printing arrays<br><br>
+<b>Single dimension</b><br>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n)<br>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> b)<br>
+<b><font color="blue">public static</font></b>  Complex[] oneDarray(<b><font color="blue">int</font></b> n, Complex xx)<br><br>
+
+
+Create a one dimensional array of Complex objects of length n with all real = zero and all imag = zero<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[] aa = Complex.oneDarray(n);</b><br><br>
+
+Create a one dimensional array of Complex objects of length n with all real = x and all imag = y<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[] aa = Complex.oneDarray(n, x, y);</b><br><br>
+
+Create a one dimensional array of Complex objects of length n with all array objects = the Complex zz<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[] aa = Complex.oneDarray(n, zz);</b><br><br>
+
+<b>Arithmetic mean of a one dimensional array</b><br>
+<b><font color="blue">public static</font></b> Complex mean(Complex[] xx)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex mean = Complex.mean(xx);</b><br>
+Returns the arithmetic mean of the complex variables in the array of Complex, xx.<br>
+
+Weighted and unweighted arithmetic means, harmonic means, generalised 
+means, standard deviations and variances of one-dimensional arrays of 
+Complex may be found in the <a href="#stats">Stat</a> class. 
+
+<br><br>
+
+
+<b>Two dimensions</b><br>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m)<br>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> 
+b)<br>
+<b><font color="blue">public static</font></b>  Complex[][] twoDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, Complex xx)<br><br>
+
+Create a two dimensional array (matrix) of Complex objects of dimensions n and m with all real = zero and all imag = 
+zero<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][] aa = Complex.twoDarray(n, m);</b><br><br>
+	
+Create a two dimensional array of Complex objects of dimensions n and m with all real = a and all imag = b<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][] aa = Complex.twoDarray(n, m, x, y);</b><br><br>	
+
+Create a two dimensional array of Complex objects of dimensions n and m with all Complex objects in the matrix  
+=  the Complex zz<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][] aa = Complex.twoDarray(n, m, zz);</b>
+
+<br><br>
+
+<b>Three dimensions</b><br>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k)<br>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k, <b><font color="blue">double</font></b> a, <b><font color="blue">double</font></b> 
+b)<br>
+<b><font color="blue">public static</font></b>  Complex[][][] threeDarray(<b><font color="blue">int</font></b> n, <b><font color="blue">int</font></b> m, <b><font color="blue">int</font></b> k, Complex xx)<br><br>
+
+Create a three dimensional array of Complex objects of dimensions n, m and k with all real = zero and all imag = zero<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][][] aa = Complex.threeDarray(n, m, k);</b><br><br>
+	
+Create a three dimensional array of Complex objects of dimensions n, m and k with all real = a and all imag = b<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][][] aa = Complex.threeDarray(n, m, k, x, y);</b><br><br>	
+
+Create a three dimensional array of Complex objects of dimensions n, m and k with all Complex objects in the matrix  
+=  the Complex zz<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Complex[][][] aa = Complex.threeDarray(n, m, k, zz);</b>
+<br><br><hr><br>
+ 
+<a name="copy"><b>DEEP COPY</b></a><br>
+<b><font color="red">REMEMBER: </font></b>aa = bb; does not copy bb into aa when aa and bb are objects, instead aa becomes a reference (pointer) to bb.<br>
+
+<b><font color="blue">public</font></b>  Complex copy()<br>
+<b><font color="blue">public Object</font></b>  clone()<br>
+<b><font color="blue">public static</font></b>  Complex copy(Complex a)<br>
+<b><font color="blue">public static</font></b>  Complex[] copy(Complex[] a)<br>
+<b><font color="blue">public static</font></b>  Complex[][] copy(Complex[][] a)<br>
+<b><font color="blue">public static</font></b>  Complex[][][] copy(Complex[][][] a)<br><br>
+
+Copy a single complex number<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = bb.copy();</b><br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = Complex.copy(bb);</b><br>
+The complex number, bb, is copied and returned to aa.<br><br>
+
+Clone a single complex number<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = (Complex) bb.clone();</b><br>
+The complex number, bb, is copied and returned to aa.  This method overrides java.lang.Object.clone().<br><br>
+
+Copy a 1D array of complex numbers (<b>deep copy</b>)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = Complex.copy(bb);</b><br>
+The complex 1D array, bb, is copied and returned to aa.<br><br>
+
+Copy a 2D array of complex numbers (<b>deep copy</b>)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = Complex.copy(bb);</b><br>
+The complex 2D array, bb, is copied and returned to aa.<br><br>
+
+Copy a 3D array of complex numbers (<b>deep copy</b>)<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa = Complex.copy(bb);</b><br>
+The complex 3D array, bb, is copied and returned to aa.
+<br><br><hr><br>
+
+<a name="zero"><b>SOME USEFUL NUMBERS</b></a><br>
+
+Return the number zero (0) as a complex number<br>
+<b><font color="blue">public static</font></b> Complex zero()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.zero();</b><br>
+Returns 0 + j0 to x<br><br>
+
+Return the number one (+1) as a complex number<br>
+<b><font color="blue">public static</font></b> Complex plusOne()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.plusOne();</b><br>
+Returns 1 + j0 to x<br><br>
+
+Return the number minus one (-1) as a complex number<br>
+<b><font color="blue">public static</font></b> Complex minusOne()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.minusOne();</b><br>
+Returns -1 + j0 to x<br><br>
+
+Return +j<br>
+<b><font color="blue">public static</font></b> Complex plusJay()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.plusJay();</b><br>
+Returns 0 + j to x<br><br>
+
+Return -j<br>
+<b><font color="blue">public static</font></b> Complex minusJay()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.minusJay();</b><br>
+Returns 0 - j to x<br><br>
+ 
+Return pi as a complex number<br>
+<b><font color="blue">public static</font></b> Complex pi()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.plusOne();</b><br>
+Returns pi + j0 to x<br><br>
+
+Return positive infinity<br>
+<b><font color="blue">public static</font></b> Complex plusInfinity()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.plusInfinity();</b><br>
+Returns Double.POSITIVE_INFINITY + j.Double.POSITIVE_INFINITY to x
+<br><br>
+
+Return negative infinity<br>
+<b><font color="blue">public static</font></b> Complex minusInfinity()<br>
+<b><font color="green">Usage:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = Complex.minusInfinity();</b><br>
+Returns Double.NEGATIVE_INFINITY + j.Double.NEGATIVE_INFINITY to x
+
+<br><br><hr><br>
+<a name="stats"><b>STATISTICAL ANALISIS OF COMPLEX ONE-DIMENSIONAL ARRAYS</b></a><br>
+The statistics class, <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html">Stat</a>, contains the following methods for the analysis of Complex one-dimensional arrays:<br> 
+<table cellpadding="3">
+<tbody><tr><td valign="top">
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#mean">Arithmetic mean</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#harmon2">Harmonic mean</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#genp2">Generalised (power) mean</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard deviation</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard deviation of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard deviation of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard deviation of the imaginary parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard error</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard error of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard error of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Standard error of the imaginary parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#var2">Variance</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Variance of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Variance of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Variance of the imaginary parts</a></li>
+
+
+</ul>
+</td><td valign="top">
+<ul>
+
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#mean">Weighted arithmetic mean</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#harmon2">weighted harmonic mean</a><br><br></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard deviation</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard deviation of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard deviation of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard deviation of the imaginary parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard error</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard error of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard error of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted standard error of the imaginary parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#var2">Weighted variance</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted variance of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted variance of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#std2">Weighted variance of the imaginary parts</a></li>
+</ul>
+</td><td valign="top">
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#mean">Subtract the arithmetic mean from the array</a></li>
+</ul>
+</td>
+<td valign="top">
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Stat.html#mean">Subtract the weighted arithmetic mean from the array</a></li>
+</ul>
+</td></tr>
+</tbody></table>
+<br><hr><br>
+<a name="arrays"><b>ARITHMETIC OPERATIONS ON COMPLEX ONE-DIMENSIONAL ARRAYS</b></a><br>
+The <a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/ArrayMaths.html">ArrayMaths</a> class contains the following methods for the analysis of Complex one-dimensional arrays:<br> 
+<table cellpadding="3">
+<tbody><tr><td valign="top">
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#conv">returning an array of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#conv">returning an array of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#conv">returning an array of the imaginary parts</a></li>
+</ul>
+</td><td valign="top">
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#suba">returning a sub-array of the moduli</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#suba">returning a sub-array of the real parts</a></li>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Arraymaths.html#suba">returning a sub-array of the imaginary parts</a></li>
+</ul>
+</td></tr>
+</tbody></table>
+in addition to a wide range of operations common to both complex and real arrays.<br><br>
+<hr><br>
+<a name="class"><h3>OTHER CLASSES USED BY THIS CLASS</h3></a>
+This class uses the following classes in this library:<br>
+<ul>
+<li><a href="http://www.ee.ucl.ac.uk/%7Emflanaga/java/Fmath.html">Fmath</a></li>
+</ul>
+<hr><br>
+
+This page was prepared by <a href="http://www.ee.ucl.ac.uk/%7Emflanaga">Dr Michael Thomas Flanagan</a>
+<br><br><hr><br>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Michael%20Thomas%20Flanagan%27s%20Java%20Library:%20Complex%20arithmetic%20and%20complex%20functions_files/ga.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5870482-2");
+pageTracker._trackPageview();
+</script>
+
+
+</body></html>
